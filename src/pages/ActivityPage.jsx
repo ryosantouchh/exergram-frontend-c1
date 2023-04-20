@@ -1,7 +1,7 @@
 import React from "react";
-import ProfileList from "./ProfileList"
-import ActivityList from "./ActivityList"
-import EventList from "./EventList"
+import ProfileList from "../components/ProfileList/ProfileList"
+import ActivityList from "../components/ActivityList/ActivityList"
+import EventList from "../components/EventList/EventList"
 import "../styles/ActivityPage.css";
 
 const ActivityPage = () => {

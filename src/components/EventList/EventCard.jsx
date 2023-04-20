@@ -26,10 +26,10 @@ const allEvents = [
 
 const EventCard = () => {
     return (
-        <div className="right-sidebar">
+        <>
             <h2>EVENT</h2>
             {allEvents.map((event) => (
-                <div class="event-detail">
+                <div className="event-detail">
                     <img src={event.img} />
                     <div className="event-location" >
                         <h3>{event.type}</h3>
@@ -39,7 +39,7 @@ const EventCard = () => {
                     </div>
                 </div>
             ))}
-        </div>
+        </>
     );
 };
 

@@ -6,7 +6,6 @@ import ActivityPage from "./ActivityPage"
 function Home() {
   return (
     <Layout>
-      <div>Home Component</div>
       <ActivityPage />
     </Layout>
   );

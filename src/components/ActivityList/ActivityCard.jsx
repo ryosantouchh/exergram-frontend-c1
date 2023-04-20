@@ -30,10 +30,10 @@ const allActivitys = [
 
 const MainActivityList = () => {
     return (
-        <div className="main-body">
-            <div className="main-content">
-                {allActivitys.map((activity) => (
-                    <div key={activity.dateTime}>
+        <>
+            {
+                allActivitys.map((activity) => (
+                    <div className="main-content">
                         <div className="main-img">
                             <img src={activity.img} />
                         </div>
@@ -54,9 +54,11 @@ const MainActivityList = () => {
                             </div>
                         </div>
                     </div>
-                ))}
-            </div>
-        </div>
+                ))
+            }
+        </>
+
+
     );
 }
 
