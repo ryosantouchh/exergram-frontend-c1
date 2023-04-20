@@ -1,4 +1,5 @@
 import React from "react";
+import NavbarUser from "../components/Navbar/NavbarUser";
 import Navbar from "../components/Navbar/Navbar";
 
 function Layout(props) {
@@ -6,7 +7,8 @@ function Layout(props) {
 
   return (
     <div>
-      <Navbar />
+      <NavbarUser />
+      {/* <Navbar /> */}
       {children}
     </div>
   );
