@@ -2,8 +2,6 @@ import React from "react";
 import Layout from "../layout/Layout";
 import ActivityPage from "./ActivityPage"
 
-import ActivityPage from "./ActivityPage"
-
 
 function Home() {
   return (
