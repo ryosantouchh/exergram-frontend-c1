@@ -7,8 +7,8 @@ function Layout(props) {
 
   return (
     <div>
-      <NavbarUser />
-      {/* <Navbar /> */}
+      {/* <NavbarUser /> */}
+      <Navbar />
       {children}
     </div>
   );
