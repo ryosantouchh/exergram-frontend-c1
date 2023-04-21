@@ -2,7 +2,7 @@ import React from "react";
 
 const ConsistencyBox = () => {
   return (
-    <div class="consistency-box">
+    <div className="consistency-box">
       <div>
         <p>MON</p>
       </div>
