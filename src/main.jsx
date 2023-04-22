@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import ActivityPage from "./pages/ActivityPage";
 import EditProfile from "./pages/EditProfile";
+import CreateActivity from "./pages/CreateActivity";
+import EditActivity from "./pages/EditActivity";
 
 const router = createBrowserRouter([
   {

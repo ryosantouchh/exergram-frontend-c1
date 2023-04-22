@@ -141,9 +141,15 @@ const ActivityForm = (props) => {
       </div>
 
       <div className="btn-container">
-        <button className="orange-btn" type="submit" value="Submit">
-          Confirm
-        </button>
+        {!props.isEdit ? (
+          <button className="orange-btn" type="submit" value="Submit">
+            Create
+          </button>
+        ) : (
+          <button className="orange-btn" type="submit" value="Submit">
+            Update
+          </button>
+        )}
         <button className="other-btn" type="submit" value="Submit">
           Cancel
         </button>
