@@ -8,7 +8,7 @@ import "./ProfileList.css"
 
 const ProfileList = () => {
     return (
-        <div className="left-sidebar">
+        <div className="activity-page-left-sidebar">
             <ProfileCard />
             <AchieveCard />
             <QuoteCard />
