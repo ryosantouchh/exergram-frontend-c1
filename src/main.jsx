@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import date from "date-and-time";
 import "./index.css";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Feed from "./pages/Feed"
+import Feed from "./pages/Feed";
+import CreateActivity from "./pages/CreateActivity";
+import EditActivity from "./pages/EditActivity";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,14 @@ const router = createBrowserRouter([
     path: "/feed",
     element: <Feed />,
 
+  },
+  {
+    path: "/createactivity",
+    element: <CreateActivity />,
+  },
+  {
+    path: "/editactivity",
+    element: <EditActivity />,
   },
 ]);
 
