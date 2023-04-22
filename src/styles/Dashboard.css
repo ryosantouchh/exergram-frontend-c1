@@ -8,6 +8,7 @@
   display: flex;
   background-color: var(--bg-color);
   gap: 32px;
+  justify-content: center;
 }
 
 /* ----- dashboard left ----- */
@@ -50,20 +51,21 @@
 .consistency-box {
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
 }
 
 .consistency-box > div {
   background-color: var(--accent-color);
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   display: grid;
   place-content: center;
 }
 
 .consistency-box > div > p {
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .summary-container {
@@ -134,12 +136,18 @@
   width: 500px;
   height: 135px;
   display: flex;
-
   padding: 16px;
   gap: 32px;
   border-radius: 16px;
-
   align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.recent-history-card:hover {
+  cursor: pointer;
+  outline: 3px solid var(--accent-color);
+  transition: transform 0.2s ease-in-out;
+  transform: translateY(-3px);
 }
 
 .activity-right {
@@ -184,18 +192,29 @@
   font-size: 16px;
 }
 
+.see-more-btn:hover {
+  cursor: pointer;
+  background-color: var(--bg-color);
+  transition: 0.2s ease-in-out;
+  border: 3px solid var(--accent-color);
+}
+
+.see-more-btn:active {
+  scale: 1.05;
+}
+
 /* ----- summary box ----- */
 .summary-health-card {
   background-color: var(--primary-color);
   color: var(--white-text);
   width: 100%;
   height: 180px;
-  padding: 16px;
+  padding: 24px 8px;
   border-radius: 16px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  gap: 16px;
 }
 
 .summary-health-box {
@@ -203,6 +222,6 @@
   gap: 16px;
 }
 
-.summary-icon {
-  font-size: 64px;
+.summary-health-icon i {
+  font-size: 24px;
 }

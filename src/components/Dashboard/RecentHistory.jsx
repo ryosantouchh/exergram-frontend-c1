@@ -23,7 +23,7 @@ const mockActivityCard = [
 const RecentHistory = () => {
   return (
     <div className="history-container">
-      <h2 style={{ fontWeight: "400" }}>RECENT HISTORY</h2>
+      <h2 style={{ fontWeight: "600" }}>RECENT HISTORY</h2>
 
       <div className="history-card-box">
         {mockActivityCard.map((item, idx) => {

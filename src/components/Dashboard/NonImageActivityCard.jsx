@@ -21,8 +21,10 @@ const NonImageActivityCard = (props) => {
       </div>
       <div className="activity-right">
         <div>
-          <h3 style={{ fontWeight: "400" }}>{props.value.title}</h3>
-          <p>{props.value.dateTime}</p>
+          <h3 style={{ fontWeight: "500" }}>{props.value.title}</h3>
+          <p style={{ fontSize: "12px", fontWeight: "300" }}>
+            {props.value.dateTime}
+          </p>
         </div>
         <div className="card-stat">
           {props.value.duration !== 0 && (

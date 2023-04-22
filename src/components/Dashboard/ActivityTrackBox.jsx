@@ -5,7 +5,7 @@ const ActivityTrackBox = () => {
   return (
     <div className="activity-track-box">
       <div>
-        <h2 style={{ fontWeight: "400" }}>ACTIVITY TRACKING</h2>
+        <h2 style={{ fontWeight: "600" }}>ACTIVITY TRACKING</h2>
         <p>13 March 2023 - 19 March 2023</p>
       </div>
       <ChartBox />

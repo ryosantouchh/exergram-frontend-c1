@@ -3,14 +3,17 @@ import React from "react";
 const SummaryHealthCard = (props) => {
   return (
     <div className="summary-health-card">
-      <div className="summary-icon">
+      <div className="summary-health-icon">
         <i
-          className="summary-icon fa-solid fa-fire-flame-curved"
-          style={{ color: "#e8e8e8" }}
+          className={props.value.icon}
+          style={{ color: "#e8e8e8", marginBottom: "8px" }}
         ></i>
+        <p>{props.value.title}</p>
       </div>
-      <p>Calories Burn</p>
-      <p>1341 kcal</p>
+      <p style={{ fontSize: "24px", fontWeight: "600" }}>
+        {props.value.data.value}
+      </p>
+      <p>{props.value.data.unit}</p>
     </div>
   );
 };
