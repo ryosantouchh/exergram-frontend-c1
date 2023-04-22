@@ -9,6 +9,9 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Feed from "./pages/Feed"
+import EditProfile from "./pages/EditProfile";
+
+
 
 const router = createBrowserRouter([
   {
@@ -32,6 +35,11 @@ const router = createBrowserRouter([
     element: <Feed />,
 
   },
+  {
+    path: "/editprofile",
+    element: <EditProfile />,
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
