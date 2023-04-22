@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
 :root {
   /* Color Palette */
   --bg-color: #101115;
@@ -9,8 +11,6 @@
   --white-text: #e8e8e8;
   --grey-btn-color: #333333;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
 /* footer */
 footer {
