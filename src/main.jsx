@@ -6,6 +6,9 @@ import "./index.css";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import EditProfile from "./pages/EditProfile";
+
+
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,11 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
   },
+  {
+    path: "/editprofile",
+    element: <EditProfile />,
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
