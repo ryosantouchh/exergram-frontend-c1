@@ -8,7 +8,7 @@
 /* Left Part*/
 .left-signup {
   width: 50%; /* Add this line */
-  height: 100vh; /* Add this line */
+  /* height: 100vh;  */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,8 +30,8 @@
 
 /* Right Part*/
 .right-signup {
-  width: 50%; /* Add this line */
-  height: 100vh; /* Add this line */
+  width: 50%;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,8 +41,29 @@
   /* line-height: 1.5; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(https://images.unsplash.com/photo-1607274134639-043342705e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
+  background-size: cover;
+  position: relative; 
+  z-index: 1;  */
 }
 
+/* .right-signup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(https://images.unsplash.com/photo-1607274134639-043342705e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
+  background-size: cover;
+  transform: scaleX(-1); 
+  z-index: -1; 
+} */
+.right-signup-form {
+  margin-top: 20px;
+}
 .right-signup .signup-header {
   text-align: center;
 }
@@ -66,9 +87,33 @@ form label {
 
 form input[type="text"],
 form input[type="email"],
-form input[type="password"],
-form select[id="gender"] {
+form input[type="password"] {
   display: block;
+  width: 100%;
+  box-sizing: border-box;
+  /* border-radius default 30px */
+  border-radius: 10px;
+  border: 0;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.input-container-dob-gender {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-container-dob,
+.input-container-gender {
+  display: flex;
+  flex-direction: column;
+}
+
+form select[id="gender"],
+form input[type="date"] {
+  display: block;
+  flex-direction: row;
   width: 100%;
   box-sizing: border-box;
   /* border-radius default 30px */
@@ -99,7 +144,7 @@ form select[id="gender"] {
 }
 
 /* Button */
-.signup-btn {
+.signup-page-btn {
   display: inline-block;
   width: 100%;
   background: var(--accent-color);
@@ -114,7 +159,7 @@ form select[id="gender"] {
   margin-top: 1rem;
 }
 
-.signup-btn:hover {
+.signup-page-btn:hover {
   cursor: pointer;
   scale: 1.03;
 }
@@ -124,17 +169,4 @@ form select[id="gender"] {
   margin-top: 1rem;
   font-size: 80%;
   text-align: center;
-}
-
-@media screen and (min-width: 900px) {
-  .split-screen {
-    flex-direction: row;
-    height: 100vh;
-  }
-  .left-signup,
-  .right-signup {
-    display: flex;
-    width: 50%;
-    height: auto;
-  }
 }

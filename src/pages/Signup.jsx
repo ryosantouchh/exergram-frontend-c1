@@ -29,11 +29,11 @@ const Signup = () => {
                 </div>
 
                 <div className="right-signup">
-                    <form>
+                    <form className="right-signup-form">
                         <div className="signup-header">
                             <h2>SIGN UP</h2>
                             <div className="signup-container">
-                                <p>Already have an account? <a href="/Project/new/login.html"><strong>Log In</strong></a></p>
+                                <p>Already have an account? <a href="/login"><strong>Log In</strong></a></p>
                             </div>
                         </div>
                         <div className="input-container fullname"></div>
@@ -45,15 +45,22 @@ const Signup = () => {
                                 <input type="text" name="lname" id="name" placeholder="Last name" required />
                             </div>
                         </div>
-                        <div className="input-container gender">
-                            <label for="gender">Gender</label>
-                            <select name="gender" id="gender" required>
-                                <option value="" disabled selected hidden>Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Prefernottosay">Prefer not to say</option>
-                            </select>
+                        <div className="input-container-dob-gender">
+                            <div className="input-container-dob">
+                                <label for="dob">Date of Birth </label>
+                                <input type="date" name="dob" id="dob" required />
+                            </div>
+                            <div className="input-container-gender">
+                                <label for="gender">Gender</label>
+                                <select name="gender" id="gender" required>
+                                    <option value="" disabled selected hidden>Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Prefernottosay">Prefer not to say</option>
+                                </select>
+                            </div>
                         </div>
+
                         <div className="input-container email">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" placeholder="Email address" required />
@@ -77,11 +84,8 @@ const Signup = () => {
                             {showConfirmPassword ? (
                                 <i className="fa-solid fa-eye" id="show-password2" onClick={ConfirmPasswordVisibility}></i>)
                                 : (<i className="fa-solid fa-eye-slash" id="hide-password2" onClick={ConfirmPasswordVisibility}></i>)}
-
-
-
                         </div>
-                        <button className="signup-btn" type="submit">Sign Up</button>
+                        <button className="signup-page-btn" type="submit">Sign Up</button>
                         <div className="copy legal">
                             <p><span className="policy-terms">By continuing, you agree to accept our <br /> <a href="#">Privacy Policy</a> &amp; <a href="#">Terms of Service</a>.</span></p>
                         </div>
