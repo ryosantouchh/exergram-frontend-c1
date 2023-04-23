@@ -75,7 +75,7 @@ input[type="password"] {
   font-size: 0.875rem;
 }
 
-.input-city-state {
+.edit-profile-city-state {
   display: flex;
   justify-content: space-between;
 }
@@ -109,6 +109,8 @@ select[id="state"] {
   color: var(--grey-btn-color);
   cursor: pointer;
 }
+
+/* ิีbutton */
 .orange-btn {
   background-color: var(--accent-color);
   border: 0;
