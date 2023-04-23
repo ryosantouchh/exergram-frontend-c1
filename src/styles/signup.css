@@ -117,7 +117,7 @@ form input[type="date"] {
   width: 100%;
   box-sizing: border-box;
   /* border-radius default 30px */
-  border-radius: 30px;
+  border-radius: 10px;
   border: 0;
   padding: 1em;
   margin-bottom: 1.25rem;
