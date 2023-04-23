@@ -77,7 +77,7 @@ const EditProfile = () => {
                             required
                         />
                     </div>
-                    <div className="input-city-state">
+                    <div className="edit-profile-city-state">
                         <div class="edit-profile-city">
                             <label for="city">City</label>
                             <select name="city" id="city" required>
