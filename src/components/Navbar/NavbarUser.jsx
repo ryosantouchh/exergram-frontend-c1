@@ -42,7 +42,7 @@ function NavbarUser() {
           <div className="navbar-dropdown-profile">
             <ul>
               <li>
-                <a href="">Edit Profile</a>
+                <a href="/editprofile">Edit Profile</a>
               </li>
               <li>
                 <a href="">Logout</a>
