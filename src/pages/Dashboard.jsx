@@ -1,10 +1,16 @@
 import React from "react";
+import "../styles/Dashboard.css";
 import Layout from "../layout/Layout";
+import SummaryTrack from "../components/Dashboard/SummaryTrack";
+import DashboardRight from "../components/Dashboard/DashboardRight";
 
 function Dashboard() {
   return (
     <Layout>
-      <div>Dashboard Component</div>
+      <div className="dashboard-container">
+        <SummaryTrack />
+        <DashboardRight />
+      </div>
     </Layout>
   );
 }
