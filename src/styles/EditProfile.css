@@ -1,11 +1,21 @@
+:root {
+  /* Color Palette */
+  --bg-color: #101115;
+  --primary-color: #1a1a1b;
+  --secondary-color: #c76300;
+  --accent-color: #fa7d00;
+
+  /* Text Color */
+  --white-text: #e8e8e8;
+  --grey-btn-color: #333333;
+}
 .edit-profile-main {
   width: auto;
-  height: 1024px;
+  /* height: 1024px; */
   background-color: #101115;
   display: flex;
   justify-content: center;
-  align-items: center;
-  align-content: center;
+  margin-top: 30px;
 }
 
 .edit-profile {
@@ -14,116 +24,91 @@
   background-color: #1a1a1b;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* justify-items: center; */
-  /* align-content: center; */
-  align-items: center;
   border-radius: 32px;
+  padding: 50px 120px;
+}
+.edit-profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.edit-profile h3 {
-  text-align: center;
-  margin: 40px 0px 30px;
+.edit-profile-top img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+  border-color: var(--accent-color);
+  border-style: solid;
+  border-width: 2px;
 }
-.edit-profile-upload-file label {
-  padding: 5px;
-  background: var(--secondary-color);
-  display: table;
-  color: #fff;
+
+.edit-profile-fullname {
+  display: flex;
+  justify-content: space-between;
+}
+.edit-profile-fname,
+.edit-profile-lname {
+  display: flex;
+  flex-direction: column;
+}
+#fname,
+#lname {
+  width: 300px;
+}
+
+label {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   border-radius: 10px;
-}
-input[type="file"] {
-  display: none;
+  border: 0;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
 }
 
-.edit-profile-form-group {
+.input-city-state {
+  display: flex;
+  justify-content: space-between;
+}
+.edit-profile-city,
+.edit-profile-state {
   display: flex;
   flex-direction: column;
 }
 
-.edit-profile img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 30px;
-  /* align-items: center; */
-}
-
-.edit-profile .edit-profile-name {
-  display: flex;
-  align-items: center;
-}
-
-.edit-profile input {
-  margin: 20px 0px;
-  border-radius: 3px;
-  height: 40px;
+select[id="city"],
+select[id="state"] {
+  display: block;
+  flex-direction: row;
+  width: 300px;
+  box-sizing: border-box;
   border-radius: 10px;
+  border: 0;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
 }
 
-.edit-profile-form-group .edit-profile-name input:nth-child(2) {
-  margin-left: 50px;
-  width: 235px;
+.edit-profile-password {
+  position: relative;
 }
 
-.edit-profile-form-group .edit-profile-name input:nth-child(3) {
-  margin-left: 30px;
-  width: 235px;
+.edit-profile-password i {
+  position: absolute;
+  top: 42px;
+  right: 16px;
+  color: var(--grey-btn-color);
+  cursor: pointer;
 }
-
-.edit-profile select {
-  height: 40px;
-  border-radius: 10px;
-}
-
-.edit-profile-birth-gen-box input:nth-child(2) {
-  margin-left: 20px;
-  width: 150px;
-}
-
-.edit-profile-birth-gen-box label:nth-child(3) {
-  margin-left: 30px;
-}
-
-.edit-profile-birth-gen-box select {
-  margin-left: 20px;
-}
-
-.edit-profile-weight-height-box input:nth-child(2) {
-  margin-left: 38px;
-}
-.edit-profile-weight-height-box input:nth-child(4) {
-  margin-left: 20px;
-}
-
-.edit-profile-weight-height-box label:nth-child(3) {
-  margin-left: 20px;
-}
-
-.edit-profile-location-box input {
-  margin-left: 27px;
-  width: 490px;
-}
-
-.edit-profile-bio-box {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.edit-profile-bio-box textarea {
-  border-radius: 10px;
-  width: 490px;
-  margin-left: 20px;
-}
-
-.edit-profile-btn-box button {
-  margin-top: 20px;
-  font-size: 24px;
-  padding: 8px;
-}
-
-/* ----- button class ----- */
 .orange-btn {
   background-color: var(--accent-color);
   border: 0;
@@ -133,7 +118,24 @@ input[type="file"] {
 
 .other-btn {
   background-color: var(--grey-btn-color);
-  border-radius: 10px;
+  border-radius: 30px;
   border: 0;
   color: var(--white-text);
+}
+
+.edit-profile-btn-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.edit-profile-btn-box button {
+  justify-content: center;
+  margin-top: 20px;
+
+  font-size: 24px;
+  padding: 15px;
+}
+#edit-profile-btn:hover {
+  cursor: pointer;
+  scale: 1.03;
 }
