@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/LandingPage.css"
 import Layout from "../layout/Layout";
+import Runnerimg from "../assets/images/runnerSVG.svg"
 
 const LandingPage = () => {
     return (
@@ -9,7 +10,7 @@ const LandingPage = () => {
                 <div className="hero-container">
                     <div className="hero-left">
                         <div className="img">
-                            <img src="../assets/images/runnerSVG.svg" alt="" />
+                            <img src={Runnerimg} alt="" />
                         </div>
 
                         <div className="bg-img">
