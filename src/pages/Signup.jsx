@@ -36,11 +36,11 @@ const Signup = () => {
                                 <p>Already have an account? <a href="/login"><strong>Log In</strong></a></p>
                             </div>
                         </div>
-                        <div className="input-container fullname"></div>
-                        <div className="input-container fname">
+                        <div className="input-container-fullname"></div>
+                        <div className="input-container-fname">
                             <label for="fname">First Name</label>
                             <input type="text" name="fname" id="fname" placeholder="First name" required />
-                            <div className="input-container lname">
+                            <div className="input-container-lname">
                                 <label for="lname">Last Name</label>
                                 <input type="text" name="lname" id="name" placeholder="Last name" required />
                             </div>
@@ -61,15 +61,15 @@ const Signup = () => {
                             </div>
                         </div>
 
-                        <div className="input-container email">
+                        <div className="input-container-email">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" placeholder="Email address" required />
                         </div>
-                        <div className="input-container username">
+                        <div className="input-container-username">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username" placeholder="Username" required />
                         </div>
-                        <div className="input-container password">
+                        <div className="input-container-password">
                             <label for="password">Password</label>
                             <input type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Must be at least 6 characters" required />
                             {showPassword ? (
@@ -78,7 +78,7 @@ const Signup = () => {
                                 )}
 
                         </div>
-                        <div className="input-container password">
+                        <div className="input-container-cpassword">
                             <label for="cpassword">Confirm Password</label>
                             <input type={showConfirmPassword ? "text" : "password"} name="cpassword" id="cpassword" placeholder="Must be at least 6 characters" required />
                             {showConfirmPassword ? (

@@ -125,12 +125,13 @@ form input[type="date"] {
 }
 
 /* Password Hidden Icon */
-.input-container.password {
+.input-container-password,
+.input-container-cpassword {
   position: relative;
 }
 
-.input-container.password i,
-.input-container.cpassword i {
+.input-container-password i,
+.input-container-cpassword i {
   position: absolute;
   top: 42px;
   right: 16px;
