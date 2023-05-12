@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Feed from "./pages/Feed"
+import ActivityPage from "./pages/ActivityPage";
 import EditProfile from "./pages/EditProfile";
 
 
@@ -31,9 +31,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
 
+  },
+  {
     path: "/feed",
-    element: <Feed />,
-
+    element: <ActivityPage />,
   },
   {
     path: "/editprofile",
