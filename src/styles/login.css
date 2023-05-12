@@ -1,0 +1,134 @@
+/* screen */
+.login-page {
+  display: flex;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Left Part*/
+.left-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+    url(https://images.unsplash.com/photo-1607274134639-043342705e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
+  background-size: cover;
+}
+
+.left-login .quote-login {
+  color: var(--white-text);
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.left-login p {
+  font-weight: 400;
+}
+
+/* Right Part*/
+.right-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-text);
+  background-color: var(--bg-color);
+  text-align: center;
+  /* line-height: 1.5; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.right-login .login-header {
+  text-align: center;
+}
+
+.right-login .login-header p {
+  margin: 1.5em 0;
+  font-size: 0.875rem;
+}
+
+.right-login-form {
+  width: 328px;
+}
+
+/* Input */
+
+.right-login-form label {
+  display: flex;
+  margin-bottom: 0.5rem;
+  /* font-size: 0.75rem; */
+}
+
+.right-login-form input[type="text"],
+.right-login-form input[type="password"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  /* border-radius default 30px */
+  border-radius: 10px;
+  border: 0;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+}
+
+/* Password Hidden Icon */
+.login-input-container.password {
+  position: relative;
+}
+.login-input-container.password i {
+  position: absolute;
+  top: 42px;
+  right: 16px;
+  color: var(--grey-btn-color);
+  cursor: pointer;
+}
+
+#show-password {
+  display: block;
+}
+
+/* Button */
+.login-btn {
+  display: inline-block;
+  width: 100%;
+  background: var(--accent-color);
+  color: var(--white-text);
+  font-weight: 700;
+  border: none;
+  padding: 1rem;
+  /* border-radius default 30px */
+  border-radius: 30px;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  margin-top: 1rem;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  scale: 1.03;
+}
+
+/* Remember Checkbox */
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox */
+
+.forgotPassword {
+  display: block;
+  margin-top: 1rem;
+  font-size: 80%;
+  text-align: center;
+}
+
+@media screen and (min-width: 900px) {
+  .login-page {
+    flex-direction: row;
+    height: 100vh;
+  }
+  .left-login,
+  .right-login {
+    display: flex;
+    width: 50%;
+    height: auto;
+  }
+}

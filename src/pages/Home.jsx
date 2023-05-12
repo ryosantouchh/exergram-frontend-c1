@@ -4,10 +4,14 @@ import ActivityPage from "./ActivityPage"
 import Footer from "../components/Footer/Footer"
 
 
+
+
 function Home() {
   return (
     <Layout>
-      <ActivityPage />
+
+      <div>Home Component</div>
+
     </Layout>
   );
 }
