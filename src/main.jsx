@@ -9,7 +9,6 @@ import Login from "./pages/Login";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Feed from "./pages/Feed";
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
 
@@ -23,17 +22,16 @@ const router = createBrowserRouter([
     element: <Dashboard />,
   },
   {
-
     path: "/signup",
     element: <Signup />,
   },
   {
     path: "/login",
     element: <Login />,
-
+  },
+  {
     path: "/feed",
     element: <Feed />,
-
   },
   {
     path: "/createactivity",
