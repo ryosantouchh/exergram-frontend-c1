@@ -7,9 +7,9 @@ const ActivityRadio = (props) => {
         className="radio-input"
         type="radio"
         name="activity"
-        value={props.data.type}
+        value={props.data.value}
         id={props.data.type}
-        checked={props.selectedType === props.data.type}
+        checked={props.selectedType === props.data.value}
         onChange={props.handleOnChangeRadio}
       />
       <div className="radio-tile">
