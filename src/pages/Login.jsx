@@ -1,21 +1,16 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
-import "../styles/login.css"
+import React, { useState, useContext } from "react";
+import "../styles/login.css";
 import Layout from "../layout/Layout";
+import { UserContext } from "../context/UserContext";
 
-
-
-
-const Login = () => {
+function Login() {
     const [showPassword, setShowPassword] = useState(false);
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [errMsg, setErrMsg] = useState('');
-    // const [success, setSuccess] = useState(false);
+    const { isLoggedIn, handleLogin } = useContext(UserContext);
 
     const PasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
+
 
     return (
         <Layout>
@@ -56,11 +51,11 @@ const Login = () => {
                                 &nbsp;Remember me
                             </label>
                         </div>
-                        <button className="login-btn" type="submit">Log In</button>
+                        <button className="login-btn" type="submit" onClick={handleLogin}>Log In</button>
                         <div className="copy legal">
                             <p><span className="forgotPassword"><a href="#">Forgotten password?</a></span></p>
                         </div>
-                    </form>
+                    </form>-
                 </div >
             </div >
         </Layout>
