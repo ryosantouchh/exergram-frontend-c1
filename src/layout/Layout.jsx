@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavbarUser from "../components/Navbar/NavbarUser";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import { UserContext } from "../context/UserContext";
 
-function Layout(props) {
-  const { children } = props;
+function Layout({ children }) {
+  const { isLoggedIn } = useContext(UserContext);
 
   return (
-
     <div className="layout">
-      <NavbarUser />
-      {/* <Navbar /> */}
+      {isLoggedIn ? <NavbarUser /> : <Navbar />}
       {children}
       <Footer />
     </div>

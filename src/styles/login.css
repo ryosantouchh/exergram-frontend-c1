@@ -114,10 +114,14 @@
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox */
 
 .forgotPassword {
+  color: var(--accent-color);
   display: block;
   margin-top: 1rem;
   font-size: 80%;
   text-align: center;
+}
+.forgotPassword a {
+  color: var(--accent-color);
 }
 
 @media screen and (min-width: 900px) {

@@ -64,8 +64,8 @@ nav {
 }
 
 .navbar-right {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   position: relative;
 }
 
@@ -148,8 +148,8 @@ nav {
 
 /* Navbar Non-User Config */
 
-.login-btn,
-.signup-btn {
+.navbar-container .navbar-right ul li .login-btn,
+.navbar-container .navbar-right ul li .signup-btn {
   color: white;
   font-size: 16px;
   text-decoration-line: none;
@@ -162,8 +162,8 @@ nav {
   font-weight: 700;
 }
 
-.login-btn:hover,
-.signup-btn:hover {
+.navbar-container .navbar-right ul li .login-btn:hover,
+.navbar-container .navbar-right ul li .signup-btn:hover {
   cursor: pointer;
   border: 2px solid #e8e8e8;
   transition: transform 0.2s ease-in-out;
