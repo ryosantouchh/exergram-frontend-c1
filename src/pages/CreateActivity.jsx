@@ -4,25 +4,30 @@ import Layout from "../layout/Layout";
 import ActivityType from "../components/CreateActivity/ActivityType";
 import ActivityForm from "../components/CreateActivity/ActivityForm";
 
-const mockActivityFormData = [
+const activityFormData = [
   {
     type: "run",
+    value: "running",
     icon: "fa-solid fa-person-running",
   },
   {
     type: "bike",
+    value: "biking",
     icon: "fa-solid fa-bicycle",
   },
   {
     type: "swim",
+    value: "swimming",
     icon: "fa-solid fa-person-swimming",
   },
   {
     type: "hike",
+    value: "hiking",
     icon: "fa-sharp fa-solid fa-person-hiking",
   },
   {
     type: "boxing",
+    value: "boxing",
     icon: "fa-solid fa-hand-fist",
   },
 ];
@@ -30,10 +35,7 @@ const mockActivityFormData = [
 const CreateActivity = () => {
   return (
     <Layout>
-      <div className="create-activity-container">
-        <ActivityType mockActivityFormData={mockActivityFormData} />
-        <ActivityForm />
-      </div>
+      <ActivityForm activityFormData={activityFormData} />
     </Layout>
   );
 };

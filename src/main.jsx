@@ -31,7 +31,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  {},
   {
     path: "/feed",
     element: <ActivityPage />,
@@ -43,6 +42,12 @@ const router = createBrowserRouter([
   {
     path: "/createactivity",
     element: <CreateActivity />,
+    children: [
+      {
+        path: ":activityId",
+        element: <CreateActivity />,
+      },
+    ],
   },
   {
     path: "/editactivity",
