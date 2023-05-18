@@ -18,10 +18,14 @@ function NavbarUser() {
         <div className="navbar-right">
           <ul>
             <li>
-              <button className="login-btn"><a href="/login">LOGIN</a></button>
+              <button className="login-btn-navbar">
+                <a href="/login">LOGIN</a>
+              </button>
             </li>
             <li>
-              <button className="signup-btn"><a href="/signup">SIGN UP</a></button>
+              <button className="signup-btn-navbar">
+                <a href="/signup">SIGN UP</a>
+              </button>
             </li>
           </ul>
         </div>
