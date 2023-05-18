@@ -1,15 +1,26 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "../styles/signup.css";
+import "../styles/signup.css";
 import Layout from "../layout/Layout";
+import axios from "axios";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [datOfBirth, setDatOfBirth] = useState("");
+  const [gender, setGender] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const PasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const ConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
@@ -51,6 +62,8 @@ const Signup = () => {
                 name="fname"
                 id="fname"
                 placeholder="First name"
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
                 required
               />
               <div className="input-container-lname">
@@ -60,6 +73,8 @@ const Signup = () => {
                   name="lname"
                   id="name"
                   placeholder="Last name"
+                  value={lastname}
+                  onChange={(e) => setFirstname(e.target.value)}
                   required
                 />
               </div>
@@ -89,6 +104,8 @@ const Signup = () => {
                 name="email"
                 id="email"
                 placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -99,6 +116,8 @@ const Signup = () => {
                 name="username"
                 id="username"
                 placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </div>
@@ -109,6 +128,8 @@ const Signup = () => {
                 name="password"
                 id="password"
                 placeholder="Must be at least 6 characters"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
               {showPassword ? (
@@ -132,6 +153,8 @@ const Signup = () => {
                 name="cpassword"
                 id="cpassword"
                 placeholder="Must be at least 6 characters"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
               {showConfirmPassword ? (
