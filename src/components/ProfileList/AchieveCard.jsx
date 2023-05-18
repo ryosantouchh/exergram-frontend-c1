@@ -12,5 +12,4 @@ const AchieveCard = () => {
 
     );
 }
-
 export default AchieveCard

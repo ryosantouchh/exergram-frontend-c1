@@ -1,42 +1,53 @@
 /* screen */
+
 .login-page {
   display: flex;
-  max-width: 1140px;
-  margin: 0 auto;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  width: 100%;
+}
+
+.login-page::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(https://cdn.pixabay.com/photo/2016/07/13/16/00/box-1514845_1280.jpg)
+    no-repeat;
+  background-size: cover;
+  transform: scaleX(-1);
+  z-index: -1;
 }
 
 /* Left Part*/
 .left-login {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-    url(https://images.unsplash.com/photo-1607274134639-043342705e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
-  background-size: cover;
+  /* align-items: center; */
+  margin-top: 395px;
+  width: 50%;
 }
-
-.left-login .quote-login {
+.quote-login {
   color: var(--white-text);
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.left-login p {
-  font-weight: 400;
-}
-
 /* Right Part*/
+
 .right-login {
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--white-text);
-  background-color: var(--bg-color);
   text-align: center;
   /* line-height: 1.5; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  right: 50%;
 }
 
 .right-login .login-header {
