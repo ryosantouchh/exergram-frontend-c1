@@ -1,10 +1,24 @@
 /* screen */
 .signup-page {
   display: flex;
-  max-width: 1140px;
-  margin: 0 auto;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  width: 100%;
 }
 
+.signup-page::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(https://cdn.pixabay.com/photo/2016/07/13/16/00/box-1514845_1280.jpg)
+    no-repeat;
+  background-size: cover;
+  transform: scaleX(-1);
+  z-index: -1;
+}
 /* Left Part*/
 .left-signup {
   width: 50%; /* Add this line */
@@ -12,9 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
-    url(https://images.unsplash.com/photo-1607274134639-043342705e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
-  background-size: cover;
+  width: 50%;
 }
 
 .left-signup .quote-signup {
@@ -31,36 +43,15 @@
 /* Right Part*/
 .right-signup {
   width: 50%;
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--white-text);
-  background-color: var(--bg-color);
   text-align: center;
-  /* line-height: 1.5; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
-    url(https://images.unsplash.com/photo-1607274134639-043342705e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
-  background-size: cover;
-  position: relative; 
-  z-index: 1;  */
 }
 
-/* .right-signup::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
-    url(https://images.unsplash.com/photo-1607274134639-043342705e6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80);
-  background-size: cover;
-  transform: scaleX(-1); 
-  z-index: -1; 
-} */
 .right-signup-form {
   margin-top: 20px;
 }
@@ -75,6 +66,9 @@
 
 .right-signup form {
   width: 328px;
+}
+.signup-container a {
+  color: var(--accent-color);
 }
 
 /* Input */
@@ -168,6 +162,11 @@ form input[type="date"] {
 .policy-terms {
   display: block;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   font-size: 80%;
   text-align: center;
+}
+
+.policy-terms a {
+  color: var(--accent-color);
 }

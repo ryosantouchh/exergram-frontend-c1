@@ -36,15 +36,17 @@ const Signup = () => {
                                 <p>Already have an account? <a href="/login"><strong>Log In</strong></a></p>
                             </div>
                         </div>
-                        <div className="input-container-fullname"></div>
-                        <div className="input-container-fname">
-                            <label for="fname">First Name</label>
-                            <input type="text" name="fname" id="fname" placeholder="First name" required />
+                        <div className="input-container-fullname">
+                            <div className="input-container-fname">
+                                <label for="fname">First Name</label>
+                                <input type="text" name="fname" id="fname" placeholder="First name" required />
+                            </div>
                             <div className="input-container-lname">
                                 <label for="lname">Last Name</label>
-                                <input type="text" name="lname" id="name" placeholder="Last name" required />
+                                <input type="text" name="lname" id="lname" placeholder="Last name" required />
                             </div>
                         </div>
+
                         <div className="input-container-dob-gender">
                             <div className="input-container-dob">
                                 <label for="dob">Date of Birth </label>
