@@ -79,15 +79,15 @@
 
 /* Input */
 
-form label {
+.right-signup-form label {
   display: flex;
   margin-bottom: 0.5rem;
   /* font-size: 0.75rem; */
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
+.right-signup-form input[type="text"],
+.right-signup-form input[type="email"],
+.right-signup-form input[type="password"] {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -110,8 +110,8 @@ form input[type="password"] {
   flex-direction: column;
 }
 
-form select[id="gender"],
-form input[type="date"] {
+.right-signup-form select[id="gender"],
+.right-signup-form input[type="date"] {
   display: block;
   flex-direction: row;
   width: 100%;

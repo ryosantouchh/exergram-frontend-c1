@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 32px;
+  position: relative;
 }
 
 .activity-radio {
@@ -78,7 +79,7 @@
   display: flex;
   flex-direction: column;
   padding: 48px 32px;
-  gap: 32px;
+  gap: 48px;
 }
 
 .activity-form-container-fluid {
@@ -225,18 +226,35 @@
   transition: background 0.3s ease-in-out;
 }
 
-/* test */
-/* input[type=file]::file-selector-button {
-    margin-right: 20px;
-    border: none;
-    background: var(--grey-btn-color);
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: var(--white-text);
-    cursor: pointer;
-    transition: .2s ease-in-out;
-  }
-  
-  input[type=file]::file-selector-button:hover {
-    background: var(--accent-color);
-  } */
+.label-box-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label-box-form > p {
+  margin-top: 1rem;
+}
+
+.activity-form-error-message {
+  color: rgb(253, 50, 50);
+  font-style: italic;
+}
+
+.activity-error-type {
+  position: absolute;
+  right: 64px;
+  top: 120px;
+}
+
+.change-image-activity-form {
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+}
+
+.change-image-activity-form > label {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  text-transform: uppercase;
+}

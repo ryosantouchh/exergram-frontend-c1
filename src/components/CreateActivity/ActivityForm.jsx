@@ -23,6 +23,7 @@ const ActivityForm = (props) => {
   const [note, setNote] = useState("");
   const [image, setImage] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
+  const [validate, setValidate] = useState({});
 
   const navigate = useNavigate();
   const { activityId } = useParams();
@@ -48,36 +49,60 @@ const ActivityForm = (props) => {
   };
 
   const handleCreateActivity = async () => {
-    const dataObject = {
-      title: titleInput,
-      type: selectedType,
-      activityDate: wrapDateAndTime(),
-      duration: convertDurationToMinutes(),
-      note: note,
-      image: image,
-    };
-    if (
-      (kilometers !== 0 && kilometers !== "") ||
-      (meters !== 0 && meters !== "")
-    )
-      dataObject.distance = convertDistanceToMeters();
+    try {
+      const inputError = {};
 
-    const form = new FormData();
-    for (let key in dataObject) {
-      form.append(key, dataObject[key]);
+      if (validator.isEmpty(titleInput)) inputError.title = "Title is required";
+      if (validator.isEmpty(dateInput)) inputError.date = "Date is required";
+      if (validator.isEmpty(timeInput)) inputError.time = "Time is required";
+      if (validator.isEmpty(hours) && validator.isEmpty(mins))
+        inputError.duration = "Duration is required";
+      if (validator.isEmpty(selectedType))
+        inputError.type = "Please select at least one activity";
+
+      if (Object.keys(inputError).length > 0) {
+        setValidate(inputError);
+      } else {
+        setValidate({});
+
+        const dataObject = {
+          title: titleInput,
+          type: selectedType,
+          activityDate: wrapDateAndTime(),
+          duration: convertDurationToMinutes(),
+          note: note,
+          image: image,
+        };
+
+        if (
+          (kilometers !== 0 && kilometers !== "") ||
+          (meters !== 0 && meters !== "")
+        )
+          dataObject.distance = convertDistanceToMeters();
+
+        const form = new FormData();
+        for (let key in dataObject) {
+          form.append(key, dataObject[key]);
+        }
+
+        // for (let pair of form.entries()) {
+        //   console.log(pair[0] + ", " + pair[1]);
+        // }
+
+        const response = await axios.post(
+          "http://localhost:8080/activity",
+          form,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        // navigate("/dashboard");
+      }
+    } catch (error) {
+      console.log(error);
     }
-
-    // for (let pair of form.entries()) {
-    //   console.log(pair[0] + ", " + pair[1]);
-    // }
-
-    const response = await axios.post("http://localhost:8080/activity", form, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    // console.log(response);
-    // navigate("/dashboard");
   };
 
   const convertDatePattern = (e) => {
@@ -129,6 +154,17 @@ const ActivityForm = (props) => {
   };
 
   useEffect(() => {
+    if (titleInput && validate.title)
+      setValidate({ ...validate, title: false });
+    if (dateInput && validate.date) setValidate({ ...validate, date: false });
+    if (timeInput && validate.time) setValidate({ ...validate, time: false });
+    if ((hours || mins) && validate.duration)
+      setValidate({ ...validate, duration: false });
+    if (selectedType && validate.type)
+      setValidate({ ...validate, type: false });
+  }, [titleInput, dateInput, timeInput, hours, mins, selectedType]);
+
+  useEffect(() => {
     if (activityId) {
       const fetchActivityById = async () => {
         const response = await axios.get(
@@ -150,6 +186,11 @@ const ActivityForm = (props) => {
   return (
     <div className="create-activity-container">
       <div className="activity-radio-box">
+        {validate.type ? (
+          <p className="activity-form-error-message activity-error-type">
+            {validate.type}
+          </p>
+        ) : null}
         {activityFormData.map((item, idx) => {
           return (
             <ActivityRadio
@@ -157,6 +198,7 @@ const ActivityForm = (props) => {
               data={item}
               selectedType={selectedType}
               handleOnChangeRadio={handleOnChangeRadio}
+              validate={validate}
             />
           );
         })}
@@ -175,18 +217,31 @@ const ActivityForm = (props) => {
                       width={300}
                       style={{ borderRadius: "16px" }}
                     />
-                    <label htmlFor="add-pic" style={{ height: "64px" }}>
-                      <p>Change Your image</p>
-                    </label>
-                    <input
-                      type="file"
-                      id="add-pic"
-                      name="image"
-                      accept=".jpg, .jpeg, .png"
-                      onChange={(e) => {
-                        onImageChange(e);
-                      }}
-                    />
+                    <div className="change-image-activity-form">
+                      <label
+                        htmlFor="add-pic"
+                        style={{ borderRadius: "16px 0 0 16px" }}
+                      >
+                        <span>Change</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="add-pic"
+                        name="image"
+                        onChange={(e) => {
+                          onImageChange(e);
+                        }}
+                      />
+                      <label
+                        style={{ borderRadius: "0 16px 16px 0" }}
+                        onClick={() => {
+                          setImage("");
+                          setImagePreview(null);
+                        }}
+                      >
+                        <span>Delete</span>
+                      </label>
+                    </div>
                   </>
                 ) : (
                   <>
@@ -197,12 +252,9 @@ const ActivityForm = (props) => {
                       type="file"
                       id="add-pic"
                       name="filename"
-                      accept=".jpg, .jpeg, .png"
                       onChange={(e) => {
                         setImage(e.target.files[0]);
                         onImageChange(e);
-                        console.log(e.target.value);
-                        console.log(image);
                       }}
                     />
                   </>
@@ -210,7 +262,7 @@ const ActivityForm = (props) => {
               </div>
               <div className="note">
                 <label htmlFor="note">
-                  <p>Note:</p>
+                  <p>Note</p>
                 </label>
                 <textarea
                   id="note"
@@ -222,35 +274,65 @@ const ActivityForm = (props) => {
             </div>
 
             <div className="activity-form-right">
-              <label htmlFor="title">Title:</label>
+              <div className="label-box-form">
+                <label htmlFor="title">Title</label>
+                {validate.title ? (
+                  <p className="activity-form-error-message">
+                    {validate.title}
+                  </p>
+                ) : null}
+              </div>
               <input
                 type="text"
                 id="title"
                 name="title"
-                placeholder="enter activity title"
+                // placeholder="enter activity title"
+                placeholder={
+                  validate.title ? validate.title : "enter activity title"
+                }
                 value={titleInput}
                 onChange={(e) => setTitleInput(e.target.value)}
+                style={validate.title ? { outline: "2px solid red" } : null}
               />
 
-              <label htmlFor="date">Date:</label>
+              <div className="label-box-form">
+                <label htmlFor="date">Date</label>
+                {validate.date ? (
+                  <p className="activity-form-error-message">{validate.date}</p>
+                ) : null}
+              </div>
               <input
                 type="date"
                 id="date"
                 name="date"
                 value={dateInput}
                 onChange={(e) => convertDatePattern(e)}
+                style={validate.date ? { outline: "2px solid red" } : null}
               />
 
-              <label htmlFor="date">Time:</label>
+              <div className="label-box-form">
+                <label htmlFor="date">Time</label>
+                {validate.time ? (
+                  <p className="activity-form-error-message">{validate.time}</p>
+                ) : null}
+              </div>
               <input
                 type="time"
                 id="date"
                 name="date"
                 value={timeInput}
                 onChange={(e) => convertTimePattern(e)}
+                style={validate.time ? { outline: "2px solid red" } : null}
               />
 
-              <label htmlFor="duration">Duration:</label>
+              <div className="label-box-form">
+                <label htmlFor="duration">Duration</label>
+                {validate.duration ? (
+                  <p className="activity-form-error-message">
+                    {validate.duration}
+                  </p>
+                ) : null}
+              </div>
               <div className="duration">
                 <input
                   className="duration"
@@ -261,6 +343,9 @@ const ActivityForm = (props) => {
                   min="0"
                   value={hours}
                   onChange={(e) => setHours(e.target.value)}
+                  style={
+                    validate.duration ? { outline: "2px solid red" } : null
+                  }
                 />
                 <input
                   className="duration"
@@ -271,10 +356,13 @@ const ActivityForm = (props) => {
                   min="0"
                   value={mins}
                   onChange={(e) => setMins(e.target.value)}
+                  style={
+                    validate.duration ? { outline: "2px solid red" } : null
+                  }
                 />
               </div>
 
-              <label htmlFor="distance">Distance:</label>
+              <label htmlFor="distance">Distance</label>
               <div className="distance">
                 <input
                   className="distance"

@@ -14,11 +14,8 @@ import EditProfile from "./pages/EditProfile";
 
 import UserContextProvider from "./context/UserContext";
 
-
-
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
-
 
 const router = createBrowserRouter([
   {
