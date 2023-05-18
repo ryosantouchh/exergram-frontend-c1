@@ -19,7 +19,7 @@ nav {
   max-width: 1140px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   margin: 0 auto;
 }
 
@@ -64,8 +64,8 @@ nav {
 }
 
 .navbar-right {
-  /* display: flex;
-  align-items: center; */
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
@@ -148,8 +148,8 @@ nav {
 
 /* Navbar Non-User Config */
 
-.navbar-container .navbar-right ul li .login-btn,
-.navbar-container .navbar-right ul li .signup-btn {
+.navbar-container .navbar-right ul li .login-btn-navbar,
+.navbar-container .navbar-right ul li .signup-btn-navbar {
   color: white;
   font-size: 16px;
   text-decoration-line: none;
@@ -162,8 +162,8 @@ nav {
   font-weight: 700;
 }
 
-.navbar-container .navbar-right ul li .login-btn:hover,
-.navbar-container .navbar-right ul li .signup-btn:hover {
+.navbar-container .navbar-right ul li .login-btn-navbar:hover,
+.navbar-container .navbar-right ul li .signup-btn-navbar:hover {
   cursor: pointer;
   border: 2px solid #e8e8e8;
   transition: transform 0.2s ease-in-out;

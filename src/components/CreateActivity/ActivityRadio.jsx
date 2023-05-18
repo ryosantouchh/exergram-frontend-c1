@@ -12,7 +12,10 @@ const ActivityRadio = (props) => {
         checked={props.selectedType === props.data.value}
         onChange={props.handleOnChangeRadio}
       />
-      <div className="radio-tile">
+      <div
+        className="radio-tile"
+        style={props.validate.type ? { outline: "2px solid red" } : null}
+      >
         <i className={props.data.icon}></i>
         <label
           htmlFor={props.data.type}
