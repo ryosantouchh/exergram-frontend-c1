@@ -4,13 +4,14 @@ import "../styles/signup.css";
 import "../styles/signup.css";
 import Layout from "../layout/Layout";
 import axios from "axios";
+import FormData from "form-data";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [datOfBirth, setDatOfBirth] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -23,6 +24,43 @@ const Signup = () => {
 
   const ConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const handleSignUp = async (e) => {
+    e.preventDefault()
+    try {
+      const userData = {
+        firstname: firstname,
+        lastname: lastname,
+        birthday: new Date(dateOfBirth),
+        gender: gender,
+        email: email,
+        username: username,
+        password: password,
+      };
+
+      const userForm = new FormData();
+      for (let key in userData) {
+        userForm.append(key, userData[key]);
+      }
+      console.log(userForm);
+      for (let pair of userForm.entries()) {
+          console.log(pair[0] + ", " + pair[1]);
+        }
+
+      const response = await axios.post(
+        "http://localhost:8080/user",
+        userForm,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -74,7 +112,7 @@ const Signup = () => {
                   id="name"
                   placeholder="Last name"
                   value={lastname}
-                  onChange={(e) => setFirstname(e.target.value)}
+                  onChange={(e) => setLastname(e.target.value)}
                   required
                 />
               </div>
@@ -82,17 +120,30 @@ const Signup = () => {
             <div className="input-container-dob-gender">
               <div className="input-container-dob">
                 <label for="dob">Date of Birth </label>
-                <input type="date" name="dob" id="dob" required />
+                <input
+                  type="date"
+                  name="dob"
+                  id="dob"
+                  value={dateOfBirth}
+                  onChange={(e) => setDateOfBirth(e.target.value)}
+                  required
+                />
               </div>
               <div className="input-container-gender">
                 <label for="gender">Gender</label>
-                <select name="gender" id="gender" required>
+                <select
+                  name="gender"
+                  id="gender"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                  required
+                >
                   <option value="" disabled selected hidden>
                     Gender
                   </option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Prefernottosay">Prefer not to say</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="prefer not to say">Prefer not to say</option>
                 </select>
               </div>
             </div>
@@ -171,7 +222,11 @@ const Signup = () => {
                 ></i>
               )}
             </div>
-            <button className="signup-page-btn" type="submit">
+            <button
+              className="signup-page-btn"
+              type="submit"
+              onClick={(e) => handleSignUp(e)}
+            >
               Sign Up
             </button>
             <div className="copy legal">
