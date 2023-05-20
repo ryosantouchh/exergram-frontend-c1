@@ -41,6 +41,7 @@
   display: flex;
   gap: 16px;
   align-items: center;
+  position: relative;
 }
 
 .activity-card-exercise-icon {
@@ -77,12 +78,13 @@
 
 .activity-card-edit-delete-box {
   display: flex;
-  flex-flow: column-reverse wrap;
+  flex-flow: row wrap;
   position: absolute;
   right: 16px;
+  top: 16px;
   /* gap: 32px; */
-  justify-content: space-between;
-  height: 100px;
+  /* justify-content: space-between; */
+  /* height: 100%; */
 }
 
 .activity-card-edit-delete-box i {

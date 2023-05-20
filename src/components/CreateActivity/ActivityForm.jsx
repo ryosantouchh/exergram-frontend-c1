@@ -92,12 +92,16 @@ const ActivityForm = (props) => {
         //   console.log(pair[0] + ", " + pair[1]);
         // }
 
+        const mock_tokem_from_touch =
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
+
         const response = await axios.post(
           "http://localhost:8080/activity",
           form,
           {
             headers: {
               "Content-Type": "multipart/form-data",
+              Authorization: mock_tokem_from_touch,
             },
           }
         );
@@ -172,7 +176,7 @@ const ActivityForm = (props) => {
       const fetchActivityById = async () => {
         // mock token
         const mock_token =
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1Njg1MTgsImV4cCI6MTY4NDU5NzMxOH0.FVhBbKSuE37rxx24ZdPbdl3P25sKRJR5uWRs3ycFL5k";
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
 
         const response = await axios.get(
           "http://localhost:8080/activity/" + activityId,

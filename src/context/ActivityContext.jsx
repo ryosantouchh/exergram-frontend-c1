@@ -21,7 +21,7 @@ const ActivityContextProvider = ({ children }) => {
     // mock header authorization token
     // token here
     const mock_tokem_from_touch =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1Njg1MTgsImV4cCI6MTY4NDU5NzMxOH0.FVhBbKSuE37rxx24ZdPbdl3P25sKRJR5uWRs3ycFL5k";
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
 
     const response = await axios.get(END_POINT_URL + "/activity", {
       headers: { Authorization: mock_tokem_from_touch },
@@ -32,11 +32,34 @@ const ActivityContextProvider = ({ children }) => {
     setActivityList([...response.data.activity_data]);
   };
 
+  const deleteActivity = async (activity_id, token) => {
+    const mock_tokem_from_touch =
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
+
+    if (confirm("Delete this activity ?")) {
+      const response = await axios.delete(
+        END_POINT_URL + "/activity/" + activity_id,
+        {
+          headers: { Authorization: mock_tokem_from_touch },
+        }
+      );
+      console.log(response);
+
+      const responseFromGet = await axios.get(END_POINT_URL + "/activity", {
+        headers: { Authorization: mock_tokem_from_touch },
+      });
+      console.log(responseFromGet);
+
+      setActivityList([...responseFromGet.data.activity_data]);
+    }
+  };
+
   const contextValue = {
     fetchAllType,
     activityType,
     fetchAllActivity,
     activityList,
+    deleteActivity,
   };
 
   return (

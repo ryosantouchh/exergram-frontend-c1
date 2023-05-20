@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ActivityContext } from "../../context/ActivityContext.jsx";
+import axios from "axios";
 
 const MainActivityList = (props) => {
   const activityCtx = useContext(ActivityContext);
@@ -54,15 +55,15 @@ const MainActivityList = (props) => {
           </div>
         </div>
         <div className="activity-card-edit-delete-box">
-          {/* <a href="/createactivity"> */}
-          <i className="fa-solid fa-xmark"></i>
-          {/* </a> */}
-          <a href="">
-            <i
-              className="fa-solid fa-pen-to-square"
-              onClick={() => navigate("/createactivity/" + props.value._id)}
-            ></i>
-          </a>
+          <i
+            className="fa-solid fa-pen-to-square"
+            onClick={() => navigate("/createactivity/" + props.value._id)}
+          ></i>
+
+          <i
+            className="fa-solid fa-xmark"
+            onClick={() => activityCtx.deleteActivity(props.value._id)}
+          ></i>
         </div>
       </div>
     </>
