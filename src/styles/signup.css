@@ -3,6 +3,8 @@
   display: flex;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
   width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  width: 100%;
 }
 
 .signup-page::after {
@@ -29,6 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50%;
   width: 50%;
 }
 
@@ -69,6 +72,9 @@
 
 .right-signup form {
   width: 328px;
+}
+.signup-container a {
+  color: var(--accent-color);
 }
 .signup-container a {
   color: var(--accent-color);
@@ -166,8 +172,13 @@
   display: block;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  margin-bottom: 2rem;
   font-size: 80%;
   text-align: center;
+}
+
+.policy-terms a {
+  color: var(--accent-color);
 }
 
 .policy-terms a {

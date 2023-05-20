@@ -64,6 +64,7 @@ const Signup = () => {
                                 />
                             </div>
                         </div>
+
                         <div className="input-container-dob-gender">
                             <div className="input-container-dob">
                                 <label for="dob">Date of Birth </label>
