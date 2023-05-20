@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/NotFound.css"
+import "../styles/Error.css"
 
-function NotFound() {
+function Error() {
     return (
         <>
             <div class="container-notfound">
@@ -14,4 +14,4 @@ function NotFound() {
     );
 }
 
-export default NotFound;
+export default Error;
