@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import date from "date-and-time";
@@ -14,6 +15,7 @@ import EditProfile from "./pages/EditProfile";
 
 import UserContextProvider from "./context/UserContext";
 import ImageContextProvider from "./context/ImageContext";
+import ActivityContextProvider from "./context/ActivityContext";
 
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
@@ -65,12 +67,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
-  // <RouterProvider router={router} />
-  // </React.StrictMode>
   <UserContextProvider>
-    <ImageContextProvider>
-      <RouterProvider router={router} />
-    </ImageContextProvider>
+    <ActivityContextProvider>
+      <ImageContextProvider>
+        <RouterProvider router={router} />
+      </ImageContextProvider>
+    </ActivityContextProvider>
   </UserContextProvider>
 );
