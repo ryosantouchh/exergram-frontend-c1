@@ -1,0 +1,29 @@
+.container-notfound {
+  text-align: center;
+  margin-top: 50px;
+  color: var(--accent-color);
+  font-size: larger;
+}
+
+.notfound-botton {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 30px;
+  background-color: var(--accent-color);
+  color: var(--white-text);
+  font-weight: 500;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 30px;
+  font-size: 1rem;
+}
+
+.notfound-botton a {
+  color: var(--white-text);
+  text-decoration: none;
+}
+.notfound-botton a:hover {
+  cursor: pointer;
+  scale: 1.03;
+  background-color: var(--accent-color);
+}

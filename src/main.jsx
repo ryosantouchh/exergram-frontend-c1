@@ -17,6 +17,7 @@ import UserContextProvider from "./context/UserContext";
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
     path: "/editactivity",
     element: <EditActivity />,
   },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
