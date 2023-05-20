@@ -170,8 +170,13 @@ const ActivityForm = (props) => {
   useEffect(() => {
     if (activityId) {
       const fetchActivityById = async () => {
+        // mock token
+        const mock_token =
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1Njg1MTgsImV4cCI6MTY4NDU5NzMxOH0.FVhBbKSuE37rxx24ZdPbdl3P25sKRJR5uWRs3ycFL5k";
+
         const response = await axios.get(
-          "http://localhost:8080/activity/" + activityId
+          "http://localhost:8080/activity/" + activityId,
+          { headers: { Authorization: mock_token } }
         );
         setTitleInput(response.data.title);
         setSelectedType(response.data.type);
@@ -300,10 +305,7 @@ const ActivityForm = (props) => {
                 type="text"
                 id="title"
                 name="title"
-                // placeholder="enter activity title"
-                placeholder={
-                  validate.title ? validate.title : "enter activity title"
-                }
+                placeholder="enter activity title"
                 value={titleInput}
                 onChange={(e) => setTitleInput(e.target.value)}
                 style={validate.title ? { outline: "2px solid red" } : null}
