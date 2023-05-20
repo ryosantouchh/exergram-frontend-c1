@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/LandingPage.css"
 import Layout from "../layout/Layout";
 import Runnerimg from "../assets/images/runnerSVG.svg"
+import Swimmingimg from "../assets/images/Group_65.svg"
+
 
 const LandingPage = () => {
     return (
@@ -47,6 +49,15 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
+
+            <div class="ad-workout">
+                <img src={Swimmingimg} alt="Workout" />
+                <div class="ad-text">
+                    <h1>WORK</h1>
+                    <h1>OUT</h1>
+                </div>
+            </div>
+
         </>
     );
 }

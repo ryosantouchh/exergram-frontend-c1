@@ -184,3 +184,29 @@
 .marquee-container p {
   font-size: 24px;
 }
+
+/*ad-workout*/
+.ad-workout {
+  position: relative;
+  display: inline-block;
+}
+
+.ad-workout img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ad-text {
+  position: absolute;
+  top: 60%;
+  left: 18%;
+  text-align: left;
+}
+
+.ad-text h1 {
+  font-size: 120px;
+  font-weight: bold;
+  color: white;
+  font-style: italic;
+  font-weight: 2000;
+}
