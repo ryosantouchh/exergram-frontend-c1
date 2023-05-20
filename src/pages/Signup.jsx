@@ -98,19 +98,19 @@ const Signup = () => {
       }
 
       //   const userForm = new FormData();
-      //   for (let key in userData) {
+      //   htmlFor (let key in userData) {
       //     userForm.append(key, userData[key]);
       //   }
       //   console.log(userForm);
-      //   for (let pair of userForm.entries()) {
+      //   htmlFor (let pair of userForm.entries()) {
       //       console.log(pair[0] + ", " + pair[1]);
       //     }
       //   const userForm = new FormData();
-      //   for (let key in userData) {
+      //   htmlFor (let key in userData) {
       //     userForm.append(key, userData[key]);
       //   }
       //   console.log(userForm);
-      //   for (let pair of userForm.entries()) {
+      //   htmlFor (let pair of userForm.entries()) {
       //       console.log(pair[0] + ", " + pair[1]);
       //     }
     } catch (err) {
@@ -177,7 +177,7 @@ const Signup = () => {
             </div>
             <form className="sign-up-input-form">
               <div className="input-container-fname">
-                <label for="fname">First Name </label>
+                <label htmlFor="fname">First Name </label>
 
                 <input
                   type="text"
@@ -198,7 +198,7 @@ const Signup = () => {
               ) : null} */}
               </div>
               <div className="input-container-lname">
-                <label for="lname">Last Name</label>
+                <label htmlFor="lname">Last Name</label>
                 <input
                   type="text"
                   name="lname"
@@ -214,7 +214,7 @@ const Signup = () => {
               </div>
               <div className="input-container-dob-gender">
                 <div className="input-container-dob">
-                  <label for="dob">Date of Birth </label>
+                  <label htmlFor="dob">Date of Birth </label>
                   <input
                     type="date"
                     name="dob"
@@ -228,7 +228,7 @@ const Signup = () => {
                   />
                 </div>
                 <div className="input-container-gender">
-                  <label for="gender">Gender</label>
+                  <label htmlFor="gender">Gender</label>
                   <select
                     name="gender"
                     id="gender"
@@ -237,7 +237,7 @@ const Signup = () => {
                     required
                     style={styleOutlineError(validate.gender)}
                   >
-                    <option value="" disabled selected hidden>
+                    <option defaultValue="" hidden>
                       Gender
                     </option>
                     <option value="male">Male</option>
@@ -248,7 +248,7 @@ const Signup = () => {
               </div>
 
               <div className="input-container-email">
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -261,7 +261,7 @@ const Signup = () => {
                 />
               </div>
               <div className="input-container-username">
-                <label for="username">Username</label>
+                <label htmlFor="username">Username</label>
                 <input
                   type="text"
                   name="username"
@@ -274,7 +274,7 @@ const Signup = () => {
                 />
               </div>
               <div className="input-container-password">
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -300,7 +300,7 @@ const Signup = () => {
                 )}
               </div>
               <div className="input-container-cpassword">
-                <label for="cpassword">Confirm Password</label>
+                <label htmlFor="cpassword">Confirm Password</label>
                 <input
                   type={showConfirmPassword ? "text" : "password"}
                   name="cpassword"
