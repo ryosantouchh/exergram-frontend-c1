@@ -29,35 +29,41 @@ const Signup = () => {
   const handleSignUp = async (e) => {
     e.preventDefault()
     try {
-      const userData = {
-        firstname: firstname,
-        lastname: lastname,
-        birthday: new Date(dateOfBirth),
-        gender: gender,
-        email: email,
-        username: username,
-        password: password,
-      };
+        if (password === confirmPassword) {
+            const userData = {
+              firstname: firstname,
+              lastname: lastname,
+              birthday: new Date(dateOfBirth),
+              gender: gender,
+              email: email,
+              username: username,
+              password: password,
+            };
+            console.log(userData);
 
-      const userForm = new FormData();
-      for (let key in userData) {
-        userForm.append(key, userData[key]);
-      }
-      console.log(userForm);
-      for (let pair of userForm.entries()) {
-          console.log(pair[0] + ", " + pair[1]);
+            const response = await axios.post(
+              "http://localhost:8080/user",
+              userData,
+              // {
+              //   headers: {
+              //     "Content-Type": "multipart/form-data",
+              //   },
+              // }
+            );
+            console.log(response.data);
+        } else {
+            console.log('password not match');
         }
 
-      const response = await axios.post(
-        "http://localhost:8080/user",
-        userForm,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      console.log(response);
+    //   const userForm = new FormData();
+    //   for (let key in userData) {
+    //     userForm.append(key, userData[key]);
+    //   }
+    //   console.log(userForm);
+    //   for (let pair of userForm.entries()) {
+    //       console.log(pair[0] + ", " + pair[1]);
+    //     }
+
     } catch (err) {
       console.error(err);
     }
