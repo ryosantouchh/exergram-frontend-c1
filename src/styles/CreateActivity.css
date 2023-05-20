@@ -258,3 +258,10 @@
   height: 64px;
   text-transform: uppercase;
 }
+
+.btn-container .other-btn {
+  background-color: var(--grey-btn-color);
+  border-radius: 30px;
+  border: 0;
+  color: var(--white-text);
+}
