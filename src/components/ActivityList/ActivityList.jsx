@@ -7,6 +7,8 @@ import axios from "axios";
 
 // const END_POINT = BASE_URL || "http://localhost:8080";
 
+// const END_POINT = BASE_URL || "http://localhost:8080";
+
 const ActivityList = () => {
   //   const [activityList, setActivityList] = useState([]);
 
