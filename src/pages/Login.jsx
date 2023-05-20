@@ -23,11 +23,11 @@ function Login() {
         loginData
       );
     //   console.log(response.data);
-      if (response) {
-        console.log("login success");
-      } else {
-        console.log("username or password incorrect");
-      }
+    //   if (response) {
+    //     console.log("login success");
+    //   } else {
+    //     console.log("username or password incorrect");
+    //   }
     } catch (error) {
       console.error(error);
     }
