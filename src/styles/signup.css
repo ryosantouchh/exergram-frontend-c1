@@ -19,6 +19,9 @@
   transform: scaleX(-1);
   z-index: -1;
 }
+.signup-text {
+  margin-top: 24px;
+}
 /* Left Part*/
 .left-signup {
   width: 50%; /* Add this line */

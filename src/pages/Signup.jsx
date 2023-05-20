@@ -33,7 +33,7 @@ const Signup = () => {
                 <div className="right-signup">
                     <form className="right-signup-form">
                         <div className="signup-header">
-                            <h2>SIGN UP</h2>
+                            <h2 className="signup-text">SIGN UP</h2>
                             <div className="signup-container">
                                 <p>
                                     Already have an account?{" "}
