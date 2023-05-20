@@ -13,10 +13,15 @@ import ActivityPage from "./pages/ActivityPage";
 import EditProfile from "./pages/EditProfile";
 
 import UserContextProvider from "./context/UserContext";
+import ImageContextProvider from "./context/ImageContext";
 
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
 
+const ProtectedRoute = ({ children }) => {
+  // check localstorage have token
+  // if not redirect to another page
+};
 
 const router = createBrowserRouter([
   {
@@ -57,7 +62,6 @@ const router = createBrowserRouter([
     path: "/editactivity",
     element: <EditActivity />,
   },
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -65,6 +69,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // <RouterProvider router={router} />
   // </React.StrictMode>
   <UserContextProvider>
-    <RouterProvider router={router} />
+    <ImageContextProvider>
+      <RouterProvider router={router} />
+    </ImageContextProvider>
   </UserContextProvider>
 );

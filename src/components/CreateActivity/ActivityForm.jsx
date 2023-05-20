@@ -6,6 +6,7 @@ import axios from "axios";
 import validator from "validator";
 import date from "date-and-time";
 import ActivityRadio from "./ActivityRadio";
+import { ImageContext } from "../../context/ImageContext";
 
 const datePattern = date.compile("ddd, MMM DD YYYY");
 
@@ -28,21 +29,23 @@ const ActivityForm = (props) => {
   const navigate = useNavigate();
   const { activityId } = useParams();
 
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImagePreview(URL.createObjectURL(event.target.files[0]));
-      const file = event.target.files[0];
-      setFileToBase(file);
-    }
-  };
+  const imgContext = useContext(ImageContext);
 
-  const setFileToBase = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImage(reader.result);
-    };
-  };
+  // const onImageChange = (event) => {
+  //   if (event.target.files && event.target.files[0]) {
+  //     setImagePreview(URL.createObjectURL(event.target.files[0]));
+  //     const file = event.target.files[0];
+  //     setFileToBase(file);
+  //   }
+  // };
+
+  // const setFileToBase = (file) => {
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onloadend = () => {
+  //     setImage(reader.result);
+  //   };
+  // };
 
   const handleOnChangeRadio = (e) => {
     setSelectedType(e.target.value);
@@ -228,8 +231,13 @@ const ActivityForm = (props) => {
                         type="file"
                         id="add-pic"
                         name="image"
-                        onChange={(e) => {
-                          onImageChange(e);
+                        onChange={(event) => {
+                          imgContext.onImageChange(
+                            event,
+                            setImagePreview,
+                            imgContext.setFileToBase,
+                            setImage
+                          );
                         }}
                       />
                       <label
@@ -252,9 +260,15 @@ const ActivityForm = (props) => {
                       type="file"
                       id="add-pic"
                       name="filename"
-                      onChange={(e) => {
-                        setImage(e.target.files[0]);
-                        onImageChange(e);
+                      onChange={(event) => {
+                        // setImage(e.target.files[0]);
+                        // onImageChange(e);
+                        imgContext.onImageChange(
+                          event,
+                          setImagePreview,
+                          imgContext.setFileToBase,
+                          setImage
+                        );
                       }}
                     />
                   </>
