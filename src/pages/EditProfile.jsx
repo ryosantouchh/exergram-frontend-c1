@@ -13,6 +13,7 @@ const EditProfile = () => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
+  const [image, setImage] = useState("");
 
   const PasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -21,17 +22,30 @@ const EditProfile = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
+  const handleClickEditProfile = () => {
+    const profileObj = {};
+
+    if (firstname) profileObj.firstname = firstname;
+    if (lastname) profileObj.lastname = lastname;
+    if (email) profileObj.email = email;
+    if (contactNumber) profileObj.contact_number = contactNumber;
+  };
+
   return (
     <Layout>
       <div className="edit-profile-main">
         <div className="edit-profile">
           <div className="edit-profile-top">
             <h1>Edit Profile</h1>
-            <img
-              className="edit-profile-img-circle"
-              src="//placehold.it/100"
-              alt="avatar"
-            />
+            {!image ? (
+              <button>Add Profile Image</button>
+            ) : (
+              <img
+                className="edit-profile-img-circle"
+                src="//placehold.it/100"
+                alt="avatar"
+              />
+            )}
           </div>
 
           <div className="edit-profile-fullname">
@@ -132,20 +146,14 @@ const EditProfile = () => {
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              id="password"
               placeholder="Must be at least 6 characters"
               required
             />
             {showPassword ? (
-              <i
-                className="fa-solid fa-eye"
-                id="show-password"
-                onClick={PasswordVisibility}
-              ></i>
+              <i className="fa-solid fa-eye" onClick={PasswordVisibility}></i>
             ) : (
               <i
                 className="fa-solid fa-eye-slash"
-                id="hide-password"
                 onClick={PasswordVisibility}
               ></i>
             )}
@@ -155,31 +163,24 @@ const EditProfile = () => {
             <input
               type={showConfirmPassword ? "text" : "password"}
               name="password"
-              id="password"
               placeholder="Must be at least 6 characters"
               required
             />
             {showConfirmPassword ? (
               <i
                 className="fa-solid fa-eye"
-                id="show-password"
                 onClick={ConfirmPasswordVisibility}
               ></i>
             ) : (
               <i
                 className="fa-solid fa-eye-slash"
-                id="hide-password"
                 onClick={ConfirmPasswordVisibility}
               ></i>
             )}
           </div>
           <div className="edit-profile-btn-box">
-            <button id="edit-profile-btn" className="orange-btn">
-              Change
-            </button>
-            <button id="edit-profile-btn" className="other-btn">
-              Cancel
-            </button>
+            <button className="orange-btn edit-profile-btn">Change</button>
+            <button className="other-btn edit-profile-btn">Cancel</button>
           </div>
         </div>
       </div>
