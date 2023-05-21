@@ -215,13 +215,14 @@
   cursor: pointer;
   font-size: 16px;
   border-radius: 24px;
+  transition: background 0.3s ease-in-out;
 }
 
 .btn-container button:hover {
   scale: 1.02;
   box-shadow: 0 0 3px var(--accent-color);
   background-color: var(--bg-color);
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
   color: var(--accent-color);
   transition: background 0.3s ease-in-out;
 }
@@ -257,4 +258,11 @@
   align-items: center;
   height: 64px;
   text-transform: uppercase;
+}
+
+.btn-container .other-btn {
+  background-color: var(--grey-btn-color);
+  border-radius: 30px;
+  border: 0;
+  color: var(--white-text);
 }

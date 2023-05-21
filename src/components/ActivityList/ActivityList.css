@@ -4,28 +4,48 @@
   flex-direction: column;
   margin: 0 auto;
 }
+
 .activity-card-main-content {
   width: 100%;
-  height: 47vh;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-top: 16px;
   background-color: var(--primary-color);
-  border-radius: 20px;
+  border-radius: 16px;
+  padding: 16px 8px 16px;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
 }
+
+.activity-card-main-content:hover {
+  outline: 3px solid var(--accent-color);
+  cursor: pointer;
+  transform: translateY(-4px);
+  transition: transform 0.3s ease-in-out;
+}
+
 .activity-card-main-img {
-  padding: 16px;
+  padding: 32px 24px 24px;
+  display: flex;
+  justify-content: center;
 }
+
 .activity-card-main-img img {
-  height: 30vh;
-  width: 100%;
-  border-radius: 20px;
+  height: 270px;
+  /* width: 100%; */
+  border-radius: 8px;
 }
+
 .activity-card-exercise-details {
   width: 100%;
   display: flex;
+  gap: 16px;
   align-items: center;
+  position: relative;
 }
+
 .activity-card-exercise-icon {
   width: 20%;
   display: flex;
@@ -34,23 +54,52 @@
   justify-content: center;
   color: var(--accent-color);
 }
+
 .activity-card-exercise-icon i {
   font-size: 40px;
   margin-bottom: 8px;
   margin-top: 0;
 }
+
 .activity-card-exercise-summary {
   width: 60%;
   display: flex;
   flex-direction: column;
 }
+
 .activity-card-exercise-header {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
+
 .activity-card-exercise-info {
   display: flex;
-  justify-content: space-between;
+  gap: 60px;
   align-items: center;
+}
+
+.activity-card-edit-delete-box {
+  display: flex;
+  flex-flow: row wrap;
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  gap: 8px;
+  /* justify-content: space-between; */
+  /* height: 100%; */
+}
+
+.activity-card-edit-delete-box i {
+  font-size: 20px;
+  transition: 0.2s ease-in-out;
+}
+
+.activity-card-edit-delete-box i:hover {
+  color: var(--accent-color);
+  transition: 0.2s ease-in-out;
+}
+
+.activity-card-edit-delete-box a {
+  color: var(--white-text);
 }

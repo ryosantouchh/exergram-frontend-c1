@@ -6,11 +6,12 @@ import axios from "axios";
 import validator from "validator";
 import date from "date-and-time";
 import ActivityRadio from "./ActivityRadio";
+import { ImageContext } from "../../context/ImageContext";
 
 const datePattern = date.compile("ddd, MMM DD YYYY");
 
 const ActivityForm = (props) => {
-  const { activityFormData } = props;
+  const { activityFormData, activityType } = props;
 
   const [titleInput, setTitleInput] = useState("");
   const [selectedType, setSelectedType] = useState("");
@@ -28,21 +29,23 @@ const ActivityForm = (props) => {
   const navigate = useNavigate();
   const { activityId } = useParams();
 
-  const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImagePreview(URL.createObjectURL(event.target.files[0]));
-      const file = event.target.files[0];
-      setFileToBase(file);
-    }
-  };
+  const imgContext = useContext(ImageContext);
 
-  const setFileToBase = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setImage(reader.result);
-    };
-  };
+  // const onImageChange = (event) => {
+  //   if (event.target.files && event.target.files[0]) {
+  //     setImagePreview(URL.createObjectURL(event.target.files[0]));
+  //     const file = event.target.files[0];
+  //     setFileToBase(file);
+  //   }
+  // };
+
+  // const setFileToBase = (file) => {
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onloadend = () => {
+  //     setImage(reader.result);
+  //   };
+  // };
 
   const handleOnChangeRadio = (e) => {
     setSelectedType(e.target.value);
@@ -89,12 +92,16 @@ const ActivityForm = (props) => {
         //   console.log(pair[0] + ", " + pair[1]);
         // }
 
+        const mock_tokem_from_touch =
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
+
         const response = await axios.post(
           "http://localhost:8080/activity",
           form,
           {
             headers: {
               "Content-Type": "multipart/form-data",
+              Authorization: mock_tokem_from_touch,
             },
           }
         );
@@ -167,8 +174,13 @@ const ActivityForm = (props) => {
   useEffect(() => {
     if (activityId) {
       const fetchActivityById = async () => {
+        // mock token
+        const mock_token =
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
+
         const response = await axios.get(
-          "http://localhost:8080/activity/" + activityId
+          "http://localhost:8080/activity/" + activityId,
+          { headers: { Authorization: mock_token } }
         );
         setTitleInput(response.data.title);
         setSelectedType(response.data.type);
@@ -191,7 +203,7 @@ const ActivityForm = (props) => {
             {validate.type}
           </p>
         ) : null}
-        {activityFormData.map((item, idx) => {
+        {activityType.map((item, idx) => {
           return (
             <ActivityRadio
               key={idx}
@@ -228,8 +240,13 @@ const ActivityForm = (props) => {
                         type="file"
                         id="add-pic"
                         name="image"
-                        onChange={(e) => {
-                          onImageChange(e);
+                        onChange={(event) => {
+                          imgContext.onImageChange(
+                            event,
+                            setImagePreview,
+                            imgContext.setFileToBase,
+                            setImage
+                          );
                         }}
                       />
                       <label
@@ -252,9 +269,15 @@ const ActivityForm = (props) => {
                       type="file"
                       id="add-pic"
                       name="filename"
-                      onChange={(e) => {
-                        setImage(e.target.files[0]);
-                        onImageChange(e);
+                      onChange={(event) => {
+                        // setImage(e.target.files[0]);
+                        // onImageChange(e);
+                        imgContext.onImageChange(
+                          event,
+                          setImagePreview,
+                          imgContext.setFileToBase,
+                          setImage
+                        );
                       }}
                     />
                   </>
@@ -286,10 +309,7 @@ const ActivityForm = (props) => {
                 type="text"
                 id="title"
                 name="title"
-                // placeholder="enter activity title"
-                placeholder={
-                  validate.title ? validate.title : "enter activity title"
-                }
+                placeholder="enter activity title"
                 value={titleInput}
                 onChange={(e) => setTitleInput(e.target.value)}
                 style={validate.title ? { outline: "2px solid red" } : null}
