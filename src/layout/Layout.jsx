@@ -15,9 +15,12 @@ function Layout({ children }) {
       // console.log(decodedToken);
       const currentTime = Date.now() / 1000;
       // console.log(currentTime);
+      // console.log("not expired");
+      // console.log(decodedToken);
 
       if (decodedToken.exp < currentTime) {
-        window.localStorage.removeItem("token");
+        // console.log("expired");
+        authCtx.logout();
         authCtx.setToken("");
       }
     }

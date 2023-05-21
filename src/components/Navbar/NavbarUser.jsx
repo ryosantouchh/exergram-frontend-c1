@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import logo from "../../assets/images/Logo1exergram.svg";
 import "./Navbar.css";
+import { useNavigate } from "react-router";
 
 function NavbarUser() {
+  const authCtx = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   return (
     <div className="navbar-container">
       <nav>
@@ -47,7 +53,15 @@ function NavbarUser() {
                 <a href="/editprofile">Edit Profile</a>
               </li>
               <li>
-                <a href="">Logout</a>
+                <a
+                  href=""
+                  onClick={() => {
+                    authCtx.logout();
+                    navigate("/");
+                  }}
+                >
+                  Logout
+                </a>
               </li>
             </ul>
           </div>

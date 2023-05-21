@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "../styles/login.css";
 import Layout from "../layout/Layout";
@@ -15,8 +15,9 @@ function Login() {
   const handleLogin = async (e) => {
     const response = await authCtx.login(e);
     if (!response) {
-      setError((prev) => !prev);
+      setError((prev) => (prev = true));
     } else {
+      setError((prev) => (prev = false));
       navigate("/feed");
     }
   };
@@ -54,8 +55,12 @@ function Login() {
                 id="username"
                 placeholder="Username"
                 value={authCtx.username}
-                onChange={(e) => authCtx.setUsername(e.target.value)}
+                onChange={(e) => {
+                  authCtx.setUsername(e.target.value);
+                  setError((prev) => (prev = false));
+                }}
                 required
+                style={error ? { outline: "2px solid red" } : null}
               />
             </div>
             <div className="login-input-container password">
@@ -66,8 +71,12 @@ function Login() {
                 id="password"
                 placeholder="Must be at least 6 characters"
                 value={authCtx.password}
-                onChange={(e) => authCtx.setPassword(e.target.value)}
+                onChange={(e) => {
+                  authCtx.setPassword(e.target.value);
+                  setError((prev) => (prev = false));
+                }}
                 required
+                style={error ? { outline: "2px solid red" } : null}
               />
               {showPassword ? (
                 <i
@@ -83,13 +92,13 @@ function Login() {
                 ></i>
               )}
             </div>
-            <div className="login-input-container-cta">
+            {/* <div className="login-input-container-cta">
               <label className="checkbox-container">
                 <input type="checkbox" id="checkbox" />
                 <span className="checkmark"></span>
                 Remember me
               </label>
-            </div>
+            </div> */}
             <button
               className="login-btn"
               type="submit"
@@ -99,15 +108,14 @@ function Login() {
             >
               Log In
             </button>
-            <div className="copy legal">
+            {/* <div className="copy legal">
               <p>
                 <span className="forgotPassword">
                   <a href="#">Forgotten password?</a>
                 </span>
               </p>
-            </div>
+            </div> */}
           </form>
-          -
         </div>
       </div>
     </Layout>

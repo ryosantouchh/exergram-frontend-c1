@@ -7,6 +7,7 @@ import validator from "validator";
 import date from "date-and-time";
 import ActivityRadio from "./ActivityRadio";
 import { ImageContext } from "../../context/ImageContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const datePattern = date.compile("ddd, MMM DD YYYY");
 
@@ -30,6 +31,9 @@ const ActivityForm = (props) => {
   const { activityId } = useParams();
 
   const imgContext = useContext(ImageContext);
+  // const authCtx = useContext(AuthContext);
+
+  const token = "Bearer" + " " + window.localStorage.getItem("token");
 
   // const onImageChange = (event) => {
   //   if (event.target.files && event.target.files[0]) {
@@ -47,21 +51,25 @@ const ActivityForm = (props) => {
   //   };
   // };
 
+  const validateForm = () => {
+    if (validator.isEmpty(titleInput)) inputError.title = "Title is required";
+    if (validator.isEmpty(dateInput)) inputError.date = "Date is required";
+    if (validator.isEmpty(timeInput)) inputError.time = "Time is required";
+    if (validator.isEmpty(hours) && validator.isEmpty(mins))
+      inputError.duration = "Duration is required";
+    if (validator.isEmpty(selectedType))
+      inputError.type = "Please select at least one activity";
+  };
+
   const handleOnChangeRadio = (e) => {
     setSelectedType(e.target.value);
   };
 
-  const handleCreateActivity = async () => {
+  const handleCreateUpdateActivity = async () => {
     try {
       const inputError = {};
 
-      if (validator.isEmpty(titleInput)) inputError.title = "Title is required";
-      if (validator.isEmpty(dateInput)) inputError.date = "Date is required";
-      if (validator.isEmpty(timeInput)) inputError.time = "Time is required";
-      if (validator.isEmpty(hours) && validator.isEmpty(mins))
-        inputError.duration = "Duration is required";
-      if (validator.isEmpty(selectedType))
-        inputError.type = "Please select at least one activity";
+      validateForm();
 
       if (Object.keys(inputError).length > 0) {
         setValidate(inputError);
@@ -91,21 +99,42 @@ const ActivityForm = (props) => {
         // for (let pair of form.entries()) {
         //   console.log(pair[0] + ", " + pair[1]);
         // }
+        let END_POINT_ROUTE = "";
+        let METHOD = "";
+        activityId
+          ? (END_POINT_ROUTE = "/activity/" + activityId)
+          : (END_POINT_ROUTE = "/activity");
 
-        const mock_tokem_from_touch =
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
+        if (activityId) {
+          END_POINT_ROUTE = "/activity/" + activityId;
+          METHOD = "patch";
+        } else {
+          END_POINT_ROUTE = "/activity";
+          METHOD = "post";
+        }
 
-        const response = await axios.post(
-          "http://localhost:8080/activity",
-          form,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-              Authorization: mock_tokem_from_touch,
-            },
-          }
-        );
-        // navigate("/dashboard");
+        console.log(END_POINT_ROUTE);
+
+        // const response = await axios.post("/activity", form, {
+        //   headers: {
+        //     "Content-Type": "multipart/form-data",
+        //     Authorization: token,
+        //   },
+        // });
+
+        const response = await axios({
+          method: METHOD,
+          url: END_POINT_ROUTE,
+          data: form,
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: token,
+          },
+        });
+
+        console.log(response);
+
+        navigate("/feed");
       }
     } catch (error) {
       console.log(error);
@@ -140,15 +169,15 @@ const ActivityForm = (props) => {
   };
 
   const convertMinToHour = (duration) => {
-    const tempHours = Math.floor(duration / 60);
-    const tempMins = duration % 60;
+    const tempHours = Math.floor(duration / 60).toString();
+    const tempMins = (duration % 60).toString();
     setHours(tempHours);
     setMins(tempMins);
   };
 
   const convertMeterToKM = (distance) => {
-    const tempKM = Math.floor(distance / 1000);
-    const tempMeter = distance % 1000;
+    const tempKM = Math.floor(distance / 1000).toString();
+    const tempMeter = (distance % 1000).toString();
     setKilometers(tempKM);
     setMeters(tempMeter);
   };
@@ -174,21 +203,22 @@ const ActivityForm = (props) => {
   useEffect(() => {
     if (activityId) {
       const fetchActivityById = async () => {
-        // mock token
-        const mock_token =
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
+        try {
+          const response = await axios.get(
+            "http://localhost:8080/activity/" + activityId,
+            { headers: { Authorization: token } }
+          );
 
-        const response = await axios.get(
-          "http://localhost:8080/activity/" + activityId,
-          { headers: { Authorization: mock_token } }
-        );
-        setTitleInput(response.data.title);
-        setSelectedType(response.data.type);
-        fetchDateToString(response.data.activityDate);
-        convertMinToHour(response.data.duration);
-        setNote(response.data.note);
-        if (response.data.image) setImagePreview(response.data.image.url);
-        if (response.data.distance) convertMeterToKM(response.data.distance);
+          setTitleInput(response.data.title);
+          setSelectedType(response.data.type);
+          fetchDateToString(response.data.activityDate);
+          convertMinToHour(response.data.duration);
+          setNote(response.data.note);
+          if (response.data.image) setImagePreview(response.data.image.url);
+          if (response.data.distance) convertMeterToKM(response.data.distance);
+        } catch (error) {
+          navigate("/feed");
+        }
       };
 
       fetchActivityById();
@@ -252,8 +282,13 @@ const ActivityForm = (props) => {
                       <label
                         style={{ borderRadius: "0 16px 16px 0" }}
                         onClick={() => {
-                          setImage("");
-                          setImagePreview(null);
+                          if (image) {
+                            setImage("");
+                            setImagePreview(null);
+                          } else {
+                            setImage("do not have image");
+                            setImagePreview(null);
+                          }
                         }}
                       >
                         <span>Delete</span>
@@ -412,7 +447,12 @@ const ActivityForm = (props) => {
 
       <div className="btn-container">
         {activityId ? (
-          <button className="orange-btn" type="submit" value="Submit">
+          <button
+            className="orange-btn"
+            type="submit"
+            value="Submit"
+            onClick={() => handleCreateUpdateActivity()}
+          >
             Update
           </button>
         ) : (
@@ -420,7 +460,7 @@ const ActivityForm = (props) => {
             className="orange-btn"
             type="submit"
             value="Submit"
-            onClick={() => handleCreateActivity()}
+            onClick={() => handleCreateUpdateActivity()}
           >
             Create
           </button>

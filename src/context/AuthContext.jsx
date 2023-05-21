@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { END_POINT_URL } from "../configs/base.url";
@@ -11,6 +12,13 @@ const AuthContextProvider = ({ children }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const signup = async (signupData) => {
+    const response = await axios.post(
+      END_POINT_URL + "/auth/register",
+      signupData
+    );
+  };
+
   const login = async (e) => {
     e.preventDefault();
     try {
@@ -18,23 +26,23 @@ const AuthContextProvider = ({ children }) => {
         username: username,
         password: password,
       };
-      console.log(loginData);
-      const response = await axios.post(
-        END_POINT_URL + "/auth/login",
-        loginData
-      );
+      // console.log(loginData);
+      const response = await axios.post("/auth/login", loginData);
 
       if (response) {
         setToken(response.data.token);
-        const decodedToken = jwtDecode(response.data.token);
+        // const decodedToken = jwtDecode(response.data.token);
 
         window.localStorage.setItem("token", response.data.token);
+        return response;
       }
-
-      return response;
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
+  };
+
+  const logout = () => {
+    window.localStorage.removeItem("token");
   };
 
   const tokenDecoder = () => {
@@ -48,8 +56,11 @@ const AuthContextProvider = ({ children }) => {
     login,
     setUsername,
     setPassword,
+    setToken,
     token,
     tokenDecoder,
+    signup,
+    logout,
   };
 
   return (
