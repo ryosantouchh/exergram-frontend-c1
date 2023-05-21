@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../styles/signup.css";
 import "../styles/signup.css";
 import Layout from "../layout/Layout";
@@ -8,6 +8,7 @@ import axios from "axios";
 import FormData from "form-data";
 import validator from "validator";
 import { END_POINT_URL } from "../configs/base.url";
+import { AuthContext } from "../context/AuthContext";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +24,7 @@ const Signup = () => {
   const [validate, setValidate] = useState("");
 
   const navigate = useNavigate();
+  const authCtx = useContext(AuthContext);
 
   const PasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -30,6 +32,13 @@ const Signup = () => {
 
   const ConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const checkBirthDate = (inputError) => {
+    const currentTime = Date.now();
+    const birth_date = new Date(dateOfBirth).getTime();
+    if (birth_date > currentTime)
+      inputError.dateOfBirth = "Incorrect birthdate";
   };
 
   const handleSignUp = async (e) => {
@@ -60,6 +69,9 @@ const Signup = () => {
         inputError.password =
           "Password must be at least 6 or maximum at 24 characters";
 
+      // check birthdate
+      checkBirthDate(inputError);
+
       // check confirmation password
       if (password !== confirmPassword)
         inputError.confirmPassword = "Confirmation password is not match";
@@ -84,16 +96,17 @@ const Signup = () => {
         // end point config
         // const END_POINT = BASE_URL || "http://localhost:8080";
 
-        const response = await axios.post(
-          END_POINT_URL + "/auth/register",
-          userData
-          // {
-          //   headers: {
-          //     "Content-Type": "multipart/form-data",
-          //   },
-          // }
-        );
+        // const response = await axios.post(
+        //   END_POINT_URL + "/auth/register",
+        //   userData
+        // {
+        //   headers: {
+        //     "Content-Type": "multipart/form-data",
+        //   },
+        // }
+        // );
         // console.log(response.data);
+        await authCtx.signup(userData);
         navigate("/login");
       }
 

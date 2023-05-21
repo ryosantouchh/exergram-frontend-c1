@@ -14,24 +14,26 @@ const ActivityList = () => {
 
   useEffect(() => {
     // const fetchActivity = async () => {
-    //   // mock header authorization token
-    //   const mock_tokem_from_touch =
-    //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1Njg1MTgsImV4cCI6MTY4NDU5NzMxOH0.FVhBbKSuE37rxx24ZdPbdl3P25sKRJR5uWRs3ycFL5k";
+    //   const token = `Bearer ${window.localStorage.getItem("token")}`;
 
     //   const response = await axios.get(END_POINT_URL + "/activity", {
-    //     headers: { Authorization: mock_tokem_from_touch },
+    //     headers: { Authorization: token },
     //   });
 
     //   //   console.log(response.data.activity_data);
 
-    //   setActivityList([...response.data.activity_data]);
+    //   if (response.data.activity_data) {
+    //     activityCtx.setActivityList([...response.data.activity_data]);
+    //   }
     // };
 
-    const fetchActivity = async () => {
-      await activityCtx.fetchAllActivity();
-    };
+    // const fetchActivity = async () => {
+    //   await activityCtx.fetchAllActivity();
+    // };
 
-    fetchActivity();
+    if (window.localStorage.getItem("token")) {
+      activityCtx.fetchAllActivity();
+    }
   }, []);
 
   return (

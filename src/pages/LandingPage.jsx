@@ -66,157 +66,181 @@ const LandingPage = () => {
         <h1>Community & Events</h1>
 
         <div className="event-cards">
-          <div class="card">
-            <div class="card-info">
-              <img class="card-img-top" src="src\assets\images\mockEvent.png" />
-              <div class="card-block">
-                <h4 class="card-title">Tawshif Ahsan Khan</h4>
+          <div className="card">
+            <div className="card-info">
+              <img
+                className="card-img-top"
+                src="src\assets\images\mockEvent.png"
+              />
+              <div className="card-block">
+                <h4 className="card-title">Tawshif Ahsan Khan</h4>
 
-                <div class="card-text">
+                <div className="card-text">
                   Tawshif is a web designer living in Tawshif is a web designer
                   living in Tawshif is a web designer living in Tawshif is a web
                   designer living in .............
                 </div>
               </div>
-              <div class="card-footer">
-                <span class="float-right">
+              <div className="card-footer">
+                <span className="float-right">
                   <a href="#">read continue...</a>
                 </span>
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-info">
-              <img class="card-img-top" src="src\assets\images\mockEvent.png" />
-              <div class="card-block">
-                <h4 class="card-title">Tawshif Ahsan Khan</h4>
+          <div className="card">
+            <div className="card-info">
+              <img
+                className="card-img-top"
+                src="src\assets\images\mockEvent.png"
+              />
+              <div className="card-block">
+                <h4 className="card-title">Tawshif Ahsan Khan</h4>
 
-                <div class="card-text">
+                <div className="card-text">
                   Tawshif is a web designer living in Tawshif is a web designer
                   living in Tawshif is a web designer living in Tawshif is a web
                   designer living in .............
                 </div>
               </div>
-              <div class="card-footer">
-                <span class="float-right">
-                  <a href="#">read continue...</a>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-info">
-              <img class="card-img-top" src="src\assets\images\mockEvent.png" />
-              <div class="card-block">
-                <h4 class="card-title">Tawshif Ahsan Khan</h4>
-
-                <div class="card-text">
-                  Tawshif is a web designer living in Tawshif is a web designer
-                  living in Tawshif is a web designer living in Tawshif is a web
-                  designer living in .............
-                </div>
-              </div>
-              <div class="card-footer">
-                <span class="float-right">
+              <div className="card-footer">
+                <span className="float-right">
                   <a href="#">read continue...</a>
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-info">
-              <img class="card-img-top" src="src\assets\images\mockEvent.png" />
-              <div class="card-block">
-                <h4 class="card-title">Tawshif Ahsan Khan</h4>
+          <div className="card">
+            <div className="card-info">
+              <img
+                className="card-img-top"
+                src="src\assets\images\mockEvent.png"
+              />
+              <div className="card-block">
+                <h4 className="card-title">Tawshif Ahsan Khan</h4>
 
-                <div class="card-text">
+                <div className="card-text">
                   Tawshif is a web designer living in Tawshif is a web designer
                   living in Tawshif is a web designer living in Tawshif is a web
                   designer living in .............
                 </div>
               </div>
-              <div class="card-footer">
-                <span class="float-right">
-                  <a href="#">read continue...</a>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-info">
-              <img class="card-img-top" src="src\assets\images\mockEvent.png" />
-              <div class="card-block">
-                <h4 class="card-title">Tawshif Ahsan Khan</h4>
-
-                <div class="card-text">
-                  Tawshif is a web designer living in Tawshif is a web designer
-                  living in Tawshif is a web designer living in Tawshif is a web
-                  designer living in .............
-                </div>
-              </div>
-              <div class="card-footer">
-                <span class="float-right">
-                  <a href="#">read continue...</a>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-info">
-              <img class="card-img-top" src="src\assets\images\mockEvent.png" />
-              <div class="card-block">
-                <h4 class="card-title">Tawshif Ahsan Khan</h4>
-
-                <div class="card-text">
-                  Tawshif is a web designer living in Tawshif is a web designer
-                  living in Tawshif is a web designer living in Tawshif is a web
-                  designer living in .............
-                </div>
-              </div>
-              <div class="card-footer">
-                <span class="float-right">
+              <div className="card-footer">
+                <span className="float-right">
                   <a href="#">read continue...</a>
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-info">
-              <img class="card-img-top" src="src\assets\images\mockEvent.png" />
-              <div class="card-block">
-                <h4 class="card-title">Tawshif Ahsan Khan</h4>
+          <div className="card">
+            <div className="card-info">
+              <img
+                className="card-img-top"
+                src="src\assets\images\mockEvent.png"
+              />
+              <div className="card-block">
+                <h4 className="card-title">Tawshif Ahsan Khan</h4>
 
-                <div class="card-text">
+                <div className="card-text">
                   Tawshif is a web designer living in Tawshif is a web designer
                   living in Tawshif is a web designer living in Tawshif is a web
                   designer living in .............
                 </div>
               </div>
-              <div class="card-footer">
-                <span class="float-right">
+              <div className="card-footer">
+                <span className="float-right">
+                  <a href="#">read continue...</a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-info">
+              <img
+                className="card-img-top"
+                src="src\assets\images\mockEvent.png"
+              />
+              <div className="card-block">
+                <h4 className="card-title">Tawshif Ahsan Khan</h4>
+
+                <div className="card-text">
+                  Tawshif is a web designer living in Tawshif is a web designer
+                  living in Tawshif is a web designer living in Tawshif is a web
+                  designer living in .............
+                </div>
+              </div>
+              <div className="card-footer">
+                <span className="float-right">
+                  <a href="#">read continue...</a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-info">
+              <img
+                className="card-img-top"
+                src="src\assets\images\mockEvent.png"
+              />
+              <div className="card-block">
+                <h4 className="card-title">Tawshif Ahsan Khan</h4>
+
+                <div className="card-text">
+                  Tawshif is a web designer living in Tawshif is a web designer
+                  living in Tawshif is a web designer living in Tawshif is a web
+                  designer living in .............
+                </div>
+              </div>
+              <div className="card-footer">
+                <span className="float-right">
                   <a href="#">read continue...</a>
                 </span>
               </div>
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-info">
-              <img class="card-img-top" src="src\assets\images\mockEvent.png" />
-              <div class="card-block">
-                <h4 class="card-title">Tawshif Ahsan Khan</h4>
+          <div className="card">
+            <div className="card-info">
+              <img
+                className="card-img-top"
+                src="src\assets\images\mockEvent.png"
+              />
+              <div className="card-block">
+                <h4 className="card-title">Tawshif Ahsan Khan</h4>
 
-                <div class="card-text">
+                <div className="card-text">
                   Tawshif is a web designer living in Tawshif is a web designer
                   living in Tawshif is a web designer living in Tawshif is a web
                   designer living in .............
                 </div>
               </div>
-              <div class="card-footer">
-                <span class="float-right">
+              <div className="card-footer">
+                <span className="float-right">
+                  <a href="#">read continue...</a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-info">
+              <img
+                className="card-img-top"
+                src="src\assets\images\mockEvent.png"
+              />
+              <div className="card-block">
+                <h4 className="card-title">Tawshif Ahsan Khan</h4>
+
+                <div className="card-text">
+                  Tawshif is a web designer living in Tawshif is a web designer
+                  living in Tawshif is a web designer living in Tawshif is a web
+                  designer living in .............
+                </div>
+              </div>
+              <div className="card-footer">
+                <span className="float-right">
                   <a href="#">read continue...</a>
                 </span>
               </div>

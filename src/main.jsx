@@ -8,10 +8,12 @@ import {
   Route,
 } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import axios from "axios";
 import date from "date-and-time";
 import "./index.css";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Error from "./pages/Error";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
@@ -24,6 +26,9 @@ import ActivityContextProvider from "./context/ActivityContext";
 
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
+
+axios.defaults.baseURL = import.meta.env.VITE_APP_BASE_URL;
+// axios.defaults.withCredentials = true;
 
 // for non-token or non-login
 function NonAuthProtectedRoute({ children }) {
@@ -49,7 +54,11 @@ function AuthProtectedRoute({ children }) {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <AuthProtectedRoute>
+        <Home />
+      </AuthProtectedRoute>
+    ),
   },
   {
     path: "/dashboard",
@@ -113,6 +122,10 @@ const router = createBrowserRouter([
         <EditActivity />
       </NonAuthProtectedRoute>
     ),
+  },
+  {
+    path: "*",
+    element: <Error />,
   },
 ]);
 

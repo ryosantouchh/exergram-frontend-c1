@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { convertDurationToShow } from "../../utils/activity.util.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { ActivityContext } from "../../context/ActivityContext.jsx";
 import axios from "axios";
@@ -47,7 +48,7 @@ const MainActivityList = (props) => {
               <p>{props.value.dateTime}</p>
             </div>
             <div className="activity-card-exercise-info">
-              <p>Duration : {props.value.duration} </p>
+              <p>Duration : {convertDurationToShow(props.value.duration)} </p>
               <p>Distance : {props.value.distance} </p>
             </div>
           </div>
@@ -63,6 +64,7 @@ const MainActivityList = (props) => {
             onClick={() => activityCtx.deleteActivity(props.value._id)}
           ></i>
         </div>
+        {/* <div className="activity-card-note-box">{props.value.note}</div> */}
       </div>
     </>
   );
