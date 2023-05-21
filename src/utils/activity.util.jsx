@@ -15,9 +15,20 @@ export const convertDurationToShow = (duration) => {
   if (duration > 60) {
     const showHour = Math.floor(duration / 60);
     const showMin = duration % 60;
-    return `${showHour} hr ${showMin} m `;
+    return `${showHour} hr ${showMin} min `;
   } else {
     const showMin = duration;
-    return `${showMin} m`;
+    return `${showMin} min`;
+  }
+};
+
+export const convertDistanceToShow = (distance) => {
+  if (distance > 60) {
+    const showKm = Math.floor(distance / 1000);
+    const showMeter = distance % 1000;
+    return showMeter !== 0 ? `${showKm} km ${showMeter} meter` : `${showKm} km`;
+  } else {
+    const showMeter = distance;
+    return `${showMeter} meter`;
   }
 };

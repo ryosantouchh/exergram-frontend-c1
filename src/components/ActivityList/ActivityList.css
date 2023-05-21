@@ -1,5 +1,5 @@
 .activity-list-main-body {
-  width: 50%;
+  /* width: 600px; */
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -41,7 +41,7 @@
 .activity-card-exercise-details {
   width: 100%;
   display: flex;
-  gap: 16px;
+  gap: 4px;
   align-items: center;
   position: relative;
 }
@@ -75,8 +75,11 @@
 
 .activity-card-exercise-info {
   display: flex;
-  gap: 32px;
   align-items: center;
+}
+
+.activity-card-exercise-info > p:nth-child(1) {
+  width: 200px;
 }
 
 .activity-card-edit-delete-box {

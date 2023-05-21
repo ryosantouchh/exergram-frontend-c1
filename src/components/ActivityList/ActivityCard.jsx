@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { convertDurationToShow } from "../../utils/activity.util.jsx";
+import {
+  convertDurationToShow,
+  convertDistanceToShow,
+} from "../../utils/activity.util.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { ActivityContext } from "../../context/ActivityContext.jsx";
 import axios from "axios";
@@ -49,7 +52,9 @@ const MainActivityList = (props) => {
             </div>
             <div className="activity-card-exercise-info">
               <p>Duration : {convertDurationToShow(props.value.duration)} </p>
-              <p>Distance : {props.value.distance} </p>
+              {props.value.distance ? (
+                <p>Distance : {convertDistanceToShow(props.value.distance)} </p>
+              ) : null}
             </div>
           </div>
         </div>
