@@ -105,30 +105,6 @@ const Signup = () => {
       //   for (let pair of userForm.entries()) {
       //       console.log(pair[0] + ", " + pair[1]);
       //     }
-      //   const userForm = new FormData();
-      //   htmlFor (let key in userData) {
-      //     userForm.append(key, userData[key]);
-      //   }
-      //   console.log(userForm);
-      //   htmlFor (let pair of userForm.entries()) {
-      //       console.log(pair[0] + ", " + pair[1]);
-      //     }
-      //   const userForm = new FormData();
-      //   htmlFor (let key in userData) {
-      //     userForm.append(key, userData[key]);
-      //   }
-      //   console.log(userForm);
-      //   htmlFor (let pair of userForm.entries()) {
-      //       console.log(pair[0] + ", " + pair[1]);
-      //     }
-      //   const userForm = new FormData();
-      //   htmlFor (let key in userData) {
-      //     userForm.append(key, userData[key]);
-      //   }
-      //   console.log(userForm);
-      //   htmlFor (let pair of userForm.entries()) {
-      //       console.log(pair[0] + ", " + pair[1]);
-      //     }
     } catch (err) {
       console.error(err);
     }
