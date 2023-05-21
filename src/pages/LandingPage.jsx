@@ -62,7 +62,6 @@ const LandingPage = () => {
           </h1>
         </div>
       </div>
-
       <CommunityAndEvent />
     </>
   );
