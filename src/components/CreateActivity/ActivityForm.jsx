@@ -11,7 +11,7 @@ import { ImageContext } from "../../context/ImageContext";
 const datePattern = date.compile("ddd, MMM DD YYYY");
 
 const ActivityForm = (props) => {
-  const { activityFormData } = props;
+  const { activityFormData, activityType } = props;
 
   const [titleInput, setTitleInput] = useState("");
   const [selectedType, setSelectedType] = useState("");
@@ -203,7 +203,7 @@ const ActivityForm = (props) => {
             {validate.type}
           </p>
         ) : null}
-        {activityFormData.map((item, idx) => {
+        {activityType.map((item, idx) => {
           return (
             <ActivityRadio
               key={idx}

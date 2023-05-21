@@ -1,41 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "../styles/CreateActivity.css";
 import Layout from "../layout/Layout";
-import ActivityType from "../components/CreateActivity/ActivityType";
 import ActivityForm from "../components/CreateActivity/ActivityForm";
-
-const activityFormData = [
-  {
-    type: "run",
-    value: "running",
-    icon: "fa-solid fa-person-running",
-  },
-  {
-    type: "bike",
-    value: "biking",
-    icon: "fa-solid fa-bicycle",
-  },
-  {
-    type: "swim",
-    value: "swimming",
-    icon: "fa-solid fa-person-swimming",
-  },
-  {
-    type: "hike",
-    value: "hiking",
-    icon: "fa-sharp fa-solid fa-person-hiking",
-  },
-  {
-    type: "boxing",
-    value: "boxing",
-    icon: "fa-solid fa-hand-fist",
-  },
-];
+import { ActivityContext } from "../context/ActivityContext";
 
 const CreateActivity = () => {
+  const activityCtx = useContext(ActivityContext);
+
+  useEffect(() => {
+    const fetchType = async () => {
+      const res = await activityCtx.fetchAllType();
+    };
+    if (activityCtx.activityType.length === 0) fetchType();
+  }, []);
+
   return (
     <Layout>
-      <ActivityForm activityFormData={activityFormData} />
+      <ActivityForm activityType={activityCtx.activityType} />
     </Layout>
   );
 };

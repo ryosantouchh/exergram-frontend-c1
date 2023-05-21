@@ -1,15 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import NavbarUser from "../components/Navbar/NavbarUser";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import { UserContext } from "../context/UserContext";
+import { AuthContext } from "../context/AuthContext";
 
 function Layout({ children }) {
-  const { isLoggedIn } = useContext(UserContext);
+  const token = window.localStorage.getItem("token");
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    if (token) {
+      const decodedToken = authCtx.tokenDecoder();
+      // const decodedToken = jwtDecode(token);
+      // console.log(decodedToken);
+      const currentTime = Date.now() / 1000;
+      // console.log(currentTime);
+
+      if (decodedToken.exp < currentTime) {
+        window.localStorage.removeItem("token");
+        authCtx.setToken("");
+      }
+    }
+  }, []);
 
   return (
     <div className="layout">
-      {isLoggedIn ? <NavbarUser /> : <Navbar />}
+      {token ? <NavbarUser /> : <Navbar />}
       {children}
       <Footer />
     </div>

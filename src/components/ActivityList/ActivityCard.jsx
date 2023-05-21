@@ -13,8 +13,6 @@ const MainActivityList = (props) => {
       const res = await activityCtx.fetchAllType();
     };
     if (activityCtx.activityType.length === 0) fetchType();
-
-    if (activityCtx.activityType.length !== 0) findIconToShow("boxing");
   }, []);
 
   const findIconToShow = (typeInput) => {
