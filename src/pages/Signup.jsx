@@ -102,7 +102,7 @@ const Signup = () => {
       //     userForm.append(key, userData[key]);
       //   }
       //   console.log(userForm);
-      //   for (let pair of userForm.entries()) {
+      //   htmlFor (let pair of userForm.entries()) {
       //       console.log(pair[0] + ", " + pair[1]);
       //     }
     } catch (err) {
