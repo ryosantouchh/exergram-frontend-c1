@@ -12,7 +12,7 @@ import { AuthContext } from "../../context/AuthContext";
 const datePattern = date.compile("ddd, MMM DD YYYY");
 
 const ActivityForm = (props) => {
-  const { activityFormData, activityType } = props;
+  const { activityType } = props;
 
   const [titleInput, setTitleInput] = useState("");
   const [selectedType, setSelectedType] = useState("");
@@ -26,6 +26,7 @@ const ActivityForm = (props) => {
   const [image, setImage] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const [validate, setValidate] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const { activityId } = useParams();
@@ -51,7 +52,7 @@ const ActivityForm = (props) => {
   //   };
   // };
 
-  const validateForm = () => {
+  const validateForm = (inputError) => {
     if (validator.isEmpty(titleInput)) inputError.title = "Title is required";
     if (validator.isEmpty(dateInput)) inputError.date = "Date is required";
     if (validator.isEmpty(timeInput)) inputError.time = "Time is required";
@@ -69,7 +70,7 @@ const ActivityForm = (props) => {
     try {
       const inputError = {};
 
-      validateForm();
+      validateForm(inputError);
 
       if (Object.keys(inputError).length > 0) {
         setValidate(inputError);
@@ -121,6 +122,7 @@ const ActivityForm = (props) => {
         //     Authorization: token,
         //   },
         // });
+        setLoading((prev) => (prev = true));
 
         const response = await axios({
           method: METHOD,
@@ -132,11 +134,12 @@ const ActivityForm = (props) => {
           },
         });
 
-        console.log(response);
+        // console.log(response);
 
         navigate("/feed");
       }
     } catch (error) {
+      setLoading((prev) => (prev = false));
       console.log(error);
     }
   };
@@ -151,11 +154,12 @@ const ActivityForm = (props) => {
 
   const wrapDateAndTime = () => {
     let currentDate = new Date(dateInput + " " + timeInput);
-    let utcTimestamp = currentDate.getTime();
-    let utcOffsetMs = 7 * 60 * 60 * 1000;
-    let gmt7Timestamp = utcTimestamp + utcOffsetMs;
-    let gmt7Date = new Date(gmt7Timestamp);
-    return new Date(gmt7Date);
+    // let utcTimestamp = currentDate.getTime();
+    // let utcOffsetMs = 7 * 60 * 60 * 1000;
+    // let gmt7Timestamp = utcTimestamp + utcOffsetMs;
+    // let gmt7Date = new Date(gmt7Timestamp);
+    // return new Date(gmt7Date);
+    return new Date(currentDate);
   };
 
   const convertDurationToMinutes = () => {
@@ -444,36 +448,39 @@ const ActivityForm = (props) => {
           </div>
         </form>
       </div>
-
-      <div className="btn-container">
-        {activityId ? (
+      {loading ? (
+        <div className="activity-form-loading "></div>
+      ) : (
+        <div className="btn-container">
+          {activityId ? (
+            <button
+              className="orange-btn"
+              type="submit"
+              value="Submit"
+              onClick={() => handleCreateUpdateActivity()}
+            >
+              Update
+            </button>
+          ) : (
+            <button
+              className="orange-btn"
+              type="submit"
+              value="Submit"
+              onClick={() => handleCreateUpdateActivity()}
+            >
+              Create
+            </button>
+          )}
           <button
-            className="orange-btn"
+            className="other-btn"
             type="submit"
             value="Submit"
-            onClick={() => handleCreateUpdateActivity()}
+            onClick={() => navigate("/dashboard")}
           >
-            Update
+            Cancel
           </button>
-        ) : (
-          <button
-            className="orange-btn"
-            type="submit"
-            value="Submit"
-            onClick={() => handleCreateUpdateActivity()}
-          >
-            Create
-          </button>
-        )}
-        <button
-          className="other-btn"
-          type="submit"
-          value="Submit"
-          onClick={() => navigate("/dashboard")}
-        >
-          Cancel
-        </button>
-      </div>
+        </div>
+      )}
     </div>
   );
 };

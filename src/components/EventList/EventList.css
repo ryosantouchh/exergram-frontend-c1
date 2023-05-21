@@ -1,5 +1,5 @@
 .activity-event-right-sidebar {
-  width: 20%;
+  min-width: 240px;
   height: 800px;
   display: flex;
   flex-direction: column;
@@ -10,10 +10,10 @@
   padding: 16px;
   border-radius: 30px;
   position: sticky;
-  top: 48px;
+  top: 96px;
 }
 .activity-event-card-detail {
-  width: 100%;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@
 }
 .activity-event-card-detail img {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 16px;
   margin-top: 16px;
   margin-bottom: 8px;
 }

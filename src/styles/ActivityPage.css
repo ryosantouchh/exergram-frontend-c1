@@ -4,3 +4,10 @@
   margin: 0 auto;
   padding-bottom: 60px;
 }
+
+.activity-list-blur-bg {
+  border: 1px solid saddlebrown;
+  height: 100vh;
+  width: 100vh;
+  position: absolute;
+}

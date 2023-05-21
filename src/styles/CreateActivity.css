@@ -219,7 +219,6 @@
 }
 
 .btn-container button:hover {
-  scale: 1.02;
   box-shadow: 0 0 3px var(--accent-color);
   background-color: var(--bg-color);
   outline: 1px solid var(--accent-color);
@@ -265,4 +264,25 @@
   border-radius: 30px;
   border: 0;
   color: var(--white-text);
+}
+
+.activity-form-loading {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 5px solid var(--grey-btn-color);
+  border-right: 5px solid var(--accent-color);
+  border-bottom: 5px solid var(--accent-color);
+  /* transform: rotate(0deg); */
+  margin: 0 auto;
+  animation: spinning 60s infinite;
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(36000deg);
+  }
 }

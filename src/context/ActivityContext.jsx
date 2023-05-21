@@ -7,6 +7,7 @@ export const ActivityContext = createContext({});
 const ActivityContextProvider = ({ children }) => {
   const [activityType, setActivityType] = useState([]);
   const [activityList, setActivityList] = useState([]);
+  const [page, setPage] = useState(1);
 
   const token = `Bearer ${window.localStorage.getItem("token")}`;
 
@@ -19,7 +20,7 @@ const ActivityContextProvider = ({ children }) => {
     return res.data;
   };
 
-  const fetchAllActivity = async () => {
+  const fetchAllActivity = async (pageParams) => {
     // mock header authorization token
     // token here
     // const mock_tokem_from_touch =
@@ -28,11 +29,14 @@ const ActivityContextProvider = ({ children }) => {
     const token = `Bearer ${window.localStorage.getItem("token")}`;
 
     const response = await axios.get(END_POINT_URL + "/activity", {
-      headers: { Authorization: token },
+      headers: { Authorization: token, pageParams },
     });
 
     if (response.data.activity_data) {
       setActivityList([...response.data.activity_data]);
+      setPage(
+        (prev) => (prev = Math.ceil(response.data.count.all_activity / 10))
+      );
     }
   };
 
@@ -60,6 +64,7 @@ const ActivityContextProvider = ({ children }) => {
     activityList,
     deleteActivity,
     setActivityList,
+    page,
   };
 
   return (

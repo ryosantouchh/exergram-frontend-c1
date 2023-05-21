@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router";
 import ActivityCard from "./ActivityCard";
 import { END_POINT_URL } from "../../configs/base.url.js";
 import { ActivityContext } from "../../context/ActivityContext";
@@ -9,38 +10,43 @@ import axios from "axios";
 
 const ActivityList = () => {
   //   const [activityList, setActivityList] = useState([]);
+  // const [page, setPage] = useState(1);
+  const { feedPage } = useParams();
 
   const activityCtx = useContext(ActivityContext);
+  const navigate = useNavigate();
+
+  const renderPageButton = () => {
+    const pageButtons = [];
+
+    for (let i = 1; i <= activityCtx.page; i++) {
+      pageButtons.push(
+        <button
+          onClick={() => {
+            navigate("/feed/" + i);
+          }}
+          key={i}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    return pageButtons;
+  };
 
   useEffect(() => {
-    // const fetchActivity = async () => {
-    //   const token = `Bearer ${window.localStorage.getItem("token")}`;
-
-    //   const response = await axios.get(END_POINT_URL + "/activity", {
-    //     headers: { Authorization: token },
-    //   });
-
-    //   //   console.log(response.data.activity_data);
-
-    //   if (response.data.activity_data) {
-    //     activityCtx.setActivityList([...response.data.activity_data]);
-    //   }
-    // };
-
-    // const fetchActivity = async () => {
-    //   await activityCtx.fetchAllActivity();
-    // };
-
     if (window.localStorage.getItem("token")) {
-      activityCtx.fetchAllActivity();
+      activityCtx.fetchAllActivity(feedPage);
     }
-  }, []);
+  }, [feedPage]);
 
   return (
     <div className="activity-list-main-body">
       {activityCtx.activityList.map((item, idx) => {
         return <ActivityCard value={item} key={item._id} />;
       })}
+      <div className="activity-list-page-button-box">{renderPageButton()}</div>
     </div>
   );
 };

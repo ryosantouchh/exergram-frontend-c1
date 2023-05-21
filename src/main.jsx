@@ -92,6 +92,12 @@ const router = createBrowserRouter([
         <ActivityPage />
       </NonAuthProtectedRoute>
     ),
+    children: [
+      {
+        path: ":feedPage",
+        element: <ActivityPage />,
+      },
+    ],
   },
   {
     path: "/editprofile",

@@ -1,5 +1,5 @@
 .activity-list-main-body {
-  width: 600px;
+  min-width: 570px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -22,7 +22,7 @@
 .activity-card-main-content:hover {
   outline: 3px solid var(--accent-color);
   cursor: pointer;
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
   transition: transform 0.3s ease-in-out;
 }
 
@@ -30,16 +30,18 @@
   padding: 32px 24px 24px;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .activity-card-main-img img {
-  height: 270px;
+  height: 280px;
   /* width: 100%; */
   border-radius: 8px;
 }
 
 .activity-card-exercise-details {
   width: 100%;
+  height: 120px;
   display: flex;
   gap: 4px;
   align-items: center;
@@ -47,7 +49,7 @@
 }
 
 .activity-card-exercise-icon {
-  width: 25%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +64,7 @@
 }
 
 .activity-card-exercise-summary {
-  width: 75%;
+  width: 80%;
   display: flex;
   flex-direction: column;
 }
@@ -70,16 +72,24 @@
 .activity-card-exercise-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  gap: 4px;
+}
+
+.activity-card-exercise-header > p {
+  font-size: 12px;
+  opacity: 0.75;
+  font-style: italic;
 }
 
 .activity-card-exercise-info {
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .activity-card-exercise-info > p:nth-child(1) {
-  width: 200px;
+  width: 180px;
 }
 
 .activity-card-edit-delete-box {
@@ -114,3 +124,41 @@
   transform: translate(-50%, -50%);
   z-index: 1;
 } */
+
+/* .activity-card-click-to-zoom {
+  position: absolute;
+  top: 50%;
+  font-size: 24px;
+  font-weight: 600;
+  border: 1px solid red;
+}
+
+.activity-card-click-to-zoom:hover ~ img {
+  filter: blur(3px);
+}
+
+.activity-card-main-img > img:hover {
+  filter: blur(3px);
+} */
+
+.activity-list-page-button-box {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 4px;
+  margin: 24px auto 0;
+}
+
+.activity-list-page-button-box button {
+  background-color: var(--grey-btn-color);
+  border: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white-text);
+}
+
+.activity-list-page-button-box button:hover {
+  cursor: pointer;
+}

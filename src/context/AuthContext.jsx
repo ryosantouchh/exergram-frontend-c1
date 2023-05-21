@@ -13,10 +13,7 @@ const AuthContextProvider = ({ children }) => {
   const [password, setPassword] = useState("");
 
   const signup = async (signupData) => {
-    const response = await axios.post(
-      END_POINT_URL + "/auth/register",
-      signupData
-    );
+    const response = await axios.post("/auth/register", signupData);
   };
 
   const login = async (e) => {
