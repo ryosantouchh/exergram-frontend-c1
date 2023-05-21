@@ -27,7 +27,7 @@ const ActivityList = () => {
     //   setActivityList([...response.data.activity_data]);
     // };
 
-    const fetchActivity = async (token) => {
+    const fetchActivity = async () => {
       await activityCtx.fetchAllActivity();
     };
 

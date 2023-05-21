@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+  Route,
+} from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import date from "date-and-time";
 import "./index.css";
@@ -13,17 +18,33 @@ import Dashboard from "./pages/Dashboard";
 import ActivityPage from "./pages/ActivityPage";
 import EditProfile from "./pages/EditProfile";
 
-import UserContextProvider from "./context/UserContext";
+import AuthContextProvider from "./context/AuthContext";
 import ImageContextProvider from "./context/ImageContext";
 import ActivityContextProvider from "./context/ActivityContext";
 
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
 
-const ProtectedRoute = ({ children }) => {
-  // check localstorage have token
-  // if not redirect to another page
-};
+// for non-token or non-login
+function NonAuthProtectedRoute({ children }) {
+  const isAuthenticated = window.localStorage.getItem("token");
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+}
+
+// for token or login
+function AuthProtectedRoute({ children }) {
+  const isAuthenticated = window.localStorage.getItem("token");
+  if (isAuthenticated) {
+    return <Navigate to="/feed" replace />;
+  }
+
+  return children;
+}
 
 const router = createBrowserRouter([
   {
@@ -32,27 +53,52 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <NonAuthProtectedRoute>
+        <Dashboard />
+      </NonAuthProtectedRoute>
+    ),
+    // element: <ProtectedRoute path="/login" element={<Dashboard />} />,
   },
   {
     path: "/signup",
-    element: <Signup />,
+    element: (
+      <AuthProtectedRoute>
+        <Signup />
+      </AuthProtectedRoute>
+    ),
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <AuthProtectedRoute>
+        <Login />
+      </AuthProtectedRoute>
+    ),
   },
   {
     path: "/feed",
-    element: <ActivityPage />,
+    element: (
+      <NonAuthProtectedRoute>
+        <ActivityPage />
+      </NonAuthProtectedRoute>
+    ),
   },
   {
     path: "/editprofile",
-    element: <EditProfile />,
+    element: (
+      <NonAuthProtectedRoute>
+        <EditProfile />
+      </NonAuthProtectedRoute>
+    ),
   },
   {
     path: "/createactivity",
-    element: <CreateActivity />,
+    element: (
+      <NonAuthProtectedRoute>
+        <CreateActivity />
+      </NonAuthProtectedRoute>
+    ),
     children: [
       {
         path: ":activityId",
@@ -62,16 +108,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/editactivity",
-    element: <EditActivity />,
+    element: (
+      <NonAuthProtectedRoute>
+        <EditActivity />
+      </NonAuthProtectedRoute>
+    ),
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <UserContextProvider>
+  <AuthContextProvider>
     <ActivityContextProvider>
       <ImageContextProvider>
         <RouterProvider router={router} />
       </ImageContextProvider>
     </ActivityContextProvider>
-  </UserContextProvider>
+  </AuthContextProvider>
 );

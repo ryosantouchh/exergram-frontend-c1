@@ -7,21 +7,21 @@ const ActivityRadio = (props) => {
         className="radio-input"
         type="radio"
         name="activity"
-        value={props.data.value}
+        value={props.data.type}
         id={props.data.type}
-        checked={props.selectedType === props.data.value}
+        checked={props.selectedType === props.data.type}
         onChange={props.handleOnChangeRadio}
       />
       <div
         className="radio-tile"
         style={props.validate.type ? { outline: "2px solid red" } : null}
       >
-        <i className={props.data.icon}></i>
+        <i className={props.data.font_awesome_icon}></i>
         <label
           htmlFor={props.data.type}
           style={{ textTransform: "uppercase", fontStyle: "italic" }}
         >
-          {props.data.type}
+          {props.data.title}
         </label>
       </div>
     </div>

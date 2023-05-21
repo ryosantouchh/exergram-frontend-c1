@@ -8,6 +8,8 @@ const ActivityContextProvider = ({ children }) => {
   const [activityType, setActivityType] = useState([]);
   const [activityList, setActivityList] = useState([]);
 
+  const token = `Bearer ${window.localStorage.getItem("token")}`;
+
   // Fetch Activity Type
   const fetchAllType = async () => {
     // const END_POINT = BASE_URL || "http://localhost:8080";
@@ -17,14 +19,14 @@ const ActivityContextProvider = ({ children }) => {
     return res.data;
   };
 
-  const fetchAllActivity = async (token) => {
+  const fetchAllActivity = async () => {
     // mock header authorization token
     // token here
-    const mock_tokem_from_touch =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
+    // const mock_tokem_from_touch =
+    //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
 
     const response = await axios.get(END_POINT_URL + "/activity", {
-      headers: { Authorization: mock_tokem_from_touch },
+      headers: { Authorization: token },
     });
 
     //   console.log(response.data.activity_data);
@@ -32,21 +34,18 @@ const ActivityContextProvider = ({ children }) => {
     setActivityList([...response.data.activity_data]);
   };
 
-  const deleteActivity = async (activity_id, token) => {
-    const mock_tokem_from_touch =
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
-
+  const deleteActivity = async (activity_id) => {
     if (confirm("Delete this activity ?")) {
       const response = await axios.delete(
         END_POINT_URL + "/activity/" + activity_id,
         {
-          headers: { Authorization: mock_tokem_from_touch },
+          headers: { Authorization: token },
         }
       );
       console.log(response);
 
       const responseFromGet = await axios.get(END_POINT_URL + "/activity", {
-        headers: { Authorization: mock_tokem_from_touch },
+        headers: { Authorization: token },
       });
       console.log(responseFromGet);
 
