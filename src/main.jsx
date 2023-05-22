@@ -28,7 +28,7 @@ import UserContextProvider from "./context/UserContext";
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
 
-axios.defaults.baseURL = import.meta.env.VITE_APP_BACKEND_URL;
+// axios.defaults.baseURL = import.meta.env.VITE_APP_BACKEND_URL;
 // axios.defaults.withCredentials = true;
 
 // for non-token or non-login
