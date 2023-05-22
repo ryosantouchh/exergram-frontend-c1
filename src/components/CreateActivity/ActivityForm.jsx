@@ -102,15 +102,16 @@ const ActivityForm = (props) => {
         // }
         let END_POINT_ROUTE = "";
         let METHOD = "";
-        activityId
-          ? (END_POINT_ROUTE = "/activity/" + activityId)
-          : (END_POINT_ROUTE = "/activity");
+        // activityId
+        //   ? (END_POINT_ROUTE = "/activity/" + activityId)
+        //   : (END_POINT_ROUTE = "/activity");
 
         if (activityId) {
-          END_POINT_ROUTE = "/activity/" + activityId;
+          END_POINT_ROUTE =
+            import.meta.env.VITE_APP_BACKEND_URL + "/activity/" + activityId;
           METHOD = "patch";
         } else {
-          END_POINT_ROUTE = "/activity";
+          END_POINT_ROUTE = import.meta.env.VITE_APP_BACKEND_URL + "/activity";
           METHOD = "post";
         }
 
