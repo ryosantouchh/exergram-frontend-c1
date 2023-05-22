@@ -26,7 +26,11 @@ const AuthContextProvider = ({ children }) => {
         password: password,
       };
       // console.log(loginData);
-      const response = await axios.post("/auth/login", loginData);
+      // const response = await axios.post("/auth/login", loginData);
+      const response = await axios.post(
+        import.meta.env.VITE_APP_BACKEND_URL + "/auth/login",
+        loginData
+      );
 
       if (response) {
         window.localStorage.setItem("token", response.data.token);
