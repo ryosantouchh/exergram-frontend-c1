@@ -11,8 +11,6 @@ const ActivityContextProvider = ({ children }) => {
   const [countActivityType, setCountActivityType] = useState([]);
   const [page, setPage] = useState(1);
 
-  const token = `Bearer ${window.localStorage.getItem("token")}`;
-
   // Fetch Activity Type
   const fetchAllType = async () => {
     // const END_POINT = BASE_URL || "http://localhost:8080";
@@ -23,6 +21,8 @@ const ActivityContextProvider = ({ children }) => {
   };
 
   const fetchAllActivity = async (pageParams) => {
+    const token = `Bearer ${window.localStorage.getItem("token")}`;
+
     const response = await axios.get("/activity", {
       headers: { Authorization: token, pageParams },
     });
