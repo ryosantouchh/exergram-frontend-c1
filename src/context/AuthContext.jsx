@@ -11,6 +11,8 @@ const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const signup = async (signupData) => {
     const response = await axios.post("/auth/register", signupData);
@@ -27,9 +29,6 @@ const AuthContextProvider = ({ children }) => {
       const response = await axios.post("/auth/login", loginData);
 
       if (response) {
-        setToken(response.data.token);
-        // const decodedToken = jwtDecode(response.data.token);
-
         window.localStorage.setItem("token", response.data.token);
         return response;
       }
@@ -48,9 +47,18 @@ const AuthContextProvider = ({ children }) => {
     return decodedToken;
   };
 
+  const readFullname = () => {
+    if (window.localStorage.getItem("token")) {
+      const decoded = tokenDecoder();
+      setFirstName(decoded.firstname);
+      setLastName(decoded.lastname);
+    }
+  };
+
   const contextValue = {
     isLoggedIn,
     login,
+    readFullname,
     setUsername,
     setPassword,
     setToken,
@@ -58,6 +66,10 @@ const AuthContextProvider = ({ children }) => {
     tokenDecoder,
     signup,
     logout,
+    firstName,
+    lastName,
+    setFirstName,
+    setLastName,
   };
 
   return (

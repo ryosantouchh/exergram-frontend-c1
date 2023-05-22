@@ -23,6 +23,7 @@ import EditProfile from "./pages/EditProfile";
 import AuthContextProvider from "./context/AuthContext";
 import ImageContextProvider from "./context/ImageContext";
 import ActivityContextProvider from "./context/ActivityContext";
+import UserContextProvider from "./context/UserContext";
 
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
@@ -137,10 +138,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
-    <ActivityContextProvider>
-      <ImageContextProvider>
-        <RouterProvider router={router} />
-      </ImageContextProvider>
-    </ActivityContextProvider>
+    <UserContextProvider>
+      <ActivityContextProvider>
+        <ImageContextProvider>
+          <RouterProvider router={router} />
+        </ImageContextProvider>
+      </ActivityContextProvider>
+    </UserContextProvider>
   </AuthContextProvider>
 );

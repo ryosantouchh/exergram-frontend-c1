@@ -6,11 +6,11 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--primary-color);
-  margin: 18px 16px 16px;
+  margin: 36px 16px 16px;
   padding: 16px;
   border-radius: 30px;
   position: sticky;
-  top: 96px;
+  top: 120px;
 }
 .activity-event-card-detail {
   width: 200px;

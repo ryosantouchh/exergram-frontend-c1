@@ -1,12 +1,14 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
-import { END_POINT_URL } from "../configs/base.url";
+// import { END_POINT_URL } from "../configs/base.url";
 
 export const ActivityContext = createContext({});
 
 const ActivityContextProvider = ({ children }) => {
   const [activityType, setActivityType] = useState([]);
   const [activityList, setActivityList] = useState([]);
+  const [countActivities, setCountActivities] = useState(0);
+  const [countActivityType, setCountActivityType] = useState([]);
   const [page, setPage] = useState(1);
 
   const token = `Bearer ${window.localStorage.getItem("token")}`;
@@ -14,26 +16,20 @@ const ActivityContextProvider = ({ children }) => {
   // Fetch Activity Type
   const fetchAllType = async () => {
     // const END_POINT = BASE_URL || "http://localhost:8080";
-    const res = await axios.get(END_POINT_URL + "/activity_type");
+    const res = await axios.get("/activity_type");
     // console.log(res.data);
     setActivityType([...res.data]);
     return res.data;
   };
 
   const fetchAllActivity = async (pageParams) => {
-    // mock header authorization token
-    // token here
-    // const mock_tokem_from_touch =
-    //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4NzlhZjdlMjc1Y2MzYzViMmUyNWUiLCJmaXJzdG5hbWUiOiJLaXR0aXRhdCIsImxhc3RuYW1lIjoiU3VudGltYWsiLCJpYXQiOjE2ODQ1OTc1ODQsImV4cCI6MTY4NDYyNjM4NH0.iMMyWNahZeSnxmOtiAeRPM29xNlcFrbNWGb-mv9azD4";
-
-    const token = `Bearer ${window.localStorage.getItem("token")}`;
-
-    const response = await axios.get(END_POINT_URL + "/activity", {
+    const response = await axios.get("/activity", {
       headers: { Authorization: token, pageParams },
     });
 
     if (response.data.activity_data) {
       setActivityList([...response.data.activity_data]);
+      setCountActivities(response.data.count.all_activity);
       setPage(
         (prev) => (prev = Math.ceil(response.data.count.all_activity / 10))
       );
@@ -65,6 +61,7 @@ const ActivityContextProvider = ({ children }) => {
     deleteActivity,
     setActivityList,
     page,
+    countActivities,
   };
 
   return (

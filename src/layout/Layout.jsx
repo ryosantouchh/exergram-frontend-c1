@@ -20,8 +20,8 @@ function Layout({ children }) {
 
       if (decodedToken.exp < currentTime) {
         // console.log("expired");
-        authCtx.logout();
         authCtx.setToken("");
+        authCtx.logout();
       }
     }
   }, []);

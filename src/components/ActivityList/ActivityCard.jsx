@@ -91,13 +91,10 @@ const ActivityCard = (props) => {
             <div className="activity-card-exercise-header">
               <h3>{props.value.title}</h3>
               <p>
-                {/* {dayjs(props.value.activityDate).format("DD MMM YYYY")} */}
-                {/* {" " + "at" + " "} */}
-                {/* {dayjs(props.value.activityDate).format("HH:mm:ss ZZ")} */}
                 {dayjs(props.value.activityDate).format("dddd , D MMM YYYY")}
                 {" " + "at" + " "}
                 {dayjs(props.value.activityDate).format("LT")}{" "}
-                {dayjs(props.value.activityDate).format("Z")}
+                {/* {dayjs(props.value.activityDate).format("Z")} */}
               </p>
             </div>
             <div className="activity-card-exercise-info">
