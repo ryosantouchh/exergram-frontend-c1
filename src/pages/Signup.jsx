@@ -16,6 +16,8 @@ const Signup = () => {
   const [lastname, setLastname] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -202,7 +204,7 @@ const Signup = () => {
               ) : null} */}
               </div>
               <div className="input-container-lname">
-                <label htmlFor="lname">Last Name</label>
+                <label className="input-container-lname-label" htmlFor="lname">Last Name</label>
                 <input
                   type="text"
                   name="lname"
@@ -250,6 +252,40 @@ const Signup = () => {
                   </select>
                 </div>
               </div>
+
+              <div className="input-container-weight-height">
+                <div className="input-container-weight">
+                  <label htmlFor="weight">Weight</label>
+                  <input
+                    type="int"
+                    name="weight"
+                    id="weight"
+                    placeholder="Weight"
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                    required
+                    style={
+                      validate.weight ? { outline: "2px solid red" } : null
+                    }
+                  />
+                </div>
+                <div className="input-container-height">
+                  <label htmlFor="height">Height</label>
+                  <input
+                    type="int"
+                    name="height"
+                    id="height"
+                    placeholder="Height"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                    required
+                    style={
+                      validate.height ? { outline: "2px solid red" } : null
+                    }
+                  />
+                </div>
+              </div>
+
 
               <div className="input-container-email">
                 <label htmlFor="email">Email</label>
