@@ -7,7 +7,6 @@ import Layout from "../layout/Layout";
 import axios from "axios";
 import FormData from "form-data";
 import validator from "validator";
-import { END_POINT_URL } from "../configs/base.url";
 import { AuthContext } from "../context/AuthContext";
 
 const Signup = () => {
