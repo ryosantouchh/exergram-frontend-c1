@@ -9,7 +9,7 @@ import AppExample from "../assets/images/appMock.svg";
 import iconAnalysis from "../assets/images/iconAnalysis.svg";
 import iconSummary from "../assets/images/iconSummary.svg";
 import iconTracking from "../assets/images/iconTracking.svg";
-import Boxing from "../assets/images/BoxingGirl.svg";
+import RunningMan from "../assets/images/RunningMan.svg";
 
 const LandingPage = () => {
   return (
@@ -60,71 +60,57 @@ const LandingPage = () => {
         <div className="ad-workout-info">
           <h1>UNLEASH</h1>
           <p>
-            Exgram understands that your fitness journey is unique, Tailored to
-            your goals and abilities, it offers customizable workouts and
-            personalized training plans. Stay motivated with goal setting,
-            milestones, and challenges, transforming your fitness journey into
-            an exhilarating adventure. Unleash your inner warrior, conquer
-            challenges, celebrate achievements, and stay focused on your path to
-            greatness. Exgram empowers you to achieve unprecedented results and
-            optimize your performance.
+            Customize, set goals, and conquer challenges with Exergram. Achieve
+            results with personalized training plans. Join now to unleash your
+            inner power and start your workout adventure.
           </p>
         </div>
       </div>
 
-      <div className="feature-info">
-        <h1>Getting Started</h1>
-        {/* <div className="feature-info-header"></div> */}
-        <div className="feature-container">
-          <div className="feature-card">
+      <div className="landing-feature-info">
+        <h1>Features</h1>
+        <div className="landing-feature-container">
+          <div className="landing-feature-card">
             <img src={iconTracking} alt="tracking" />
             <h2>Tracking</h2>
             <p>
-              Track your workouts effortlessly with Exergram. Our intuitive
-              tracking feature allows you to log your exercises, sets, reps, and
-              weights with ease. Keep a detailed record of your progress and
-              never miss a beat in your fitness journey. Whether you're lifting
-              weights, running, or practicing yoga, our tracking feature helps
-              you stay organized and motivated.
+              Track workouts effortlessly with Exergram. Log exercises, sets,
+              reps, and weights easily. Stay organized and motivated on your
+              fitness journey.
             </p>
             <br />
-            <a href="#">Learn more</a>
+            {/* <a href="#">Learn more</a> */}
           </div>
-          <div className="feature-card">
+          <div className="landing-feature-card">
             <img src={iconAnalysis} alt="Analysis" />
             <h2>Analysis</h2>
             <p>
-              Unlock the power of data-driven insights with Exergram's analysis
-              feature. Our app collects and analyzes your exercise data to
-              provide valuable feedback on your performance. Discover trends,
-              identify areas for improvement, and set achievable goals based on
-              comprehensive analytics. Visualize your progress over time and
-              make informed decisions to optimize your workouts and reach new
-              heights in your fitness endeavors.
+              Get data-driven insights with Exergram's analysis feature. Analyze
+              exercise data for feedback, trends, and goal setting. Optimize
+              workouts and track progress for fitness success.
             </p>
             <br />
-            <a href="#">Learn more</a>
+            {/* <a href="#">Learn more</a> */}
           </div>
-          <div className="feature-card">
+          <div className="landing-feature-card">
             <img src={iconSummary} alt="Summary" />
             <h2>Summary</h2>
             <p>
-              Simplify your fitness journey with Exergram's summary feature. No
-              more information overload. Our app condenses complex workout data
-              into easy-to-understand summaries. Get a quick overview of your
-              performance, including total calories burned, workout duration,
-              and key highlights. Stay informed, stay focused, and make the most
-              out of your workout sessions with Exergram's concise and
-              actionable summaries.
+              <p>
+                Simplify your fitness journey with Exergram's summary feature.
+                Get concise workout summaries with key highlights, calories
+                burned, and duration. Stay focused and make the most of your
+                workouts with easy-to-understand information.
+              </p>
             </p>
             <br />
-            <a href="#">Learn more</a>
+            {/* <a href="#">Learn more</a> */}
           </div>
         </div>
       </div>
 
       <div className="cta-exergram">
-        <img src={Boxing} />
+        <img src={RunningMan} alt="running-man" />
         <div className="cta-exergram-content">
           <h1> Take Control of Your Fitness Journey with Exergram</h1>
           <a href="#">
