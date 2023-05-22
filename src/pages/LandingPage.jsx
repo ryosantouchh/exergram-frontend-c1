@@ -10,6 +10,7 @@ import Background from "../assets/images/background.svg";
 import Dashboarad from "../assets/images/exergramMock1.svg";
 import ActivitiesBoard from "../assets/images/exergramMock2.svg";
 import AppExample from "../assets/images/appMock.svg";
+
 import CommunityAndEvent from "../components/LandingPageCard/CommuEventCard.jsx";
 
 const LandingPage = () => {
