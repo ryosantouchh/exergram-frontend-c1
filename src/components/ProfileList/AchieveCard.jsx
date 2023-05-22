@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Badge4SVG from "../../assets/images/Badge4.svg";
+import Badge3SVG from "../../assets/images/Badge3.svg";
+import Badge2SVG from "../../assets/images/Badge2.svg";
+import Badge1SVG from "../../assets/images/Badge1.svg";
 
 const AchieveCard = () => {
-    return (
-        <div className="activity-achieve-card ">
-            <h3>Achievement</h3>
-            <img className="activity-achieve-badge-img"
-                src="https://media.istockphoto.com/id/1040805860/photo/trophy-over-wooden-table-and-dark-background.jpg?b=1&s=170667a&w=0&k=20&c=MN0JYi1HWUj0U8ePW-QiNWWZvKsQJ8t3kgoUJhD4VeM="
-                alt="img profile" />
-            <div className="badgeText">"GOLDEN SHOES"</div>
-        </div>
+    const [loginDays, setLoginDays] = useState(0);
 
+    let badgeImg = "";
+    let badgeText = "";
+
+    if (loginDays >= 6) {
+        badgeImg = Badge4SVG;
+        badgeText = "Ultimate Mastery!";
+    } else if (loginDays >= 4) {
+        badgeImg = Badge3SVG;
+        badgeText = "Remarkable Achievement!";
+    } else if (loginDays >= 2) {
+        badgeImg = Badge2SVG;
+        badgeText = "Goal Attained!";
+    } else if (loginDays >= 0) {
+        badgeImg = Badge1SVG;
+        badgeText = "Dedicated Pursuit!";
+    }
+
+    return (
+        <div className="activity-achieve-card">
+            <h3>Achievement</h3>
+            <img className="activity-achieve-badge-img" src={badgeImg} alt="" />
+            <div className="badgeText">{badgeText}</div>
+        </div>
     );
-}
-export default AchieveCard
+};
+
+export default AchieveCard;
