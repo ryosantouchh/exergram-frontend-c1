@@ -26,11 +26,16 @@ const AchieveCard = () => {
 
     return (
         <div className="activity-achieve-card">
-            <h3>Achievement</h3>
-            <img className="activity-achieve-badge-img" src={badgeImg} alt="" />
-            <div className="badgeText">{badgeText}</div>
-        </div>
+            <div className="activity-achieve-card">
+                <h3>Achievement</h3>
+                <img className="activity-achieve-badge-img" src={badgeImg} alt="" />
+                <div className="badgeText">{badgeText}</div>
+                <img className="activity-achieve-badge-img" src={badgeImg} alt="" />
+                <div className="badgeText">{badgeText}</div>
+            </div>
+        </div >
     );
+
 };
 
 export default AchieveCard;
