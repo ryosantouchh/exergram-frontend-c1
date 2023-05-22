@@ -14,7 +14,10 @@ const AuthContextProvider = ({ children }) => {
   const [lastName, setLastName] = useState("");
 
   const signup = async (signupData) => {
-    const response = await axios.post("/auth/register", signupData);
+    const response = await axios.post(
+      import.meta.env.VITE_APP_BACKEND_URL + "/auth/register",
+      signupData
+    );
   };
 
   const login = async (e) => {

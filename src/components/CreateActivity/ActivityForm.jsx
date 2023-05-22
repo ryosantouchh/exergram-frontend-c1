@@ -209,7 +209,7 @@ const ActivityForm = (props) => {
       const fetchActivityById = async () => {
         try {
           const response = await axios.get(
-            "http://localhost:8080/activity/" + activityId,
+            import.meta.env.VITE_APP_BACKEND_URL + "/activity/" + activityId,
             { headers: { Authorization: token } }
           );
 

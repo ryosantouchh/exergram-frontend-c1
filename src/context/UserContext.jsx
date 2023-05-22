@@ -13,9 +13,12 @@ const UserContextProvider = ({ children }) => {
   };
 
   const fetchUserProfileData = async () => {
-    const response = await axios.get("/profile", {
-      headers: { Authorization: token },
-    });
+    const response = await axios.get(
+      import.meta.env.VITE_APP_BACKEND_URL + "/profile",
+      {
+        headers: { Authorization: token },
+      }
+    );
     return response;
   };
 
