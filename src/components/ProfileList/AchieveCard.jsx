@@ -5,21 +5,21 @@ import Badge2SVG from "../../assets/images/Badge2.svg";
 import Badge1SVG from "../../assets/images/Badge1.svg";
 
 const AchieveCard = () => {
-    const [loginDays, setLoginDays] = useState(0);
+    const [countActivity, setCountActivity] = useState(0);
 
     let badgeImg = "";
     let badgeText = "";
 
-    if (loginDays >= 6) {
+    if (countActivity >= 6) {
         badgeImg = Badge4SVG;
         badgeText = "Ultimate Mastery!";
-    } else if (loginDays >= 4) {
+    } else if (countActivity >= 4) {
         badgeImg = Badge3SVG;
         badgeText = "Remarkable Achievement!";
-    } else if (loginDays >= 2) {
+    } else if (countActivity >= 2) {
         badgeImg = Badge2SVG;
         badgeText = "Goal Attained!";
-    } else if (loginDays >= 0) {
+    } else if (countActivity >= 0) {
         badgeImg = Badge1SVG;
         badgeText = "Dedicated Pursuit!";
     }
