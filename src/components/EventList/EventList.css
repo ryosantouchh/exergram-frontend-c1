@@ -1,19 +1,19 @@
 .activity-event-right-sidebar {
-  width: 20%;
+  min-width: 240px;
   height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background-color: var(--primary-color);
-  margin: 18px 16px 16px;
+  margin: 36px 16px 16px;
   padding: 16px;
   border-radius: 30px;
   position: sticky;
-  top: 48px;
+  top: 120px;
 }
 .activity-event-card-detail {
-  width: 100%;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@
 }
 .activity-event-card-detail img {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 16px;
   margin-top: 16px;
   margin-bottom: 8px;
 }

@@ -20,9 +20,11 @@
 
 html {
   background-color: #101115;
+  height: 100%;
 }
 
 body {
   color: var(--white-text);
   font-family: "Montserrat", sans-serif;
+  height: 100%;
 }

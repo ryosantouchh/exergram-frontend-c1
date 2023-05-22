@@ -68,7 +68,7 @@
   border-width: 2px;
 }
 
-.edit-profile-top button {
+.add-profile-pic {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -81,13 +81,13 @@
   font-weight: 700;
   font-size: 16px;
   transition: 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
 }
 
-.edit-profile-top button:hover {
+.add-profile-pic:hover {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  margin-bottom: 30px;
   border-color: var(--accent-color);
   background-color: var(--accent-color);
   border-style: solid;
@@ -98,6 +98,12 @@
   scale: 1.05;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+}
+
+.add-profile-pic > p {
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .edit-profile-fullname {

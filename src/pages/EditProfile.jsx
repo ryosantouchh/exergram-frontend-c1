@@ -1,7 +1,9 @@
 import React from "react";
 import Layout from "../layout/Layout";
 import "../styles/EditProfile.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import { ImageContext } from "../context/ImageContext";
 
 const EditProfile = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +16,10 @@ const EditProfile = () => {
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
   const [image, setImage] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
+
+  const userCtx = useContext(UserContext);
+  const imgCtx = useContext(ImageContext);
 
   const PasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -31,14 +37,68 @@ const EditProfile = () => {
     if (contactNumber) profileObj.contact_number = contactNumber;
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await userCtx.fetchUserProfileData();
+      console.log(userData);
+
+      setFirstname(userData.data.firstname);
+      setLastname(userData.data.lastname);
+      setEmail(userData.data.email);
+
+      if (userData.data.contact_number) {
+        setContactNumber(userData.data.contact_number);
+      }
+
+      if (userData.data.address) {
+        setAddress(userData.data.address);
+      }
+
+      if (userData.data.city) {
+        setCity(userData.data.city);
+      }
+
+      if (userData.data.province_state) {
+        setProvince(userData.data.province_state);
+      }
+
+      if (userData.data.image.url) {
+        setImagePreview(userData.data.image.url);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Layout>
       <div className="edit-profile-main">
         <div className="edit-profile">
           <div className="edit-profile-top">
             <h1>Edit Profile</h1>
-            {!image ? (
-              <button>Add Profile Image</button>
+            {!image.url ? (
+              <>
+                <label htmlFor="add-profile-pic" className="add-profile-pic">
+                  {/* <button>Add Profile Image</button> */}
+                  <p>Add Profile Image</p>
+                </label>
+                <input
+                  type="file"
+                  id="add-profile-pic"
+                  name="filename"
+                  onChange={(event) => {
+                    // setImage(e.target.files[0]);
+                    // onImageChange(e);
+                    imgCtx.onImageChange(
+                      event,
+                      setImagePreview,
+                      imgCtx.setFileToBase,
+                      setImage
+                    );
+                  }}
+                  style={{ display: "none" }}
+                />
+              </>
             ) : (
               <img
                 className="edit-profile-img-circle"
@@ -142,7 +202,7 @@ const EditProfile = () => {
             </div>
           </div>
           <div className="edit-profile-password">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Change Password</label>
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -159,7 +219,7 @@ const EditProfile = () => {
             )}
           </div>
           <div className="edit-profile-password">
-            <label htmlFor="password">Confirm Password</label>
+            <label htmlFor="password">Confirm Change Password</label>
             <input
               type={showConfirmPassword ? "text" : "password"}
               name="password"

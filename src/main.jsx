@@ -23,11 +23,12 @@ import EditProfile from "./pages/EditProfile";
 import AuthContextProvider from "./context/AuthContext";
 import ImageContextProvider from "./context/ImageContext";
 import ActivityContextProvider from "./context/ActivityContext";
+import UserContextProvider from "./context/UserContext";
 
 import CreateActivity from "./pages/CreateActivity";
 import EditActivity from "./pages/EditActivity";
 
-axios.defaults.baseURL = import.meta.env.VITE_APP_BASE_URL;
+axios.defaults.baseURL = import.meta.env.VITE_APP_BACKEND_URL;
 // axios.defaults.withCredentials = true;
 
 // for non-token or non-login
@@ -92,6 +93,12 @@ const router = createBrowserRouter([
         <ActivityPage />
       </NonAuthProtectedRoute>
     ),
+    children: [
+      {
+        path: ":feedPage",
+        element: <ActivityPage />,
+      },
+    ],
   },
   {
     path: "/editprofile",
@@ -131,10 +138,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthContextProvider>
-    <ActivityContextProvider>
-      <ImageContextProvider>
-        <RouterProvider router={router} />
-      </ImageContextProvider>
-    </ActivityContextProvider>
+    <UserContextProvider>
+      <ActivityContextProvider>
+        <ImageContextProvider>
+          <RouterProvider router={router} />
+        </ImageContextProvider>
+      </ActivityContextProvider>
+    </UserContextProvider>
   </AuthContextProvider>
 );

@@ -2,8 +2,9 @@
   background-color: #101115;
   height: 80px;
   width: 100%;
-  position: relative;
+  position: sticky;
   z-index: 1;
+  top: 0;
 }
 
 .navbar-container li {
