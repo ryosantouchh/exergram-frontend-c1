@@ -60,12 +60,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 18px;
 }
 .activity-achieve-badge-img {
   width: 70%;
-  height: 15vh;
-  padding: 16px;
+  height: 70%;
+  margin-bottom: 8px;
 }
 .activity-quote {
   width: 100%;
