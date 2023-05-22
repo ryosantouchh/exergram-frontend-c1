@@ -67,10 +67,10 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className="feature-info">
+      <div className="landing-feature-info">
         <h1>Features</h1>
-        <div className="feature-container">
-          <div className="feature-card">
+        <div className="landing-feature-container">
+          <div className="landing-feature-card">
             <img src={iconTracking} alt="tracking" />
             <h2>Tracking</h2>
             <p>
@@ -81,7 +81,7 @@ const LandingPage = () => {
             <br />
             {/* <a href="#">Learn more</a> */}
           </div>
-          <div className="feature-card">
+          <div className="landing-feature-card">
             <img src={iconAnalysis} alt="Analysis" />
             <h2>Analysis</h2>
             <p>
@@ -92,7 +92,7 @@ const LandingPage = () => {
             <br />
             {/* <a href="#">Learn more</a> */}
           </div>
-          <div className="feature-card">
+          <div className="landing-feature-card">
             <img src={iconSummary} alt="Summary" />
             <h2>Summary</h2>
             <p>

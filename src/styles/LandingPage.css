@@ -281,7 +281,7 @@
   /* font-style: italic; */
 }
 
-.feature-info {
+.landing-feature-info {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -293,11 +293,11 @@
 
 }
 
-.feature-info h1{
+.landing-feature-info h1{
  font-size: 40px; 
 }
 
-.feature-container {
+.landing-feature-container {
   display: flex;
   justify-content: space-between;
   padding-top: 50px;
@@ -305,17 +305,18 @@
   padding-top: 80px;
 }
 
-.feature-card{
+.landing-feature-card{
   width: 332px;
   height: 427px;
   
 }
 
-.feature-card h2, p{
+.landing-feature-card h2, 
+.landing-feature-card p{
   margin-top: 16px;
   line-height: 2;
 }
-.feature-card a{
+.landing-feature-card a{
   color: var(--accent-color);
   text-decoration: none;
 }
