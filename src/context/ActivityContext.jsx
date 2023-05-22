@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 import axios from "axios";
-// import { END_POINT_URL } from "../configs/base.url";
 
 export const ActivityContext = createContext({});
 
