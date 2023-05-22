@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import { END_POINT_URL } from "../configs/base.url";
 
 export const AuthContext = createContext({});
 

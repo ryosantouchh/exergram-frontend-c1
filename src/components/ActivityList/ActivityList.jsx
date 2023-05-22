@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router";
 import ActivityCard from "./ActivityCard";
-import { END_POINT_URL } from "../../configs/base.url.js";
 import { ActivityContext } from "../../context/ActivityContext";
 import "./ActivityList.css";
 import axios from "axios";
