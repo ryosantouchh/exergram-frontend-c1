@@ -56,23 +56,8 @@
   z-index: 2;
 }
 
-/* .hero-right .orange-trans-btn {
-  background-color: var(--accent-color);
-  border-radius: 30px;
-  color: var(--white-text);
-  width: 270px;
-  height: 71px;
-  font-size: 24px;
-}
-
-.hero-right button:hover {
-  scale: 0.98;
-  cursor: pointer;
-  background-color: var(--accent-color);
-  color: var(--white-text);
-} */
-
 .orange-trans-btn {
+  cursor: pointer;
   padding: 1em 2em;
   border: none;
   border-radius: 30px;
@@ -161,8 +146,16 @@
   flex-direction: column;
   justify-content: center;
 }
+.info-left h2 {
+  font-size: 24px;
+}
+.info-left p {
+  font-size: 20px;
+  width: 350px;
+}
 
 .get-start-btn {
+  cursor: pointer;
   padding: 1em 2em;
   border: none;
   border-radius: 30px;
@@ -246,24 +239,125 @@
 .ad-workout {
   position: relative;
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
-.ad-workout img {
-  max-width: 100%;
-  height: auto;
-}
-
-.ad-text {
+.ad-workout-info {
   position: absolute;
-  top: 55%;
-  left: 20%;
-  text-align: left;
+  /* z-index: 1; */
 }
 
-.ad-text h1 {
-  font-size: 130px;
+.ad-workout-info h1 {
+  position:absolute;
   font-weight: 900;
   color: white;
   font-style: italic;
+  font-size: 130px;
+  width: 800px;
+  height: 157px;
+  left: -550px;
+  top: 50px;
 }
+
+.ad-workout-info p {
+  position:absolute;
+  width: 580px;
+  height: 111px;
+  left: -540px;
+  top: 210px;
+  font-size: 22px;
+}
+
+.feature-info {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
+
+}
+
+/* .feature-info h1{
+  
+} */
+
+.feature-container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+  width: 1120px;
+}
+
+.feature-card{
+  width: 332px;
+  height: 427px;
+  
+}
+
+.feature-card h2, p{
+  margin-top: 16px;
+}
+.feature-card a{
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.cta-exergram {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+
+.cta-exergram img {
+  transform: rotateY(180deg);
+}
+
+.cta-exergram-content {
+  position: absolute;
+}
+
+.cta-exergram-content h1 {
+  position:absolute;
+  font-weight: 900;
+  color: white;
+  font-style: italic;
+  font-size: 55px;
+  text-align: end;
+  width: 500px;
+  height: 280px;
+  left: 30px;
+  top: 100px;
+}
+
+.cta-exergram-btn {
+  position: absolute;
+  cursor: pointer;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 30px;
+  width: 250px;
+  height: 60px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  color:  var(--accent-color);
+  background-color: #101115;
+  transition: all 1000ms;
+  font-size: 16px;
+  overflow: hidden;
+  outline: 2px solid var(--accent-color);
+  left: 250px;
+  top: 400px;
+}
+
+.cta-exergram-btn:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+  outline: 2px solid var(--primary-color);
+  /* box-shadow: 4px 5px 17px -4px #C76300; */
+}
+
