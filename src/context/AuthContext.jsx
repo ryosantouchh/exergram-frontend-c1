@@ -12,6 +12,7 @@ const AuthContextProvider = ({ children }) => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [image, setImagePreview] = useState("");
 
   const signup = async (signupData) => {
     const response = await axios.post(

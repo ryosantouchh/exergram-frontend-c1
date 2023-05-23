@@ -7,7 +7,7 @@ const ActivityContextProvider = ({ children }) => {
   const [activityType, setActivityType] = useState([]);
   const [activityList, setActivityList] = useState([]);
   const [countActivities, setCountActivities] = useState(0);
-  const [countActivityType, setCountActivityType] = useState([]);
+  const [countActivityType, setCountActivityType] = useState({});
   const [page, setPage] = useState(1);
 
   // Fetch Activity Type
@@ -24,6 +24,8 @@ const ActivityContextProvider = ({ children }) => {
   const fetchAllActivity = async (pageParams) => {
     const token = `Bearer ${window.localStorage.getItem("token")}`;
 
+    console.log("ctx activity fetch");
+
     const response = await axios.get(
       import.meta.env.VITE_APP_BACKEND_URL + "/activity",
       {
@@ -31,9 +33,12 @@ const ActivityContextProvider = ({ children }) => {
       }
     );
 
+    console.log(response);
+
     if (response.data.activity_data) {
       setActivityList([...response.data.activity_data]);
-      setCountActivities(response.data.count.all_activity);
+      setCountActivities((prev) => (prev = response.data.count.all_activity));
+      setCountActivityType({ ...response.data.count.by_type });
       setPage(
         (prev) => (prev = Math.ceil(response.data.count.all_activity / 10))
       );

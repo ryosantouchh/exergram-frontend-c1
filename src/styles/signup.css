@@ -95,10 +95,11 @@
   /* font-size: 0.75rem; */
 }
 
-.right-signup-form input[type="text"],
-.right-signup-form input[type="int"],
+/* .right-signup-form input[type="text"],
+.right-signup-form input[type="number"],
 .right-signup-form input[type="email"],
-.right-signup-form input[type="password"] {
+.right-signup-form input[type="password"] { */
+.right-signup-form input {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -150,12 +151,13 @@
   background-color: var(--grey-btn-color);
 }
 
-.right-signup-form input[type="text"]:focus,
+/* .right-signup-form input[type="text"]:focus,
 .right-signup-form input[type="email"]:focus,
 .right-signup-form input[type="password"]:focus,
 .right-signup-form select[id="gender"]:focus,
 .right-signup-form input[type="date"]:focus,
-.right-signup-form input[type="int"]:focus {
+.right-signup-form input[type="number"]:focus { */
+.right-signup-form input:focus {
   outline: 2px solid var(--accent-color);
 }
 

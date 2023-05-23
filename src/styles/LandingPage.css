@@ -41,12 +41,11 @@
   /* border: 1px solid white; */
 }
 
-.background{
+.background {
   width: 1430px;
   height: 728px;
-  object-fit: cover; 
+  object-fit: cover;
   object-position: 100% 0;
-
 }
 
 .hero-left {
@@ -76,7 +75,7 @@
   letter-spacing: 5px;
   text-transform: uppercase;
   text-align: center;
-  color:  var(--accent-color);
+  color: var(--accent-color);
   background-color: #101115;
   transition: all 1000ms;
   font-size: 20px;
@@ -89,7 +88,7 @@
   color: var(--white-text);
   transform: scale(1.1);
   outline: 2px solid var(--white-text);
-  box-shadow: 4px 5px 17px -4px #C76300;
+  box-shadow: 4px 5px 17px -4px #c76300;
 }
 
 .orange-trans-btn::before {
@@ -132,7 +131,6 @@
   background-color: var(--bg-color);
   z-index: 0;
   position: relative;
-  
 }
 
 .info-container {
@@ -174,7 +172,7 @@
   letter-spacing: 5px;
   text-transform: uppercase;
   text-align: center;
-  color:  var(--accent-color);
+  color: var(--accent-color);
   background-color: #101115;
   transition: all 1000ms;
   font-size: 16px;
@@ -187,7 +185,7 @@
   color: var(--white-text);
   transform: scale(1.1);
   outline: 2px solid var(--white-text);
-  box-shadow: 4px 5px 17px -4px #C76300;
+  box-shadow: 4px 5px 17px -4px #c76300;
 }
 
 .get-start-btn::before {
@@ -257,7 +255,7 @@
 }
 
 .ad-workout-info h1 {
-  position:absolute;
+  position: absolute;
   font-weight: 900;
   color: white;
   font-style: italic;
@@ -269,7 +267,7 @@
 }
 
 .ad-workout-info p {
-  position:absolute;
+  position: absolute;
   width: 570px;
   height: 300px;
   left: -540px;
@@ -289,12 +287,11 @@
   align-content: center;
   padding-top: 100px;
   padding-bottom: 80px;
-  align-items: center
-
+  align-items: center;
 }
 
-.landing-feature-info h1{
- font-size: 40px; 
+.landing-feature-info h1 {
+  font-size: 40px;
 }
 
 .landing-feature-container {
@@ -305,18 +302,19 @@
   padding-top: 80px;
 }
 
-.landing-feature-card{
+.landing-feature-card {
   width: 332px;
   height: 427px;
-  
+  text-align: center;
 }
 
-.landing-feature-card h2, 
-.landing-feature-card p{
+.landing-feature-card h2,
+.landing-feature-card p {
   margin-top: 16px;
   line-height: 2;
 }
-.landing-feature-card a{
+
+.landing-feature-card a {
   color: var(--accent-color);
   text-decoration: none;
 }
@@ -333,7 +331,7 @@
 }
 
 .cta-exergram-content h1 {
-  position:absolute;
+  position: absolute;
   font-weight: 900;
   color: white;
   font-style: italic;
@@ -357,7 +355,7 @@
   letter-spacing: 5px;
   text-transform: uppercase;
   text-align: center;
-  color:  var(--accent-color);
+  color: var(--accent-color);
   background-color: #101115;
   transition: all 1000ms;
   font-size: 16px;
@@ -373,5 +371,3 @@
   outline: 2px solid var(--primary-color);
   /* box-shadow: 4px 5px 17px -4px #C76300; */
 }
-
-

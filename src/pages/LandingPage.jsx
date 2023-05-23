@@ -15,9 +15,9 @@ import RunningMan from "../assets/images/RunningMan.svg";
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  const navigateToSignup = () => {
-    navigate("/signup");
-  };
+  // const navigateToSignup = () => {
+  //   navigate("/signup");
+  // };
 
   return (
     <>
@@ -37,7 +37,7 @@ const LandingPage = () => {
 
           <button
             className="orange-trans-btn"
-            onClick={() => navigateToSignup()}
+            onClick={() => navigate("/signup")}
           >
             Join Now
           </button>
@@ -58,7 +58,7 @@ const LandingPage = () => {
 
             <button
               className="get-start-btn"
-              onClick={() => navigateToSignup()}
+              onClick={() => navigate("/signup")}
             >
               GET STARTED
             </button>
@@ -109,14 +109,14 @@ const LandingPage = () => {
           <div className="landing-feature-card">
             <img src={iconSummary} alt="Summary" />
             <h2>Summary</h2>
+
             <p>
-              <p>
-                Simplify your fitness journey with Exergram's summary feature.
-                Get concise workout summaries with key highlights, calories
-                burned, and duration. Stay focused and make the most of your
-                workouts with easy-to-understand information.
-              </p>
+              Simplify your fitness journey with Exergram's summary feature. Get
+              concise workout summaries with key highlights, calories burned,
+              and duration. Stay focused and make the most of your workouts with
+              easy-to-understand information.
             </p>
+
             <br />
             {/* <a href="#">Learn more</a> */}
           </div>
@@ -130,7 +130,7 @@ const LandingPage = () => {
 
           <button
             className="cta-exergram-btn"
-            onClick={() => navigateToSignup()}
+            onClick={() => navigate("/signup")}
           >
             Get Started
           </button>
