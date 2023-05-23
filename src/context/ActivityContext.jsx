@@ -41,6 +41,8 @@ const ActivityContextProvider = ({ children }) => {
   };
 
   const deleteActivity = async (activity_id) => {
+    const token = `Bearer ${window.localStorage.getItem("token")}`;
+
     if (confirm("Delete this activity ?")) {
       console.log("before axios");
       const response = await axios.delete(

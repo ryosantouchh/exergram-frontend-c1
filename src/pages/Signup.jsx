@@ -92,7 +92,7 @@ const Signup = () => {
           username: username,
           password: password,
         };
-        console.log(userData);
+        // console.log(userData);
 
         // end point config
         // const END_POINT = BASE_URL || "http://localhost:8080";
