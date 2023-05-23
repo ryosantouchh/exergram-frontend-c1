@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/LandingPage.css";
 import Layout from "../layout/Layout";
 import Runnerimg from "../assets/images/runnerSVG.svg";
@@ -12,6 +13,12 @@ import iconTracking from "../assets/images/iconTracking.svg";
 import RunningMan from "../assets/images/RunningMan.svg";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  const navigateToSignup = () => {
+    navigate("/signup");
+  };
+
   return (
     <>
       <div className="hero-container-fluid"></div>
@@ -28,9 +35,12 @@ const LandingPage = () => {
         <div className="hero-right">
           <img className="exergram-main-logo" src={ExergramMainLogo} alt="" />
 
-          <a href="#">
-            <button className="orange-trans-btn">Join Now</button>
-          </a>
+          <button
+            className="orange-trans-btn"
+            onClick={() => navigateToSignup()}
+          >
+            Join Now
+          </button>
         </div>
       </div>
 
@@ -45,9 +55,13 @@ const LandingPage = () => {
               workout routines to crush your goals.
             </p>
             <br />
-            <a href="#">
-              <button className="get-start-btn">GET STARTED</button>
-            </a>
+
+            <button
+              className="get-start-btn"
+              onClick={() => navigateToSignup()}
+            >
+              GET STARTED
+            </button>
           </div>
           <div className="info-right">
             <img className="app-example" src={AppExample} alt="" />
@@ -113,9 +127,13 @@ const LandingPage = () => {
         <img src={RunningMan} alt="running-man" />
         <div className="cta-exergram-content">
           <h1> Take Control of Your Fitness Journey with Exergram</h1>
-          <a href="#">
-            <button className="cta-exergram-btn">Get Started</button>
-          </a>
+
+          <button
+            className="cta-exergram-btn"
+            onClick={() => navigateToSignup()}
+          >
+            Get Started
+          </button>
         </div>
       </div>
     </>
