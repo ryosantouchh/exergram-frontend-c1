@@ -10,6 +10,8 @@ const EditProfile = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
   const [email, setEmail] = useState("");
   const [contactNumber, setContactNumber] = useState("");
   const [address, setAddress] = useState("");
@@ -135,6 +137,37 @@ const EditProfile = () => {
                 required
                 value={lastname}
                 onChange={(e) => setLastname(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="edit-profile-weight-height">
+            <div className="edit-profile-weight">
+              <label className="weight" htmlFor="weight">
+                Weight
+              </label>
+              <input
+                type="int"
+                name="weight"
+                id="weight"
+                placeholder="Weight"
+                required
+                value={weight}
+                onChange={(e) => setWeight(e.target.value)}
+              />
+            </div>
+            <div className="edit-profile-height">
+              <label className="height" htmlFor="height">
+                Height
+              </label>
+              <input
+                type="int"
+                name="height"
+                id="height"
+                placeholder="Height"
+                required
+                value={height}
+                onChange={(e) => setHeight(e.target.value)}
               />
             </div>
           </div>

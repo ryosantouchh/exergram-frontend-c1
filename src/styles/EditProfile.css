@@ -106,7 +106,8 @@
   align-items: center;
 }
 
-.edit-profile-fullname {
+.edit-profile-fullname,
+.edit-profile-weight-height {
   display: flex;
   justify-content: space-between;
 }
@@ -115,11 +116,18 @@
   display: flex;
   flex-direction: column;
 }
+
 .edit-profile #fname,
 .edit-profile #lname,
 .edit-profile #city,
-.edit-profile #province {
+.edit-profile #province,
+.edit-profile #weight,
+.edit-profile #height {
   width: 300px;
+}
+
+.edit-profile #height {
+  margin-bottom: 18px;
 }
 
 .edit-profile-main label {
