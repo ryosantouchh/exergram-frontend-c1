@@ -22,22 +22,22 @@ const AchieveCard = (props) => {
 
     // console.log(countAll);
 
-    if (countAll >= 11) {
+    if (countAll >= 25) {
       setAchievement("Ultimate Athletes");
       setBadgeImg(Badge4);
       return;
     }
-    if (countAll >= 10) {
+    if (countAll >= 15) {
       setAchievement("Ultimate Athletes");
       setBadgeImg(Badge3);
       return;
     }
-    if (countAll >= 7) {
+    if (countAll >= 10) {
       setAchievement("Ultimate Athletes");
       setBadgeImg(Badge2);
       return;
     }
-    if (countAll >= 3) {
+    if (countAll >= 1) {
       setAchievement("First Step");
       setBadgeImg(Badge1);
       return;

@@ -15,10 +15,14 @@ const AuthContextProvider = ({ children }) => {
   const [image, setImagePreview] = useState("");
 
   const signup = async (signupData) => {
-    const response = await axios.post(
-      import.meta.env.VITE_APP_BACKEND_URL + "/auth/register",
-      signupData
-    );
+    try {
+      const response = await axios.post(
+        import.meta.env.VITE_APP_BACKEND_URL + "/auth/register",
+        signupData
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const login = async (e) => {

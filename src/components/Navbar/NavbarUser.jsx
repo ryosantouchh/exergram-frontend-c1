@@ -3,9 +3,11 @@ import { AuthContext } from "../../context/AuthContext";
 import logo from "../../assets/images/Logo1exergram.svg";
 import "./Navbar.css";
 import { useNavigate } from "react-router";
+import { UserContext } from "../../context/UserContext";
 
 function NavbarUser() {
   const authCtx = useContext(AuthContext);
+  const userCtx = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -39,7 +41,16 @@ function NavbarUser() {
               </li>
             </a>
             <label htmlFor="navbar-dropdown-list">
-              <li className="profile-btn">T</li>
+              <li className="profile-btn">
+                {/* <img
+                  src={userCtx.imagePreview}
+                  style={{ width: "100%", borderRadius: "50%" }}
+                /> */}
+                <i
+                  className="fa-solid fa-bars"
+                  style={{ fontSize: "30px" }}
+                ></i>
+              </li>
             </label>
           </ul>
           <input
