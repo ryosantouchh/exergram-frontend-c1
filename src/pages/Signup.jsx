@@ -114,6 +114,7 @@ const Signup = () => {
         // console.log(response.data);
         setLoading((prev) => (prev = true));
         await authCtx.signup(userData);
+
         navigate("/login");
       }
 

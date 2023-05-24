@@ -17,6 +17,7 @@ function Login() {
     setLoading((prev) => (prev = true));
     const response = await authCtx.login(e);
     if (!response) {
+      setLoading((prev) => (prev = false));
       setError((prev) => (prev = true));
     } else {
       setError((prev) => (prev = false));
