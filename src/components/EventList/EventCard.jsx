@@ -13,7 +13,7 @@ const EventCard = (props) => {
         <img src={props.value.image} />
         <div className="activity-event-card-location">
           {/* <h3>{props.value.type}</h3> */}
-          <h4>{props.value.title}</h4>
+          <p>{props.value.title}</p>
           <p>{props.value.location}</p>
           <p>{dayjs(props.value.date).format("dddd , D MMM YYYY")}</p>
         </div>

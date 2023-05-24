@@ -34,7 +34,7 @@ const QuoteCard = () => {
 
   const randomQuote = (quoteInput) => {
     const length = quoteInput.length;
-    return quoteInput[Math.floor(Math.random() * length)].title;
+    return quoteInput[Math.floor(Math.random() * length)];
   };
 
   //   useEffect(() => {
@@ -43,7 +43,14 @@ const QuoteCard = () => {
 
   return (
     <div className="activity-quote">
-      {quotes.length > 0 ? randomQuote(quotes) : null}
+      {quotes.length > 0 ? (
+        <>
+          <p className="activity-quote-title">{randomQuote(quotes).title}</p>
+          <p className="activity-quote-author">
+            -{randomQuote(quotes).author}-
+          </p>
+        </>
+      ) : null}
     </div>
   );
 };
