@@ -33,11 +33,11 @@ function NavbarUser() {
         </div>
         <div className="navbar-right">
           <ul>
-            <li>
-              <a href="/createactivity">
+            <a href="/createactivity">
+              <li>
                 <button className="add-activity-btn">ADD ACTIVITY</button>
-              </a>
-            </li>
+              </li>
+            </a>
             <label htmlFor="navbar-dropdown-list">
               <li className="profile-btn">T</li>
             </label>

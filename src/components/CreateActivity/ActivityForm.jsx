@@ -89,8 +89,9 @@ const ActivityForm = (props) => {
         if (
           (kilometers !== 0 && kilometers !== "") ||
           (meters !== 0 && meters !== "")
-        )
+        ) {
           dataObject.distance = convertDistanceToMeters();
+        }
 
         const form = new FormData();
         for (let key in dataObject) {
@@ -102,15 +103,16 @@ const ActivityForm = (props) => {
         // }
         let END_POINT_ROUTE = "";
         let METHOD = "";
-        activityId
-          ? (END_POINT_ROUTE = "/activity/" + activityId)
-          : (END_POINT_ROUTE = "/activity");
+        // activityId
+        //   ? (END_POINT_ROUTE = "/activity/" + activityId)
+        //   : (END_POINT_ROUTE = "/activity");
 
         if (activityId) {
-          END_POINT_ROUTE = "/activity/" + activityId;
+          END_POINT_ROUTE =
+            import.meta.env.VITE_APP_BACKEND_URL + "/activity/" + activityId;
           METHOD = "patch";
         } else {
-          END_POINT_ROUTE = "/activity";
+          END_POINT_ROUTE = import.meta.env.VITE_APP_BACKEND_URL + "/activity";
           METHOD = "post";
         }
 
@@ -209,7 +211,7 @@ const ActivityForm = (props) => {
       const fetchActivityById = async () => {
         try {
           const response = await axios.get(
-            "http://localhost:8080/activity/" + activityId,
+            import.meta.env.VITE_APP_BACKEND_URL + "/activity/" + activityId,
             { headers: { Authorization: token } }
           );
 
@@ -449,7 +451,7 @@ const ActivityForm = (props) => {
         </form>
       </div>
       {loading ? (
-        <div className="activity-form-loading "></div>
+        <div className="activity-form-loading"></div>
       ) : (
         <div className="btn-container">
           {activityId ? (

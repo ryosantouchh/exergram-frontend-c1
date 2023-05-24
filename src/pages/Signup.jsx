@@ -7,7 +7,6 @@ import Layout from "../layout/Layout";
 import axios from "axios";
 import FormData from "form-data";
 import validator from "validator";
-import { END_POINT_URL } from "../configs/base.url";
 import { AuthContext } from "../context/AuthContext";
 
 const Signup = () => {
@@ -17,6 +16,8 @@ const Signup = () => {
   const [lastname, setLastname] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -61,9 +62,12 @@ const Signup = () => {
         inputError.password = "Password is required";
       if (validator.isEmpty(confirmPassword))
         inputError.confirmPassword = "Confirm password is required";
+      if (validator.isEmpty(weight) || validator.isEmpty(height)) {
+        inputError.heightAndweight = "Weight and Height is required";
+      }
 
-      // validate format input
       if (!validator.isEmail(email))
+        // validate format input
         inputError.email = "Incorrect email format";
       if (!validator.isLength(password, { min: 6, max: 24 }))
         inputError.password =
@@ -78,7 +82,6 @@ const Signup = () => {
 
       if (Object.keys(inputError).length > 0) {
         setValidate(inputError);
-        console.log(inputError);
       } else {
         setValidate({});
 
@@ -90,8 +93,10 @@ const Signup = () => {
           email: email,
           username: username,
           password: password,
+          weight: weight,
+          height: height,
         };
-        console.log(userData);
+        // console.log(userData);
 
         // end point config
         // const END_POINT = BASE_URL || "http://localhost:8080";
@@ -143,6 +148,8 @@ const Signup = () => {
       setValidate({ ...validate, password: false });
     if (confirmPassword && validate.confirmPassword)
       setValidate({ ...validate, confirmPassword: false });
+    if ((weight || height) && validate.heightAndweight)
+      setValidate({ ...validate, heightAndweight: false });
   }, [
     firstname,
     lastname,
@@ -152,6 +159,8 @@ const Signup = () => {
     email,
     password,
     confirmPassword,
+    weight,
+    height,
   ]);
 
   return (
@@ -203,7 +212,9 @@ const Signup = () => {
               ) : null} */}
               </div>
               <div className="input-container-lname">
-                <label htmlFor="lname">Last Name</label>
+                <label className="input-container-lname-label" htmlFor="lname">
+                  Last Name
+                </label>
                 <input
                   type="text"
                   name="lname"
@@ -249,6 +260,43 @@ const Signup = () => {
                     <option value="female">Female</option>
                     <option value="prefer not to say">Prefer not to say</option>
                   </select>
+                </div>
+              </div>
+
+              <div className="input-container-weight-height">
+                <div className="input-container-weight">
+                  <label htmlFor="weight">Weight</label>
+                  <input
+                    type="number"
+                    name="weight"
+                    id="weight"
+                    placeholder="Weight"
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                    required
+                    style={
+                      validate.heightAndweight
+                        ? { outline: "2px solid red" }
+                        : null
+                    }
+                  />
+                </div>
+                <div className="input-container-height">
+                  <label htmlFor="height">Height</label>
+                  <input
+                    type="number"
+                    name="height"
+                    id="height"
+                    placeholder="Height"
+                    value={height}
+                    onChange={(e) => setHeight(e.target.value)}
+                    required
+                    style={
+                      validate.heightAndweight
+                        ? { outline: "2px solid red" }
+                        : null
+                    }
+                  />
                 </div>
               </div>
 
