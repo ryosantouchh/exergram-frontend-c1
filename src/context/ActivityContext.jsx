@@ -49,7 +49,6 @@ const ActivityContextProvider = ({ children }) => {
     const token = `Bearer ${window.localStorage.getItem("token")}`;
 
     if (confirm("Delete this activity ?")) {
-      console.log("before axios");
       const response = await axios.delete(
         import.meta.env.VITE_APP_BACKEND_URL + "/activity/" + activity_id,
         {
