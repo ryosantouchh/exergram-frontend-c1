@@ -85,18 +85,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  padding: 20px;
 }
 
 .activity-achieve-badge-img {
-  width: 70%;
-  height: 15vh;
+  width: 160px;
+  /* height: 15vh; */
   padding: 16px;
 }
 
 .activity-quote {
   width: 240px;
-  height: 260px;
+  height: 220px;
   background-color: var(--primary-color);
   /* margin-top: 16px; */
   border-radius: 20px;
