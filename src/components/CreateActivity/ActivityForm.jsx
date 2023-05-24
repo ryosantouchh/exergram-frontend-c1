@@ -116,7 +116,7 @@ const ActivityForm = (props) => {
           METHOD = "post";
         }
 
-        console.log(END_POINT_ROUTE);
+        // console.log(END_POINT_ROUTE);
 
         // const response = await axios.post("/activity", form, {
         //   headers: {

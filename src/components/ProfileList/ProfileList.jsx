@@ -14,7 +14,7 @@ const ProfileList = (props) => {
   const userCtx = useContext(UserContext);
   const activityCtx = useContext(ActivityContext);
 
-  console.log("profile");
+  // console.log("profile");
 
   useEffect(() => {
     authCtx.readFullname();
@@ -27,7 +27,7 @@ const ProfileList = (props) => {
     };
 
     fetchUserData();
-    console.log("profile fetch");
+    // console.log("profile fetch");
   }, []);
 
   return (

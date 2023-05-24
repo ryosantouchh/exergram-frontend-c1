@@ -7,7 +7,6 @@ const DashboardRight = () => {
     <div className="dashboard-right">
       <h1>Hi ! $firstName</h1>
       <RecentHistory />
-      <SummaryHealthBox />
     </div>
   );
 };
