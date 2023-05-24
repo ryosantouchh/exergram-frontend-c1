@@ -68,9 +68,15 @@ const ActivityList = () => {
 
   return (
     <div className="activity-list-main-body">
-      {activityCtx.activityList.map((item, idx) => {
-        return <ActivityCard value={item} key={item._id} />;
-      })}
+      {activityCtx.activityList.length > 0 ? (
+        activityCtx.activityList.map((item, idx) => {
+          return <ActivityCard value={item} key={item._id} />;
+        })
+      ) : (
+        <p style={{ textAlign: "center", fontSize: "32px", margin: "32px 0" }}>
+          Don't have any activity
+        </p>
+      )}
       <div className="activity-list-page-button-box">{renderPageButton()}</div>
     </div>
   );
