@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
 export const ActivityContext = createContext({});
@@ -24,7 +24,7 @@ const ActivityContextProvider = ({ children }) => {
   const fetchAllActivity = async (pageParams) => {
     const token = `Bearer ${window.localStorage.getItem("token")}`;
 
-    console.log("ctx activity fetch");
+    // console.log("ctx activity fetch");
 
     const response = await axios.get(
       import.meta.env.VITE_APP_BACKEND_URL + "/activity",
@@ -33,7 +33,7 @@ const ActivityContextProvider = ({ children }) => {
       }
     );
 
-    console.log(response);
+    // console.log(response);
 
     if (response.data.activity_data) {
       setActivityList([...response.data.activity_data]);

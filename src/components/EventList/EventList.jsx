@@ -29,7 +29,7 @@ const allEvents = [
 const EventList = () => {
   const [eventList, setEventList] = useState([]);
 
-  console.log("event");
+  // console.log("event");
 
   const token = "Bearer" + " " + window.localStorage.getItem("token");
 

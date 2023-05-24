@@ -10,25 +10,26 @@ import Layout from "../layout/Layout";
 const ActivityPage = () => {
   const { feedPage } = useParams();
 
-  console.log("acitivity page");
+  // console.log("acitivity page");
 
   const activityCtx = useContext(ActivityContext);
-  console.log(activityCtx);
+  // console.log(activityCtx);
   const navigate = useNavigate();
 
-  if (!feedPage) {
-    navigate("/feed/1");
-  }
+  // if (!feedPage) {
+  //   navigate("/feed/1");
+  // }
 
-  useEffect(() => {
-    if (window.localStorage.getItem("token")) {
-      // if (!feedPage) {
-      //   activityCtx.fetchAllActivity(1);
-      // }
-      activityCtx.fetchAllActivity(feedPage);
-      console.log("effect activity page");
-    }
-  }, [feedPage]);
+  // useEffect(() => {
+  //   if (window.localStorage.getItem("token")) {
+  //     // if (!feedPage) {
+  //     //   activityCtx.fetchAllActivity(1);
+  //     // }
+  //     activityCtx.fetchAllActivity(feedPage);
+  //     // console.log("effect activity page");
+  //   }
+  // }, [feedPage]);
+
   return (
     <Layout>
       <div className="activity-list-container">
