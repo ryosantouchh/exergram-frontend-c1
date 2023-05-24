@@ -26,7 +26,6 @@ function Dashboard() {
         }
       );
 
-      console.log(response);
       setBMI(response.data.BMI);
       setCalories(response.data.calories_burn);
       setMacronutrient(Math.floor(response.data.BMR * 1.2));
