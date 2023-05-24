@@ -23,6 +23,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [validate, setValidate] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
@@ -111,6 +112,7 @@ const Signup = () => {
         // }
         // );
         // console.log(response.data);
+        setLoading((prev) => (prev = true));
         await authCtx.signup(userData);
         navigate("/login");
       }
@@ -379,13 +381,17 @@ const Signup = () => {
                 )}
               </div>
             </form>
-            <button
-              className="signup-page-btn"
-              type="submit"
-              onClick={(e) => handleSignUp(e)}
-            >
-              Sign Up
-            </button>
+            {loading ? (
+              <div className="activity-form-loading"></div>
+            ) : (
+              <button
+                className="signup-page-btn"
+                type="submit"
+                onClick={(e) => handleSignUp(e)}
+              >
+                Sign Up
+              </button>
+            )}
           </div>
         </div>
       </div>

@@ -56,12 +56,18 @@ const AchieveCard = (props) => {
   return (
     <div className="activity-achieve-card ">
       <h3>Achievement</h3>
-      <img
-        className="activity-achieve-badge-img"
-        src={badgeImg}
-        alt="img profile"
-      />
-      <div className="badgeText">{achievement}</div>
+      {achievement ? (
+        <>
+          <img
+            className="activity-achieve-badge-img"
+            src={badgeImg}
+            alt="img profile"
+          />
+          <div className="badgeText">{achievement}</div>
+        </>
+      ) : (
+        <p>None</p>
+      )}
     </div>
   );
 };

@@ -9,10 +9,12 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
   const authCtx = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
+    setLoading((prev) => (prev = true));
     const response = await authCtx.login(e);
     if (!response) {
       setError((prev) => (prev = true));
@@ -99,15 +101,19 @@ function Login() {
                 Remember me
               </label>
             </div> */}
-            <button
-              className="login-btn"
-              type="submit"
-              onClick={(e) => {
-                handleLogin(e);
-              }}
-            >
-              Log In
-            </button>
+            {loading ? (
+              <div className="activity-form-loading"></div>
+            ) : (
+              <button
+                className="login-btn"
+                type="submit"
+                onClick={(e) => {
+                  handleLogin(e);
+                }}
+              >
+                Log In
+              </button>
+            )}
             {/* <div className="copy legal">
               <p>
                 <span className="forgotPassword">
