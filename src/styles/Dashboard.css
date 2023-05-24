@@ -3,7 +3,7 @@
 } */
 
 .dashboard-container {
-  margin: auto;
+  margin: 48px auto 0;
   max-width: 1140px;
   width: 100%;
   display: flex;
@@ -108,11 +108,14 @@
 
 /* ----- dashboard right ----- */
 .dashboard-right {
-  /* width: 640px; */
-  width: 900px;
+  width: 750px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 40px;
+}
+
+.dashboard-right > h1 {
+  font-size: 40px;
 }
 
 /* ----- history container ----- */
@@ -135,7 +138,7 @@
 .recent-history-card {
   margin: auto;
   background-color: var(--bg-color);
-  width: 500px;
+  width: 600px;
   height: 135px;
   display: flex;
   padding: 16px;
@@ -160,7 +163,7 @@
 }
 
 .activity-left {
-  width: 20%;
+  width: 160px;
   text-align: center;
 }
 
@@ -222,7 +225,7 @@
 .summary-health-box {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 200px;
   gap: 16px;
   margin-bottom: 100px;
 }

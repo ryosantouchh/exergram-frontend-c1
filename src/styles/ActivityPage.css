@@ -3,6 +3,7 @@
   max-width: 1140px;
   margin: 0 auto;
   padding-bottom: 60px;
+  gap: 24px;
 }
 
 .activity-list-blur-bg {

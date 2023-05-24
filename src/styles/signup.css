@@ -227,3 +227,8 @@
   color: rgb(253, 50, 50);
   font-style: italic;
 }
+
+.input-container-password i,
+.input-container-cpassword i {
+  color: var(--white-text);
+}
