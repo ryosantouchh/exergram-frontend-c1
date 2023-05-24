@@ -23,7 +23,7 @@ const AchieveCard = (props) => {
     // console.log(countAll);
 
     if (countAll >= 25) {
-      setAchievement("Ultimate Athletes");
+      setAchievement("Feel like Addiction");
       setBadgeImg(Badge4);
       return;
     }
@@ -33,7 +33,7 @@ const AchieveCard = (props) => {
       return;
     }
     if (countAll >= 10) {
-      setAchievement("Ultimate Athletes");
+      setAchievement("Active Lifestyle");
       setBadgeImg(Badge2);
       return;
     }
