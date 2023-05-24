@@ -89,8 +89,9 @@ const ActivityForm = (props) => {
         if (
           (kilometers !== 0 && kilometers !== "") ||
           (meters !== 0 && meters !== "")
-        )
+        ) {
           dataObject.distance = convertDistanceToMeters();
+        }
 
         const form = new FormData();
         for (let key in dataObject) {
@@ -450,7 +451,7 @@ const ActivityForm = (props) => {
         </form>
       </div>
       {loading ? (
-        <div className="activity-form-loading "></div>
+        <div className="activity-form-loading"></div>
       ) : (
         <div className="btn-container">
           {activityId ? (

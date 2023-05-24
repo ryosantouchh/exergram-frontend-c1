@@ -18,15 +18,17 @@
   flex-direction: column;
   justify-content: center;
 }
-.activity-event-card-detail:hover {
+.activity-event-card-detail img:hover {
   cursor: pointer;
   scale: 1.05;
+  transition: 0.3s ease-in-out;
 }
 .activity-event-card-detail img {
   width: 100%;
   border-radius: 16px;
   margin-top: 16px;
   margin-bottom: 8px;
+  transition: 0.3s ease-in-out;
 }
 .activity-event-card-location p {
   margin-top: 4px;

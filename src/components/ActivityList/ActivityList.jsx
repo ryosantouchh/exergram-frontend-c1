@@ -12,8 +12,14 @@ const ActivityList = () => {
   // const [page, setPage] = useState(1);
   const { feedPage } = useParams();
 
+  console.log("acitivitylist");
+
   const activityCtx = useContext(ActivityContext);
   const navigate = useNavigate();
+
+  if (!feedPage) {
+    navigate("/feed/1");
+  }
 
   const renderPageButton = () => {
     const pageButtons = [];
@@ -23,8 +29,11 @@ const ActivityList = () => {
         <button
           onClick={() => {
             navigate("/feed/" + i);
+            window.scrollTo(0, 0);
           }}
           key={i}
+          disabled={+feedPage === i ? true : false}
+          style={+feedPage === i ? { backgroundColor: "#fa7d00" } : null}
         >
           {i}
         </button>
@@ -34,11 +43,14 @@ const ActivityList = () => {
     return pageButtons;
   };
 
-  useEffect(() => {
-    if (window.localStorage.getItem("token")) {
-      activityCtx.fetchAllActivity(feedPage);
-    }
-  }, [feedPage]);
+  // useEffect(() => {
+  //   if (window.localStorage.getItem("token")) {
+  //     // if (!feedPage) {
+  //     //   activityCtx.fetchAllActivity(1);
+  //     // }
+  //     activityCtx.fetchAllActivity(feedPage);
+  //   }
+  // }, []);
 
   return (
     <div className="activity-list-main-body">
