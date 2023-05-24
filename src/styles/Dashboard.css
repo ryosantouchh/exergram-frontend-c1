@@ -5,6 +5,7 @@
 .dashboard-container {
   margin: auto;
   max-width: 1140px;
+  width: 100%;
   display: flex;
   background-color: var(--bg-color);
   gap: 32px;
@@ -107,7 +108,8 @@
 
 /* ----- dashboard right ----- */
 .dashboard-right {
-  width: 640px;
+  /* width: 640px; */
+  width: 900px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -219,7 +221,10 @@
 
 .summary-health-box {
   display: flex;
+  flex-direction: column;
+  width: 20%;
   gap: 16px;
+  margin-bottom: 100px;
 }
 
 .summary-health-icon i {
