@@ -8,36 +8,36 @@ import { ActivityContext } from "../../context/ActivityContext";
 
 const AchieveCard = (props) => {
   const { countActivity } = props;
-  console.log(countActivity);
+  // console.log(countActivity);
 
   const [achievement, setAchievement] = useState("");
   const [badgeImg, setBadgeImg] = useState("");
 
   const activityCtx = useContext(ActivityContext);
-  console.log("achievementcard");
+  // console.log("achievementcard");
 
   const checkAchievementCondition = () => {
     // if ()
     const countAll = activityCtx.countActivities;
 
-    console.log(countAll);
+    // console.log(countAll);
 
-    if (countActivity >= 11) {
+    if (countAll >= 25) {
       setAchievement("Ultimate Athletes");
       setBadgeImg(Badge4);
       return;
     }
-    if (countActivity >= 10) {
+    if (countAll >= 15) {
       setAchievement("Ultimate Athletes");
       setBadgeImg(Badge3);
       return;
     }
-    if (countActivity >= 7) {
+    if (countAll >= 10) {
       setAchievement("Ultimate Athletes");
       setBadgeImg(Badge2);
       return;
     }
-    if (countActivity >= 3) {
+    if (countAll >= 1) {
       setAchievement("First Step");
       setBadgeImg(Badge1);
       return;
@@ -47,9 +47,11 @@ const AchieveCard = (props) => {
   useEffect(() => {
     if (window.localStorage.getItem("token")) {
       checkAchievementCondition();
-      console.log("log");
+      // console.log("log");
     }
-  }, []);
+  }, [activityCtx.countActivities]);
+
+  // useEffect(() => {}, [activityCtx.countActivities]);
 
   return (
     <div className="activity-achieve-card ">
@@ -59,7 +61,7 @@ const AchieveCard = (props) => {
         src={badgeImg}
         alt="img profile"
       />
-      <div className="badgeText">{activityCtx.all_activity}</div>
+      <div className="badgeText">{achievement}</div>
     </div>
   );
 };

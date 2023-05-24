@@ -12,14 +12,14 @@ const ActivityList = () => {
   // const [page, setPage] = useState(1);
   const { feedPage } = useParams();
 
-  console.log("acitivitylist");
+  // console.log("acitivitylist");
 
   const activityCtx = useContext(ActivityContext);
   const navigate = useNavigate();
 
-  if (!feedPage) {
-    navigate("/feed/1");
-  }
+  // if (!feedPage) {
+  //   navigate("/feed/1");
+  // }
 
   const renderPageButton = () => {
     const pageButtons = [];
@@ -39,6 +39,20 @@ const ActivityList = () => {
         </button>
       );
     }
+
+    useEffect(() => {
+      if (window.localStorage.getItem("token")) {
+        // if (!feedPage) {
+        //   activityCtx.fetchAllActivity(1);
+        // }
+        activityCtx.fetchAllActivity(feedPage);
+        // console.log("effect activity page");
+      }
+
+      if (!feedPage) {
+        navigate("/feed/1");
+      }
+    }, [feedPage]);
 
     return pageButtons;
   };

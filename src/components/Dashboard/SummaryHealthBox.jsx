@@ -1,38 +1,38 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SummaryHealthCard from "./SummaryHealthCard";
 
-const mockHealthData = [
-  {
-    title: "Calories Burn",
-    icon: "fa-solid fa-fire",
-    data: {
-      value: 3540,
-      unit: "kilo calories",
+const SummaryHealthBox = (props) => {
+  const mockHealthData = [
+    {
+      title: "Calories Burn",
+      icon: "fa-solid fa-fire",
+      data: {
+        value: props.calories,
+        unit: "kcal",
+      },
     },
-  },
-  {
-    title: "BMI",
-    icon: "fa-solid fa-weight-scale",
-    data: {
-      value: 21.4,
-      unit: "",
+    {
+      title: "BMI",
+      icon: "fa-solid fa-weight-scale",
+      data: {
+        value: props.BMI,
+        unit: "-",
+      },
     },
-  },
-  {
-    title: "Macro Goal",
-    icon: "fa-solid fa-utensils",
-    data: {
-      value: 2000,
-      unit: "kilo calories",
+    {
+      title: "Macro Goal",
+      icon: "fa-solid fa-utensils",
+      data: {
+        value: props.macronutrient,
+        unit: "kcal per day",
+      },
     },
-  },
-];
+  ];
 
-const SummaryHealthBox = () => {
   return (
     <div className="summary-health-box">
       {mockHealthData.map((item, idx) => {
-        return <SummaryHealthCard value={item} key={idx} />;
+        return <SummaryHealthCard value={item} key={idx} BMI={props.BMI} />;
       })}
     </div>
   );
