@@ -17,7 +17,7 @@ const ProfileList = (props) => {
   // console.log("profile");
 
   useEffect(() => {
-    authCtx.readFullname();
+    // authCtx.readFullname();
 
     const fetchUserData = async () => {
       if (token) {
@@ -28,7 +28,14 @@ const ProfileList = (props) => {
 
     fetchUserData();
     // console.log("profile fetch");
-  }, []);
+  }, [authCtx.firstName, authCtx.lastName]);
+
+  // useEffect(() => {
+  //   if (authCtx.firstName || authCtx.lastName) {
+  //     authCtx.setFirstName(authCtx.firstName);
+  //     authCtx.setLastName(authCtx.lastName);
+  //   }
+  // }, []);
 
   return (
     <div className="activity-page-left-sidebar">

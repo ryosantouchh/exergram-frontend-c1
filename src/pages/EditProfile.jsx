@@ -5,6 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { ImageContext } from "../context/ImageContext";
+import { AuthContext } from "../context/AuthContext";
 import FormData from "form-data";
 import axios from "axios";
 import validator from "validator";
@@ -28,6 +29,7 @@ const EditProfile = () => {
 
   const userCtx = useContext(UserContext);
   const imgCtx = useContext(ImageContext);
+  const authCtx = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -102,6 +104,9 @@ const EditProfile = () => {
           },
         }
       );
+
+      authCtx.setFirstName(response.data.firstname);
+      authCtx.setLastName(response.data.lastname);
 
       // console.log(response);
       navigate("/feed");
