@@ -23,6 +23,10 @@ const ProfileList = (props) => {
       if (token) {
         const response = await userCtx.fetchUserProfileData();
         userCtx.setImagePreview(response.data.image.url);
+        if (!authCtx.firstName && !authCtx.lastName) {
+          authCtx.setFirstName(response.data.firstname);
+          authCtx.setLastName(response.data.lastname);
+        }
       }
     };
 
