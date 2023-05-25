@@ -63,9 +63,11 @@ const ActivityContextProvider = ({ children }) => {
           headers: { Authorization: token },
         }
       );
+
       // console.log(responseFromGet);
 
       setActivityList([...responseFromGet.data.activity_data]);
+      location.reload();
     }
   };
 

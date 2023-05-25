@@ -6,6 +6,8 @@ const ProfileCard = (props) => {
   const authCtx = useContext(AuthContext);
   const activityCtx = useContext(ActivityContext);
 
+  useEffect(() => {}, []);
+
   return (
     <>
       {props.profileImg ? (
