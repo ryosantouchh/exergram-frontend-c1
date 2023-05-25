@@ -17,18 +17,29 @@ const ProfileList = (props) => {
   // console.log("profile");
 
   useEffect(() => {
-    authCtx.readFullname();
+    // authCtx.readFullname();
 
     const fetchUserData = async () => {
       if (token) {
         const response = await userCtx.fetchUserProfileData();
         userCtx.setImagePreview(response.data.image.url);
+        if (!authCtx.firstName && !authCtx.lastName) {
+          authCtx.setFirstName(response.data.firstname);
+          authCtx.setLastName(response.data.lastname);
+        }
       }
     };
 
     fetchUserData();
     // console.log("profile fetch");
-  }, []);
+  }, [authCtx.firstName, authCtx.lastName]);
+
+  // useEffect(() => {
+  //   if (authCtx.firstName || authCtx.lastName) {
+  //     authCtx.setFirstName(authCtx.firstName);
+  //     authCtx.setLastName(authCtx.lastName);
+  //   }
+  // }, []);
 
   return (
     <div className="activity-page-left-sidebar">

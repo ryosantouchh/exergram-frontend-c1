@@ -41,6 +41,8 @@ const AuthContextProvider = ({ children }) => {
 
       if (response) {
         window.localStorage.setItem("token", response.data.token);
+        setFirstName(response.data.firstname);
+        setLastName(response.data.lastname);
         return response;
       }
     } catch (error) {
@@ -58,18 +60,25 @@ const AuthContextProvider = ({ children }) => {
     return decodedToken;
   };
 
-  const readFullname = () => {
-    if (window.localStorage.getItem("token")) {
-      const decoded = tokenDecoder();
-      setFirstName(decoded.firstname);
-      setLastName(decoded.lastname);
-    }
-  };
+  // const readFullname = () => {
+  //   if (window.localStorage.getItem("token")) {
+  //     if (firstName && lastName) {
+  //       setFirstName(firstName);
+  //       setLastName(lastName);
+  //       console.log("not decoded");
+  //     } else {
+  //       const decoded = tokenDecoder();
+  //       setFirstName(decoded.firstname);
+  //       setLastName(decoded.lastname);
+  //       console.log("decoded");
+  //     }
+  //   }
+  // };
 
   const contextValue = {
     isLoggedIn,
     login,
-    readFullname,
+    // readFullname,
     setUsername,
     setPassword,
     setToken,
